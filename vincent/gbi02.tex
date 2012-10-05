@@ -1,0 +1,267 @@
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.1
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\documentclass[18pt]{beamer}
+\usepackage[utf8x]{inputenc}
+\usepackage{units}
+\usepackage{booktabs}
+
+
+%% SLIDE FORMAT
+
+% use 'beamerthemekit' for standard 4:3 ratio
+% for widescreen slides (16:9), use 'beamerthemekitwide'
+
+\usepackage{templates/beamerthemekit}
+%\usepackage{templates/beamerthemekitwide}
+
+%% TITLE PICTURE
+
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the 
+% filename (without extension) and uncomment the following line
+% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
+% *.eps format if you use latex+dvips+ps2pdf, 
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%\titleimage{mypicture}
+
+%% TITLE LOGO
+
+% for a custom logo on the front page, copy your file into the 'logos'
+% directory, insert the filename in the line below and uncomment it
+
+%\titlelogo{mylogo}
+\titlelogo{empty_logo}
+
+% (*.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%% TikZ INTEGRATION
+
+% use these packages for PCM symbols and UML classes
+% \usepackage{templates/tikzkit}
+% \usepackage{templates/tikzuml}
+
+% the presentation starts here
+
+\title[GBI Tutorium]{GBI Tutorium Nr. }
+\subtitle{Foliensatz 02}
+\date{30. Oktober 2012}
+\author{Vincent Hahn -- vincent.hahn@student.kit.edu}
+
+\institute{Institut für theoretische Informatik}
+
+% Bibliography
+
+%\usepackage[citestyle=authoryear,bibstyle=numeric,hyperref,backend=biber]{biblatex}
+%\addbibresource{templates/example.bib}
+%\bibhang1em
+
+\begin{document}
+
+% change the following line to "ngerman" for German style date and logos, english: english
+\selectlanguage{ngerman}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Outline/Gliederung}
+    \tableofcontents
+\end{frame}
+
+\section{Besprechung des 1. Übungsblattes}
+
+\section{Wörter und Alphabete}
+\begin{frame}{Alphabete}
+    \begin{block}{Definition}
+        Ein Alphabet ist eine endliche, nichtleere Menge an "`Zeichen"' oder "`Symbolen"'.
+    \end{block}
+    \begin{exampleblock}{Beispiele}
+        \begin{itemize}
+            \item $A = \left\{a, b, d\right\}$
+            \item $B = \left\{3, 9, V, k\right\} $
+            \item Der ASCII-Zeichensatz
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Wörter}
+    \begin{block}{Definition}
+        Ein Wort über einem Alphabet A ist eine Folge von Zeichen aus A.
+    \end{block}
+    \begin{exampleblock}{Beispiele}
+        \begin{itemize}
+            \item $A = \left\{H, a, l, o, \textvisiblespace, W, e, t\right\}$  enthält das Wort\\
+            Hallo Welt
+            \item \dots
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Menge aller Wörter}
+    \begin{block}{Definition}
+        Die Menge aller Wörter über einem Alphabet $A$ sind alle Wörter, in denen nur Zeichen aus $A$ enthalten sind. Dies wird als $A^*$ geschrieben.
+        \end{block}
+    \begin{exampleblock}{Beispiele}
+        Alphabet set $A = \left\{a, b \right\}$, dann enthält $A*$:
+        \begin{itemize}
+            \item a
+            \item b
+            \item aa
+            \item ab
+            \item ba
+            \item \dots
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Konkatenation von Wörtern}
+    \begin{block}{Definition}
+        Die Konkatenation zweier Worte $w_1$ und $w_2$ aus den Alphabeten $A$ und $B$ wird geschrieben als $w_1 \circ w_2 \in \left( A \cup B\right)$    
+    \end{block}
+    \begin{exampleblock}{Beispiele}
+        \begin{itemize}
+            \item $A = \left\{B, e, t\right\}$  enthält das Wort $w_1 = Bett$\\
+            \item $B = \left\{w, a, n, z, e\right\}$ enthält das Wort $w_2 = wanze$\\
+                \pause
+            \item $w_1 \circ w_2 = Bettwanze \neq w_2 \circ w_1 = wanzeBett$
+                \pause
+            \item $A \cup B = \left\{B, e, t, w, a, n, z\right\}$ ($e$ nur einmal!)
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Mehrfachkonkatenation}
+    \begin{exampleblock}{Beispiel}
+        $w$ sei ein Wort (zum Beispiel über dem vorherigen Alphabet $A$).
+        \begin{itemize}
+            \item $w = Bett$
+            \item $w^3 = BettBettBett$
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Das leere Wort}
+    \begin{block}{Definition}
+        Das leere Wort wird mit $\epsilon$ geschrieben und hat die Länge $0$.
+    \end{block}
+    \begin{exampleblock}{Beispiele}
+        Das leere Wort ist \emph{nicht das Leerzeichen}. 
+        \begin{itemize}
+            \item $\epsilon \circ w \circ \epsilon = w$
+            \item $w^0 = \epsilon$
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Wortlänge}
+    \begin{block}{Definition}
+        Die Länge eines Wortes $w$ gibt die Anzahl der darin enthaltenen Zeichen an. Gekennzeichnet wird dies mit dem "`Pipe-Symbol"' $\left| w \right|$.
+    \end{block}
+    \begin{exampleblock}{Beispiel}
+        \begin{itemize}
+            \item $\left| Hallo\right| = 5$
+                \pause
+            \item $\left| w^k\right| = k\cdot \left| w\right|$
+                \pause
+            \item $\left| \epsilon\right| = 0$
+                \pause
+            \item $\left| w_1 \circ w_2 \right| = \left| w_1\right| + \left| w_2\right|$
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Präfix und Suffix}
+    \begin{block}{Definition: Präfix}
+        Ein Präfix ist ein beliebig langer Teil am Anfang eines Wortes. $a$ ist ein Präfix von $w$, falls gilt: $w = a \circ b$.
+    \end{block}
+    \pause
+    \begin{block}{Definition: Suffix}
+        Ein Suffix ist ein beliebig langer Teil am Ende eines Wortes. $b$ ist ein Suffix von $w$, falls gilt: $w = a\circ b$.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Aufgaben}
+    \begin{exampleblock}{Aufgabe}
+        Gegeben sei das Alphabet $A = \{ 0, 1\}$.
+        \begin{itemize}
+            \item Welche Worte befinden sich in $A^5$?
+                \pause
+            \item Ist auch das leere Wort darin enthalten?
+                \pause
+            \item Was ist der Unterschied zwischen $A^2 \times A^2$ und $A^2 \cdot A^2$?
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\section{Vollständige Induktion}
+\begin{frame}{Vollständige Induktion}
+    \begin{block}{Definition}
+        Die vollständige Induktion ist eine mathematische Beweismethode, mit der die Gültigkeit einer Aussage für alle natürlichen Zahlen bewiesen werden kann.
+    \end{block}
+\end{frame}
+\begin{frame}{Vollständige Induktion}
+    \begin{block}{Vorgehen}
+        Eine Behauptung ist gegeben.\\\pause
+        Die vollständige Induktion besteht aus drei Schritten:
+        \begin{enumerate}
+            \item \emph{Induktionsanfang IA}: Zeige die Gültigkeit der Behauptung für das erste Element.
+                \pause
+            \item \emph{Induktionsvoraussetzung IV}: Wir wissen, dass die Behauptung für ein beliebiges, aber festes Element $n$ gilt.
+                \pause
+            \item \emph{Induktionsschritt IS}: Prüfe die Gültigkeit für ein darauffolgendes Element $n+1$.
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Beispiel}
+    \begin{block}{Behauptung}
+        $ 1 + 2 + 3 + \dots + n = \frac{ n\cdot \left( n + 1\right) }{2}$\\
+    \end{block}
+    \pause
+    \begin{block}{Beweis}
+        \begin{enumerate}
+            \item \emph{IA}: $n = 1$: Oben einsetzen, passt: $1 = 1$.
+                \pause
+            \item \emph{IV}: "`Es gibt ein beliebiges, aber festes $n$ für das die obige Behauptung gilt."' Dieses $n$ möchte ich nun $k$ nennen, einfach so :-)
+                \pause
+            \item \emph{IS}: $k \rightarrow k + 1$: 
+                \begin{itemize}
+                    \item Links: $ 1 + 2 + \dots + k + \left( k+1\right) \overset{\text{IV}}{=} \frac{k\cdot \left( k + 1\right)}{2} + \left( k + 1\right)$
+                    \item Rechts: $\frac{\left(k + 1\right) \cdot \left(\left( k + 1\right) + 1\right)}{2} = \frac{\left( k + 1\right) \cdot \left( k + 2\right)}{2} = \frac{\left( k + 1\right) \cdot k}{2}  + \frac{\left( k + 1\right)\cdot 2}{2}$
+                \end{itemize}
+                \pause
+            \item Die Behauptung stimmt.
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Übung}
+    \begin{block}{Behauptung}
+        $\forall n \in \mathbb{N}_0 : x_{\mathrm{n + 1}} = x_\mathrm{n} + 2 \wedge x_0 = 0 \Leftrightarrow x_\mathrm{n} = 2\, n$
+    \end{block}
+    \pause
+    \begin{block}{Lösung}
+        \begin{enumerate}
+            \item \emph{IA}: $n = 0$. \invisible<1>{$x_0 = 0$ (nach Vorgabe) und $2\cdot 0 = 0$ (die rechte Seite)}
+                \pause
+            \item \emph{IV}: \invisible<1-2>{"`Für ein beliebiges, aber festes $n$ gilt die obige Behauptung:$x_\mathrm{n} = 2\, n$"'}
+                \pause
+            \item \emph{IS}:\\ \invisible<1-3>{Rechte Seite: $x_\mathrm{n + 1} = 2\left( n + 1\right)$.\\
+                Linke Seite: $x_\mathrm{n + 1} = x_\mathrm{n} + 2  \overset{\text{IV}}{=} 2\, n + 2$}
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\end{document}
