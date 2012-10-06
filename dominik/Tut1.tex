@@ -1,0 +1,275 @@
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.1
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\documentclass[18pt]{beamer}
+
+%% SLIDE FORMAT
+
+% use 'beamerthemekit' for standard 4:3 ratio
+% for widescreen slides (16:9), use 'beamerthemekitwide'
+
+\usepackage{templates/beamerthemekit}
+% \usepackage{templates/beamerthemekitwide}
+
+%% TITLE PICTURE
+
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the 
+% filename (without extension) and uncomment the following line
+% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
+% *.eps format if you use latex+dvips+ps2pdf, 
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+\titleimage{banner}
+
+%% TITLE LOGO
+
+% for a custom logo on the front page, copy your file into the 'logos'
+% directory, insert the filename in the line below and uncomment it
+
+\titlelogo{logo_150x150}
+
+% (*.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%% TikZ INTEGRATION
+
+% use these packages for PCM symbols and UML classes
+% \usepackage{templates/tikzkit}
+% \usepackage{templates/tikzuml}
+
+% the presentation starts here
+
+\title[Einf\"uhrung]{Tutorium 1:\\ Einf\"uhrung}
+\subtitle{Something for XYZ 2009}
+\author{Dominik Muth - dominik.muth@student.kit.edu}
+
+\institute{Institut f\"ur Informatik}
+
+% Bibliography
+
+\usepackage[citestyle=authoryear,bibstyle=numeric,hyperref,backend=biber]{biblatex}
+\addbibresource{templates/example.bib}
+\bibhang1em
+
+\begin{document}
+
+% change the following line to "ngerman" for German style date and logos
+\selectlanguage{english}
+
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+\begin{frame}{Outline/Gliederung}
+\tableofcontents
+\end{frame}
+
+\section{\"Uber Mich}
+\begin{frame}{\"Uber Mich}
+\begin{itemize}
+\item Name: \cite{Dominik Muth} %\language
+\item Studiengang: \cite{Informatik} %\language
+\item E-Mail: \cite{dominik.muth@student.kit.edu} %\language
+\end{itemize}
+\end{frame}
+
+\section{GBI, was ist das?}
+\begin{frame}{GBI}
+\begin{itemize}
+\item Logik
+\pause
+\item Sprachen/Grammatiken
+\pause
+\item Relationen/Abbildungen
+\pause
+\item Graphen
+\pause
+\item Laufzeitabsch\"atzung
+\pause
+\item Automaten
+\pause
+\item Turingmaschinen
+\item \dots
+\end{itemize}
+\end{frame}
+
+
+\section{Organisatorisches}
+\subsection{Allgemeines}
+\begin{frame}{Termine}
+\begin{itemize}
+\item Vorlesung: Mi. 11:30 Uhr im Audimax
+\item \"Ubung: Fr. 9:45 Uhr im Audimax
+\item Klausur: in der Regel anfang M\"arz
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Links}
+\begin{block}{Vorlesung}
+\begin{itemize}
+\item Website: http://gbi.ira.uka.de
+\item Dozentin: tanja.schultz@kit.edu
+\end{itemize}
+\end{block}
+
+\begin{block}{Fachschaft}
+\begin{itemize}
+\item Website: http://www.fsmi.uni-karlsruhe.de/
+\item Forum: http://www.fsmi.uni-karlsruhe.de/forum/
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\subsection{\"Ubungsbl\"atter}
+\begin{frame}{\"Ubungsbl\"atter}
+\begin{itemize}
+\item Abgabe: Freitag? ?:? Uhr im UG des Infobaus (gegen\"uber der Toiletten)
+\item 50\% der Punkte zum bestehen n\"otig
+\end{itemize}
+
+\begin{exampleblock}{must have:}
+\begin{itemize}
+\item Handgeschrieben
+\item Deckblatt
+\item keine Plagiate
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\section{Aussagenlogik}
+\begin{frame}{Aussagenlogik\\ - Logische Aussagen 1}
+Einfache Logische Aussagen:
+\begin{itemize}
+\item Negation $\neg$A: "nicht A"
+\pause
+\item Logisches Und (A $\land$ B): "A und B"
+\pause
+\item Logisches Oder (A $\lor$ B): "A oder B"
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Aufgabenteil 1}
+\begin{block}{Aufgabe 1}
+Stelle die Wahrheitstabelle auf:\\
+$(\neg A \land B) \lor \neg B$
+\end{block}
+\begin{block}{Aufgabe 2}
+Stelle die Wahrheitstabelle auf:\\
+$(A \land B \land \neg C) \lor (C \land A) \lor (C \land B)$
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Aussagenlogik\\ - Logische Aussagen 2}
+\begin{itemize}
+\item Implikation (A $\Rightarrow$ B): "Wenn A, dann B"
+\pause
+\item \"Aquivalenz (A $\Leftrightarrow$ B): "A genau dann, wenn B" (Implikation in beide Richtungen)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Aufgabenteil 2}
+\begin{block}{Aufgabe 1}
+Stelle die Wahrheitstabelle auf:\\
+$(A \Rightarrow B) \Rightarrow C$
+\end{block}
+\begin{block}{Aufgabe 2}
+Sind die Beiden Aussagen \"Aquivalent?:\\
+$\neg (A \Rightarrow B) \Leftrightarrow \neg (\neg A \lor B)$
+\end{block}
+\end{frame}
+
+
+\section{Relationen}
+\begin{frame}{Relationen \\ - Allgemein}
+
+\begin{block} {Definition Kartesisches Produkt}
+Das Kartesisches Produkt $A \times B$ enth\"allt alle Kombinationen (a,b) mit $a \in A$ und $b \in B$.
+\end{block}
+
+\begin{block} {Definition Relation}
+$R \subseteq A \times B$:\\
+Eine Relation ist die Teilmenge eines Kartesischen Produktes.\\
+Andere Schreibweise: $xRy$, mit $(x, y) \in R$
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Besonderheiten}
+\begin{block}{Linkstotal}
+Eine Relation ist linkstotal wenn gilt:\\
+	f\"ur jedes $a$ existiert \textit{mindestens} ein $b$ f\"ur welches gilt $(a, b) \in R$
+\end{block}
+
+\begin{block}{Rechtseindeutig}
+Eine Relation ist rechtseindeutig wenn gilt:\\
+	f\"ur kein $a$ existiert mehr als ein $b$ mit $(a, b) \in R$
+\end{block}
+
+\begin{block}{}
+Eine Relation, welche sowohl linkstotal als auch rechtseindeutig ist, nennt man auch Abbildung oder Funktion
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Besonderheiten}
+\begin{block}{Rechtstotal}
+Eine Relation ist rechtstotal wenn gilt:\\
+	f\"ur jedes $b$ existiert \textit{mindestens} ein $a$ f\"ur welches gilt $(a, b) \in R$\\
+	rechtstotal $=$ surjektiv
+\end{block}
+
+\begin{block}{Linkseindeutig}
+Eine Relation ist linkseindeutig wenn gilt:\\
+	f\"ur kein $b$ existiert mehr als ein $a$ mit $(a, b) \in R$\\
+	linkseindeutig $=$ injektiv
+\end{block}
+
+\begin{block}{}
+Eine surjektive und injektive Relation nennt man bijektiv
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Aufgabenteil 3}
+Vervollst\"andige folgende Tabelle, wobei gilt:
+$x \in \mathbb{R}$ und $f(x) \in \mathbb{R}$\\
+
+\begin{block}{}
+\begin{tabular}{llll}
+	\hline
+	\textbf{rechtstotal} & \textbf{linkseindeutig} & \textbf{Begriff} & \textbf{Abbildung} \\
+	\hline
+	? & ? & ? & $f(x) = x^3-x$\\
+	? & ? & ? & $f(x) = x^2$\\
+	? & ? & ? & $f(x) = x^5$\\
+	? & ? & ? & $f(x) = e^{x}$\\
+	\hline
+\end{tabular}
+\end{block}
+
+\pause
+Wie ver\"andert sich die Tabelle, wenn $x \in \mathbb{N}$ und $f(x) \in \mathbb{N}$?
+\end{frame}
+
+\begin{frame}
+	Ende - Muss ich noch machen!!
+\end{frame}
+
+\end{document}
