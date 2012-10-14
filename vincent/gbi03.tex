@@ -188,44 +188,44 @@ $L \subseteq A*$.
     \end{exampleblock}
 \end{frame}
 
-\begin{frame}{Übungsaufgabe}
-    \begin{block}{Lösung}
-        \begin{enumerate}
-            \item $\left\{a, b\right\}^∗ \cdot \left\{ab\right\} \cdot \left\{a, b\right\}^∗$
-            \item $\left\{a, b\right\}^∗ \cdot \left\{b\right\} \cdot \left\{a, b\right\}^1$
-            \item $\left\{a, ba\right\}^∗ \cdot \left\{b, \epsilon\right\}$
-        \end{enumerate}
-    \end{block}
-\end{frame}
-\begin{frame}{Übungsaufgabe}
-    \begin{block}{Winter 2008/2009}
-        Es sei A = {a, b}. Die Sprache L ⊂ A∗ sei definiert durch
-        \begin{align*}
-            L = \left( \left\{ a\right\}^* \left\{ b\right\} \left\{ a\right\}^*\right)^*
-        \end{align*}
-        Zeigen Sie, dass jedes Wort w aus $\left\{a, b\right\}^∗$ , das mindestens einmal das Zeichen $b$ enthält, in $L$ liegt. (Hinweis: Führen Sie eine Induktion über die Anzahl der Vorkommen des Zeichens b in w durch.)
-    \end{block}
-\end{frame}
-\begin{frame}{Übungsaufgabe}
-    \begin{block}{Induktionsanfang}
-        Für k = 1: In diesem Fall lässt sich das Wort w aufteilen in
-        \begin{align*}
-            w = w_1 \cdot b \cdot w_2
-        \end{align*}
-        wobei $w_1$ und $w_2$ keine b enthalten und somit in $\left\{ a\right\}^∗$ liegen. Damit gilt $w \in \left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗$ und somit auch
-        \begin{align*}
-            w \in \left(\left\{ a\right\}^* \left\{ b\right\}\left\{ a\right\}^* \right)^* = L
-        \end{align*}        
-    \end{block}
-\end{frame}
-\begin{frame}{Übungsaufgabe}
-    \begin{block}{Induktionsannahme}
-        Für ein festes $k \in \mathbb{N}$ gilt, dass alle Wörter über $\left\{ a, b\right\}^∗$ , die genau k-Mal das Zeichen $b$ enthalten, in $L$ liegen.        
-    \end{block}
-    \begin{block}{Induktionsschritt}
-        Wir betrachten ein Wort $w$ , das genau $k + 1$ Mal das Zeichen "`b"' enthält. Dann kann man $w$ zerlegen in $w = w_1 \cdot w_2$ , wobei $w_1$ genau einmal das Zeichen $b$ enthält und $w_2$ genau k Mal das Zeichen "`b"'. Nach Induktionsanfang liegt $w_1$ in $\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗$. Nach Induktionsvoraussetzung liegt $w_2$ in $\left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \right)^∗$ , was bedeutet, dass $w = w_1 \cdot w_2$ in $\left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \left)\left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \right)^∗ \subset \left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \right)^∗ = L$ liegt und die Behauptung ist gezeigt.
-    \end{block}
-\end{frame}<++>
-
+% \begin{frame}{Übungsaufgabe}
+%     \begin{block}{Lösung}
+%         \begin{enumerate}
+%             \item $\left\{a, b\right\}^∗ \cdot \left\{ab\right\} \cdot \left\{a, b\right\}^∗$
+%             \item $\left\{a, b\right\}^∗ \cdot \left\{b\right\} \cdot \left\{a, b\right\}^1$
+%             \item $\left\{a, ba\right\}^∗ \cdot \left\{b, \epsilon\right\}$
+%         \end{enumerate}
+%     \end{block}
+% \end{frame}
+% \begin{frame}{Übungsaufgabe}
+%     \begin{block}{Winter 2008/2009}
+%         Es sei A = {a, b}. Die Sprache L ⊂ A∗ sei definiert durch
+%         \begin{align*}
+%             L = \left( \left\{ a\right\}^* \left\{ b\right\} \left\{ a\right\}^*\right)^*
+%         \end{align*}
+%         Zeigen Sie, dass jedes Wort w aus $\left\{a, b\right\}^∗$ , das mindestens einmal das Zeichen $b$ enthält, in $L$ liegt. (Hinweis: Führen Sie eine Induktion über die Anzahl der Vorkommen des Zeichens b in w durch.)
+%     \end{block}
+% \end{frame}
+% \begin{frame}{Übungsaufgabe}
+%     \begin{block}{Induktionsanfang}
+%         Für k = 1: In diesem Fall lässt sich das Wort w aufteilen in
+%         \begin{align*}
+%             w = w_1 \cdot b \cdot w_2
+%         \end{align*}
+%         wobei $w_1$ und $w_2$ keine b enthalten und somit in $\left\{ a\right\}^∗$ liegen. Damit gilt $w \in \left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗$ und somit auch
+%         \begin{align*}
+%             w \in \left(\left\{ a\right\}^* \left\{ b\right\}\left\{ a\right\}^* \right)^* = L
+%         \end{align*}        
+%     \end{block}
+% \end{frame}
+% \begin{frame}{Übungsaufgabe}
+%     \begin{block}{Induktionsannahme}
+%         Für ein festes $k \in \mathbb{N}$ gilt, dass alle Wörter über $\left\{ a, b\right\}^∗$ , die genau k-Mal das Zeichen $b$ enthalten, in $L$ liegen.        
+%     \end{block}
+%     \begin{block}{Induktionsschritt}
+%         Wir betrachten ein Wort $w$ , das genau $k + 1$ Mal das Zeichen "`b"' enthält. Dann kann man $w$ zerlegen in $w = w_1 \cdot w_2$ , wobei $w_1$ genau einmal das Zeichen $b$ enthält und $w_2$ genau k Mal das Zeichen "`b"'. Nach Induktionsanfang liegt $w_1$ in $\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗$. Nach Induktionsvoraussetzung liegt $w_2$ in $\left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \right)^∗$ , was bedeutet, dass $w = w_1 \cdot w_2$ in $\left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \left)\left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \right)^∗ \subset \left(\left\{ a\right\}^∗ \left\{ b\right\}\left\{ a\right\}^∗ \right)^∗ = L$ liegt und die Behauptung ist gezeigt.
+%     \end{block}
+% \end{frame}<++>
+% 
 
 \end{document}

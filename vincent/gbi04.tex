@@ -14,6 +14,32 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{units}
 \usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+
+%% Definitions
+\DeclareMathOperator{\div2}{div}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\algnewcommand\algorithmicto{\textbf{to}}
+\algrenewtext{For}[3]{\algorithmicfor\ $#1 \gets #2$ \algorithmicto\ $#3$ \algorithmicdo}
+\algnewcommand\algorithmicod{\textbf{od}}
+\algrenewtext{EndWhile}{\algorithmicod}
+\algrenewtext{EndFor}{\algorithmicod}
+\AtBeginSection[]{%
+\begin{frame}<beamer> % do nothing in handouts
+    \frametitle{Überblick}
+    \tableofcontents[sectionstyle=show/shaded,
+    subsectionstyle=show/show/hide]
+\end{frame}
+}
+\AtBeginSubsection[]{%
+\begin{frame}<beamer> % do nothing in handouts
+    \frametitle{Überblick}
+    \tableofcontents[sectionstyle=show/shaded,
+    subsectionstyle=show/shaded/hide]
+\end{frame}
+}
 
 
 %% SLIDE FORMAT
@@ -59,7 +85,7 @@
 \date{6. November 2012}
 \author{Vincent Hahn -- vincent.hahn@student.kit.edu}
 
-\institute{Institut für theoretische Informatik}
+\institute{}
 
 % Bibliography
 
@@ -86,9 +112,9 @@
     \begin{block}{Definition}
         \begin{align*}
             &\forall x \in \mathbb{N}_0, \forall y \in \mathbb{N}_+:\\
-            &x = y\cdot\left( x \div y\right) + \left( x\mod y\right)
+            &x = y\cdot\left( x \div2 y\right) + \left( x\mod y\right)
         \end{align*}
-        Hierbei ist $\div$ die Ganzzahldivision ohne Rest.
+        Hierbei ist $\div2$ die Ganzzahldivision ohne Rest.
     \end{block}
     \pause
     \begin{exampleblock}{Beispiel}
@@ -103,7 +129,7 @@
     \begin{block}{Folgerung}
         Aus der Definition kann direkt geschlossen werden:
         \begin{align*}
-            x \div y &\in \mathbb{N}_0\\
+            x \div2 y &\in \mathbb{N}_0\\
             x \mod y &\in \left\{ 0, \dots , y-1\right\}
         \end{align*}
     \end{block}
@@ -115,7 +141,7 @@
         \begin{table}
             \begin{tabular}{llrr}
                 \toprule
-                $x$ & $y$ & $x \div y$ & $x \mod y$\\
+                $x$ & $y$ & $x \div2 y$ & $x \mod y$\\
                 \midrule
                 4 & 3 & \invisible<1>{1 & 1}\\
                 2 & 1 & \invisible<1-2>{2 & 0}\\
@@ -134,7 +160,7 @@
     \begin{block}{Definition}
         Der größte gemeinsame Teiler zweier Zahlen ist die größtmögliche Zahl $m \in \mathbb{N}_0$, für die gilt:
         \begin{align*}
-            a \div m = 0 \wedge b \ðiv m = 0
+            a \div2 m = 0 \wedge b \ðiv m = 0
         \end{align*}
     \end{block}
     \pause
@@ -193,6 +219,134 @@
     \end{block}
 \end{frame}
 
+\begin{frame}{Schleifen}
+    \begin{exampleblock}{Beispiel 1}
+        \begin{algorithm}
+            \begin{algorithmic}
+                \Require $x \in \mathbb{N}$
+                \State $i \gets 0$
+                \While{$x > 1$}
+                    \State $x\gets x \div2 2$
+                    \State $i\gets i + 1$
+                \EndWhile
+                \Ensure $i$
+            \end{algorithmic}
+        \end{algorithm}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Schleifen}
+    \begin{exampleblock}{Beispiel 2}
+        \begin{algorithm}
+            \begin{algorithmic}
+                \State $k \gets 0$
+                \For{i}{0}{20}
+                    \State $k\gets i$
+                \EndFor
+                \Ensure $k$
+            \end{algorithmic}
+        \end{algorithm}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Schleifen}
+    \begin{exampleblock}{Beispiel 3}
+        Gegeben sei ein Wort $w$ der Länge $\left| w\right| = n$. Das Array $W$ hat an $i$-ter Stelle den $i$-ten Buchstabe von $w$. $w$ ist $\epsilon$-frei.
+        \begin{algorithm}
+            \begin{algorithmic}
+                \State $c \gets 0$
+                \For{i}{0}{n-1}
+                \State $c\gets \begin{cases} c + 1& \text{falls } W\left[ i\right] = x \\ c
+                    &\text{sonst}\end{cases}$
+                \EndFor
+                \Ensure $c$
+            \end{algorithmic}
+        \end{algorithm}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Schleifen}
+    \begin{exampleblock}{Übung 1, Winter 2008/2009}
+        Es sei $A$ ein Alphabet.\\
+        Schreiben Sie einen Algorithmus auf, der folgendes leistet: Als Eingaben erhält er ein Wort $w$ über $A$ und zwei Symbole $x \in A$ und $y \in A$. Am Ende soll eine Variable $r$ den Wert $0$ oder $1$ haben, und zwar soll gelten:\\
+        \begin{align*}
+            r = \begin{cases} 1 & \text{falls irgendwo in w direkt hintereinander erst $x$ dann $y$ vorkommt}\\ 0 &\text{sonst}\end{cases}
+        \end{align*}
+        Benutzen Sie zum Zugriff auf das $i$-te Symbol von $w$ die Schreibweise $w\left( i\right)$. Formulieren Sie den Algorithmus mit Hilfe einer for-Schleife.
+    \end{exampleblock}
+\end{frame}
+
 \section{Schleifeninvarianzen}
+
+\begin{frame}{Schleifeninvariante}
+    \begin{block}{Definition}
+        Eine Schleifeninvariante ist eine Eigenschaft einer Schleife, die bei jedem Schleifenzeitpunkt gültig ist.
+    \end{block}
+    \pause
+    \begin{block}{Hä?}
+        Eine Schleifeninvariante ist zum Beispiel
+        \begin{itemize}
+            \item ein Wertebereich für eine Variable oder
+            \item ein Verhältnis zweiter Variablen.
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}{Schleifeninvarianzen}
+    \begin{block}{Wofür?}
+        Mit Schleifeninvarianten lassen sich Algorithmen überprüfen.
+    \end{block}
+    \pause
+    \begin{block}{Wie?}
+        Mit vollständiger Induktion :-)
+    \end{block}
+\end{frame}
+\begin{frame}{Schleifeninvarianzen}
+    \begin{block}{Beispiel}
+        \begin{algorithm}
+            \begin{algorithmic}
+                \Require $a, b \in \mathbb{N}_0$
+                \State $S \gets a$
+                \State $Y \gets b$
+                \For{i}{0}{b-1}
+                    \State $ S \gets S - 1$
+                    \State $Y \gets Y -1$
+                \EndFor
+                \Ensure $S$
+            \end{algorithmic}
+        \end{algorithm}
+    \end{block}
+    \pause
+    \begin{exampleblock}{Übung}
+        Algorithmus mit $a = 3$ und $b = 4$ ausprobieren und Werte für $S$ und $Y$ bei jedem Schleifendurchlauf finden.
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Schleifeninvarianzen}
+    \begin{exampleblock}{Winter 2008/2009}
+        \begin{columns}
+            \column{.60\textwidth}
+                \begin{algorithm}
+                    \begin{algorithmic}
+                        \Require $a, b \in \mathbb{N}_0$
+                        \State $X_0 \gets a$
+                        \State $Y_0 \gets b$
+                        \State $P_0 \gets 1$
+                        \State $Z_0 \gets X_0 \mod 2$
+                        \State $n \gets 1 + \left[ \log_2 a\right]$
+                        \For{i}{0}{n-1}
+                            \State $P_\mathrm{i+1} \gets P_\mathrm{i}\cdot Y_\mathrm{i}^\mathrm{Z_\mathrm{i}}$
+                            \State $X_\mathrm{i+1} \gets X_\mathrm{i} \div 2$
+                            \State $Y_\mathrm{i-1} \gets Y_\mathrm{i}^2$
+                            \State $Z_\mathrm{i+1} \gets X_\mathrm{i+1} \mod 2$
+                        \EndFor
+                    \end{algorithmic}
+                \end{algorithm}
+            \column{.40\textwidth}
+                Beweisen Sie durch vollständige Induktion über $i$ die Schleifeninvariante:
+                \begin{align*}
+                    \forall i \in \mathbb{N}_0: P_\mathrm{i} \cdot Y_\mathrm{i}^\mathrm{X_\mathrm{i}} = b^a
+            \end{align*}
+        \end{columns}
+    \end{exampleblock}
+\end{frame}
 
 \end{document}
