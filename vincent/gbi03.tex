@@ -1,76 +1,8 @@
-%% LaTeX-Beamer template for KIT design
-%% by Erik Burger, Christian Hammer
-%% title picture by Klaus Krogmann
-%%
-%% version 2.1
-%%
-%% mostly compatible to KIT corporate design v2.0
-%% http://intranet.kit.edu/gestaltungsrichtlinien.php
-%%
-%% Problems, bugs and comments to
-%% burger@kit.edu
-
-\documentclass[18pt]{beamer}
-\usepackage[utf8x]{inputenc}
-\usepackage{units}
-\usepackage{booktabs}
-
-
-%% SLIDE FORMAT
-
-% use 'beamerthemekit' for standard 4:3 ratio
-% for widescreen slides (16:9), use 'beamerthemekitwide'
-
-\usepackage{templates/beamerthemekit}
-%\usepackage{templates/beamerthemekitwide}
-
-%% TITLE PICTURE
-
-% if a custom picture is to be used on the title page, copy it into the 'logos'
-% directory, in the line below, replace 'mypicture' with the 
-% filename (without extension) and uncomment the following line
-% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
-% *.eps format if you use latex+dvips+ps2pdf, 
-% *.jpg/*.png/*.pdf if you use pdflatex)
-
-%\titleimage{mypicture}
-
-%% TITLE LOGO
-
-% for a custom logo on the front page, copy your file into the 'logos'
-% directory, insert the filename in the line below and uncomment it
-
-%\titlelogo{mylogo}
-\titlelogo{empty_logo}
-
-% (*.eps format if you use latex+dvips+ps2pdf,
-% *.jpg/*.png/*.pdf if you use pdflatex)
-
-%% TikZ INTEGRATION
-
-% use these packages for PCM symbols and UML classes
-% \usepackage{templates/tikzkit}
-% \usepackage{templates/tikzuml}
-
-% the presentation starts here
-
-\title[GBI Tutorium]{GBI Tutorium Nr. }
-\subtitle{Foliensatz 0333}
-\date{6. November 2012}
-\author{Vincent Hahn -- vincent.hahn@student.kit.edu}
-
-\institute{Institut für theoretische Informatik}
-
-% Bibliography
-
-%\usepackage[citestyle=authoryear,bibstyle=numeric,hyperref,backend=biber]{biblatex}
-%\addbibresource{templates/example.bib}
-%\bibhang1em
+\include{header}
+\subtitle{Foliensatz 3}
+\date{8. November 2012}
 
 \begin{document}
-
-% change the following line to "ngerman" for German style date and logos, english: english
-\selectlanguage{ngerman}
 
 \begin{frame}
     \titlepage
@@ -109,7 +41,7 @@ $L \subseteq A*$.
     \begin{block}{Definition: Produkt}
         Seien $L_1$ und $L_2$ zwei formale Sprachen. Dann bezeichnet
         \begin{align*}
-            L_1 \cdot L_2 = \left\{w_1 w_2 | w_1 \in L_1 \text{ und } w_2 \in L_2 \right\}
+            L_1 \cdot L_2 = \left\{ w_1 w_2 | w_1 \in L_1 \text{\ und } w_2 \in L_2 \right\}
         \end{align*}
         das Produkt der Sprachen $L_1$ und $L_2$.
     \end{block}
