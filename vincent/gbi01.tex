@@ -23,10 +23,10 @@
 
 \begin{frame}{Termine}
     \begin{itemize}
-    \item Übungsblattabgabe:
+    \item Übungsblattabgabe: spätestens Freitag, 12:30, Briefkasten im UG. Mit Deckblatt.
     \pause
-    \item Übung: 
-    \item Vorlesung: 
+    \item Übung: Fr, 9:45, Audimax
+    \item Vorlesung: Mi, 11:30 Uhr, Audimax
     \pause
     \item Klausurtermin: gewöhnlich Anfang März des kommenden Jahres
     \end{itemize}
@@ -61,19 +61,19 @@
 
 
 \section{Aussagenlogik}
-\begin{frame}{Junktoren}
-    \begin{block}{Definition}
-        Ein Junktor ist eine logische Verknüpfung zwischen Aussagen innerhalb der Aussagenlogik, also ein logischer Operator.\\
-        (Aus Wikipedia)
-    \end{block}
+    \begin{frame}{Junktoren}
+        \begin{block}{Definition}
+            Ein Junktor ist eine logische Verknüpfung zwischen Aussagen innerhalb der Aussagenlogik, also ein logischer Operator.\\
+            (Aus Wikipedia)
+        \end{block}
     \pause
-    \begin{exampleblock}{Beispiele}
-    \begin{itemize}
-        \item Logisches "`Oder"' $\vee$
-        \item Logisches "`Und"' $\wedge$
-        \item \dots
-    \end{itemize}
-    \end{exampleblock}
+        \begin{exampleblock}{Beispiele}
+            \begin{itemize}
+                \item Logisches "`Oder"' $\vee$
+                \item Logisches "`Und"' $\wedge$
+                \item \dots
+            \end{itemize}
+        \end{exampleblock}
     \end{frame}
 
     \begin{frame}{Logisches Und ("`Konjunktion"')}
@@ -121,14 +121,14 @@
                     $A$ & $ \neg A$\\
                     \midrule
                     f & w\\
-                    f & f\\
+                    w & f\\
                     \bottomrule
                 \end{tabular}
              \end{center}
         \end{table}
     \end{frame}
 
-    \begin{frame}{Subjunktion}
+    \begin{frame}{Implikation}
         \begin{table}
             \caption{Wahrheitswerte für $\rightarrow$}
             \begin{center}
@@ -162,7 +162,23 @@
         \end{exampleblock}
     \end{frame}
 
-\section{Eigenschaften von Abbildungen}
+\section{Relationen und Abbildungen}
+    \subsection{Kartesisches Produkt}
+    \begin{frame}{Kartesisches Produkt}
+        \begin{block}{Definition Kartesisches Produkt}
+            Das Kartesisches Produkt $A \times B$ enthällt alle Kombinationen (a,b) mit $a \in A$ und $b \in B$.
+        \end{block}
+        \pause
+        \begin{exampleblock}{Beispiel: Kleiner-Gleich-Menge}
+            Die Menge $M$ sei $M = \left\{ 1, 2, 3\right\}$.\\
+            Welche Elemente sind in in der Teilmenge $R_{\leq} \subseteq M \times M$?\\
+            Schreibweise: $R_\leq = \{ (a,b) | a \leq b\}$\\
+            \pause
+            \invisible<1-2>{$R_\leq = \{ (1, 1), (1, 2), (1, 3), (2, 2), (2, 3), (3, 3)\}$}
+        \end{exampleblock}
+    \end{frame}
+            
+
     \subsection{Totalität}
         \begin{frame}{Totalität}
             \begin{block}{Definition}
@@ -258,15 +274,97 @@
         \end{exampleblock}
     \end{frame}
 
+\section{Mengenlehre}
+	\begin{frame}{Mengenlehre}
+		\begin{block} {Definition Menge}
+			Eine Menge ist eine beliebig große Ansammlung an Elementen\\
+			$\Rightarrow$ es existieren Mengen ohne, endlich vielen und unendlich vielen Elementen.
+		\end{block}
 
+		\begin{block}{Schreibweiße von Mengen}
+			Sei $M$ eine Menge bestehend aus den Elementen $0, 1, 2$, dann schreiben wir:\\
+            \begin{align*}
+                M = \left\{0, 1, 2\right\}
+            \end{align*}
+			Außerdem gilt: $0, 1, 2 \in M$
+		\end{block}
+	\end{frame}
 
-\appendix
-\beginbackup
+	\begin{frame}{Besonderheiten}
+		\begin{itemize}
+			\item Die Reihenfolge der Elemente in einer Menge ist egal.\\
+				Da $x,y \in \{x,y\}$ aber auch $x,y \in \{y,x\}$\\
+				$\Rightarrow \{x,y\} = \{y,x\}$
+			\pause
+			\item Mehrfaches Vorkommen von Elementen ist auch egal.\\
+				$\Rightarrow \{a, b, b, 3\} = \{a, b, 3\}$
+		\end{itemize}
+	\end{frame}
 
-%\begin{frame}[allowframebreaks]{References}
-%\printbibliography
-%\end{frame}
+	\begin{frame}{Besondere Mengen}
+		\begin{itemize}
+			\item Die Leere Menge: $\emptyset = \{\}$
+			\pause
+			\item Die Nat\"urlichen Zahlen ohne 0: $\mathbb{N}_+ = \{1,2,3,...\}$
+			\pause
+			\item Die Nat\"urlichen Zahlen mit 0: $\mathbb{N}_0 = \{0,1,2,3,...\}$
+			\pause
+			\item Ganze Zahlen von 0 bis n-1: $\mathbb{G}_n = \{0,1,2,...,n-1\}$
+		\end{itemize}
+	\end{frame}
 
-\backupend
+	\begin{frame}{Mengenoperationen}
+		\begin{block}{Vereinigung von Mengen $\cup$}
+			Sei $A = \{0,1,2\}$ und $B = \{a,b,c\}$\\
+			Dann ist die Vereinigung der Mengen $A$ und $B$:\\
+			$A \cup B = \{0,1,2\} \cup \{a,b,c\} = \{0,1,2,a,b,c\}$\\
+			Alle Elemente aus $A$ und $B$ liegen somit in $A \cup B$
+
+		\end{block}
+		\pause
+
+		\begin{block}{Durchschnitt von Mengen $\cap$}
+			Sei $A = \{0,1,2\}$ und $B = \{1,2,3,4,a\}$\\
+			Dann ist der Durchschnitt der Mengen $A$ und $B$:\\
+			$A \cap B = \{0,1,2\} \cap \{1,2,3,4,a\} = \{1, 2\}$\\
+			Im Durchschnitt liegen somit nur Elemente, die sowohl in $A$ und in $B$ liegen.
+		\end{block}
+	\end{frame}
+
+	\begin{frame}{Aufgabenteil 1}
+		Gegeben seien die Mengen $A$, $B$, $C$ und $D$, mit:
+        \begin{align*}
+		    A = \{1,3,5,9\}\\
+		    B = \{1,2,4,8\}\\
+		    C = \{x,d,1,2,3,4,9\}\\
+		    D = \{a,c,d,x\}
+		\end{align*}
+		
+		Die Menge $M$ sei definiert durch:\\
+		\begin{align*}
+			M = \Big(\big(D \cap C\big)\cup\big((C \cap B)\cup(A \cap C)\big)\Big) \setminus (A \cap B)
+		\end{align*}
+		
+		Welche Elemente enth\"alt die Menge M?	
+			
+		Antwort: 
+		\visible<2>{$M= \{d,x,2,3,4,9\}$}
+ 	\end{frame}
+ 	
+ 	
+ 	
+ 	\begin{frame} {Mengenraten}
+     	\begin{center}
+     		\begin{tabular}{c|c}
+     		\includegraphics[scale=.35]{graphics/01/menge1.png} &
+		    \visible<2-4>{\includegraphics[scale=.35]{graphics/01/menge2.png}}
+     		 \\
+     		\hline 
+     		\visible<3-4>{\includegraphics[scale=.35]{graphics/01/menge3.png}}
+     		 & 		
+     		\visible<4>{\includegraphics[scale=.35]{graphics/01/menge4.png}} 			\\
+     		\end{tabular} 
+     	\end{center}
+ 	\end{frame}
 
 \end{document}
