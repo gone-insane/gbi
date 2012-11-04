@@ -96,8 +96,36 @@ $L \subseteq A*$.
         \end{align*}
         das Produkt der Sprachen $L_1$ und $L_2$.
     \end{block}
+    \begin{exampleblock}{Beispiel:}
+        Wie vorhin ist die Sprache $L$ über $A = \left\{ a, b\right\}$ gesucht, wo nirgendwo das Teilwort $ab$ vorkommt. Komfortable Prduktschreibweise:
+        \pause
+        \invisible<1>{$ L = \left\{ b\right\}^* \left\{ a\right\}^*$}
+    \end{exampleblock}
 \end{frame}
-        
+\begin{frame}{Produkt}
+    \begin{exampleblock}{Beispiel: Produkt}
+        Gesucht ist die Sprache der nichtleeren Wörter über dem Alphabet $A$.
+        \pause
+        \invisible<1>{$L = A\cdot A^*$}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Produkt}
+    \begin{exampleblock}{Beispiel 2: Produkt}
+        Gegeben: Die Sprachen $L_1 = \left\{ a^n | n \in \mathbb{N}_0\right\}$ und $ L_2 = \left\{ b^n | n \in \mathbb{N}_0 \right\}$.\\
+        Sind diese Wörter $\in L_1 \cdot L_2$?
+        \begin{itemize}
+            \item $ab$
+                \pause
+            \item $\epsilon$
+                \pause
+            \item $bab$
+                \pause
+            \item $aab$
+                \pause
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
 \begin{frame}{Potenzen}
     \begin{block}{Definition: Potenzen}
         $L$ sei eine formale Sprache. Rekursiv lässt sich auch die Potenz davon definieren.
@@ -106,6 +134,18 @@ $L \subseteq A*$.
             L^\mathrm{i + 1} &= L^\mathrm{i} \cdot L
         \end{align*}
     \end{block}
+\end{frame}
+\begin{frame}{Potenzen}
+    \begin{exampleblock}{Beispiel 1: Potenzen}
+        Es sei $L = \left\{ a\right\}^* \left\{ b\right\}^*$. Was ist dann in
+        \begin{itemize}
+            \item $L^0$
+                \pause
+            \item $L^1$
+                \pause
+            \item $L^2$
+        \end{itemize}
+    \end{exampleblock}
 \end{frame}
         
 \begin{frame}{Konkatenationsabschluss}
@@ -127,6 +167,16 @@ $L \subseteq A*$.
     \end{alertblock}
 \end{frame}
 
+\begin{frame}{Konkatenationsabschluss}
+    \begin{exampleblock}{Beispiel 1: Konkatenationsabschluss}
+        Argumentiere, dass $L^* = \left\{ a, b\right\}^*$ ist.
+    \end{exampleblock}
+    \pause
+    \begin{exampleblock}{Beispiel 2: Mengenäquivalenz beweisen}
+        Zeige, dass $L^* \cdot L = L^+$ (Tafel).
+    \end{exampleblock}
+\end{frame}
+
 \begin{frame}{Beispiele}
     \begin{block}{Beispiele}
         \begin{enumerate}
@@ -145,16 +195,8 @@ $L \subseteq A*$.
                 \pause
             \item Alphabet: $A = \left\{ a, b\right\}$
                 \pause
-            \item $L = \left\{ a\right\}^* \cdot \left\{ b\right\} \cdot \left\{ a\right\}^*$ oder
-            \item $L = \left\{ w_1 b w_2 | w_1, w_2 \in \left\{ a\right\}^* \right\}$
-        \end{enumerate}
-    \end{block}
-    \pause
-    \begin{block}{Übung}
-        \begin{enumerate}
-            \item Was ist $L^3$?
-                \pause
-            \item Was ist $L^i \ \left\{ b\right\}^*$?
+            \item \invisible<1-2>{$L = \left\{ a\right\}^* \cdot \left\{ b\right\} \cdot \left\{ a\right\}^*$ oder
+            \item $L = \left\{ w_1 b w_2 | w_1, w_2 \in \left\{ a\right\}^* \right\}$}
         \end{enumerate}
     \end{block}
 \end{frame}
@@ -162,11 +204,26 @@ $L \subseteq A*$.
 \section{Aufgaben}
 \begin{frame}{Übungsaufgabe}
     \begin{exampleblock}{Winter 2010/2011}
-        Es sei $A = \left\{a, b\right\}$. Beschreiben Sie die folgenden formalen Sprachen mit den Symbolen \{, \}, a, b, $\epsilon$, $\bigcup$, ∗, Komma, ), ( und +:
+        Es sei $A = \left\{a, b\right\}$. Beschreiben Sie die folgenden formalen Sprachen mit den Symbolen \{, \}, a, b, $\epsilon$, $\bigcup$, ∗, Komma, (, ) und +:
         \begin{enumerate}
             \item die Menge aller Wörter über $A$, die das Teilwort "`ab"' enthalten
             \item die Menge aller Wörter über $A$, deren vorletztes Zeichen ein "`b"' ist
             \item die Menge aller Wörter über $A$, in denen nirgends zwei "`b"'s hintereinander vorkommen
+        \end{enumerate}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Übungsaufgabe}
+    \begin{exampleblock}{Sommer 2009 (4 von 46 Punkten)}
+        Gegeben seien diese formalen Sprachen:
+        \begin{align*}
+            L_1 = \left\{ a^k b^m | k, m \in \mathbb{N}_0 \wedge k \mod 2 = 0 \wedge m \mod 3 = 1\right\}
+            L_2 = \left\{ b^k a^m | k, m \in \mathbb{N}_0 \wedge k \mod 2 = 1 \wedge m \mod 3 = 0\right\}
+        \end{align*}
+        Geben Sie eine äquivalente Menge in Mengenschreibweise an für:
+        \begin{enumerate}
+            \item $L = L_1$
+            \item $L = L_1 \cdot L_2$
+            \item $L = L_1 \cap L_2$
         \end{enumerate}
     \end{exampleblock}
 \end{frame}
