@@ -1,0 +1,66 @@
+\include{header}
+
+\title[Tutorium 3]{GBI Tutorium Nr. 32}
+\subtitle{Tutorium 3}
+\date{7. November 2012}
+
+% Bibliography
+
+
+
+\begin{document}
+
+	%title page
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	%table of contents
+	\begin{frame}{Outline/Gliederung}
+		\tableofcontents
+	\end{frame}
+	
+	
+	\section{Übungsblatt 3}
+	\begin{frame} {Übungsblatt 3}
+		\begin{block} {Aufgabe 3.x}
+			Aufgabe
+		\end{block}
+		\begin{overprint}
+			$M$ sei die Menge aller Menschen.
+			\onslide<2> $\forall x \in M: \exists_1 y\in M:B(x,y)$ ?
+			\onslide<3-> \color{red} $\forall x \in M: \exists_1 y\in M:B(x,y)$!\\
+			
+		\end{overprint}
+		\begin{overprint}
+			\onslide<4> $\forall x \in M: \exists y \in M: B(x,y)$
+			\onslide<5> $\forall x \in M: \exists y \in M: B(x,y)\land \forall z \in  M \! \setminus \! y: \lnot B(x,z)$
+			\onslide<6> \color{darkgreen}$\forall x \in M: \exists y \in M: B(x,y)\land \forall z \in  M \! \setminus \! y: \lnot B(x,z)$
+		\end{overprint}
+	
+	\end{frame}	
+		
+	
+	\section{Wiederholung} 
+	\begin{frame} {Wiederholung}
+		\begin{itemize}
+			\item $A^*$ ist eine formale Sprache! 
+			\only<2-> {\color{darkgreen}$\surd$}\\
+			\color{black}
+		\end{itemize}
+	\end{frame}
+	
+	
+	
+
+
+
+		
+	\begin{frame} {EOF}
+		\begin{center}
+			\includegraphics[scale=0.5]{graphics/02/eof2.png}\\
+			\tiny $source: http://imgs.xkcd.com/comics/university_website.png$
+		\end{center}
+	\end{frame}
+
+\end{document}
