@@ -12,6 +12,31 @@
     \tableofcontents
 \end{frame}
 
+\section{Übungsblatt 2}
+\begin{frame}{Best of Fehler}
+    \begin{block} {Aufgabe 2.3}
+        Gegeben ist folgende Aussage: \\
+        \vspace{5pt}
+        \hspace{10pt}$\bullet$ Jeder Mensch hat genau einen besten Freund.\\
+        \vspace{5pt}
+        Formalisieren Sie diese Aussage mit Hilfe des Prädikates $B(x,y)$ in Prädikatenlogik:\\
+        $B(x,y)\mathrel{\widehat{=}} y$ ist bester Freund von $x$.\\
+        $M$ sei die Menge aller Menschen.
+    \end{block}
+    \begin{exampleblock}{Lösung}
+        \begin{overprint}
+            \onslide<2> $\forall x \in M: \exists_1 y\in M:B(x,y)$?
+            \onslide<3-> \color{red} $\forall x \in M: \exists_1 y\in M:B(x,y)$!\\
+        \end{overprint}
+        \begin{overprint}
+            \onslide<4> $\forall x \in M: \exists y \in M: B(x,y)$
+            \onslide<5> $\forall x \in M: \exists y \in M: B(x,y)\land \forall z \in  M \! \setminus \! y: \lnot B(x,z)$
+            \onslide<6> \color{darkgreen}$\forall x \in M: \exists y \in M: B(x,y)\land \forall z \in  M \! \setminus \! y: \lnot B(x,z)$
+        \end{overprint}
+    \end{exampleblock}
+
+\end{frame}	
+
 \section{Wiederholung: Mengen}
 \begin{frame}{Quickies}
     \begin{exampleblock}{Aufgabe 1}
@@ -62,7 +87,10 @@ $L \subseteq A*$.
 \begin{frame}{Beispiel 1}
     \begin{block}{Beispiel: Schlüsselwörter in Java}
         Eine formale Sprache wäre etwa die Menge der Schlüsselwörter in der Programmiersprache Java:\\
-        $\left\{ class, if, else, for, while,\dots\right\}$
+        \pause
+        Beispiele: \invisible<1>{$\left\{ class, if, else, for, while,\dots\right\}$}\\
+        \pause
+        Größe: \invisible<1-2>{Endlich}
     \end{block}
 \end{frame}
 \begin{frame}{Beispiel 2}
@@ -216,7 +244,7 @@ $L \subseteq A*$.
     \begin{exampleblock}{Sommer 2009 (4 von 46 Punkten)}
         Gegeben seien diese formalen Sprachen:
         \begin{align*}
-            L_1 = \left\{ a^k b^m | k, m \in \mathbb{N}_0 \wedge k \mod 2 = 0 \wedge m \mod 3 = 1\right\}
+            L_1 = \left\{ a^k b^m | k, m \in \mathbb{N}_0 \wedge k \mod 2 = 0 \wedge m \mod 3 = 1\right\}\\
             L_2 = \left\{ b^k a^m | k, m \in \mathbb{N}_0 \wedge k \mod 2 = 1 \wedge m \mod 3 = 0\right\}
         \end{align*}
         Geben Sie eine äquivalente Menge in Mengenschreibweise an für:
