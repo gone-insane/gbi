@@ -1,103 +1,8 @@
-%% LaTeX-Beamer template for KIT design
-%% by Erik Burger, Christian Hammer
-%% title picture by Klaus Krogmann
-%%
-%% version 2.1
-%%
-%% mostly compatible to KIT corporate design v2.0
-%% http://intranet.kit.edu/gestaltungsrichtlinien.php
-%%
-%% Problems, bugs and comments to
-%% burger@kit.edu
-
-\documentclass[18pt]{beamer}
-\usepackage[utf8x]{inputenc}
-\usepackage{units}
-\usepackage{booktabs}
-\usepackage{amsmath}
-\usepackage{algpseudocode}
-\usepackage{enumitem}
-
-%% Definitions
-\DeclareMathOperator{\div2}{div}
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
-\algnewcommand\algorithmicto{\textbf{to}}
-\algrenewtext{For}[3]{\algorithmicfor\ $#1 \gets #2$ \algorithmicto\ $#3$ \algorithmicdo}
-\algnewcommand\algorithmicod{\textbf{od}}
-\algrenewtext{EndWhile}{\algorithmicod}
-\algrenewtext{EndFor}{\algorithmicod}
-\AtBeginSection[]{%
-\begin{frame}<beamer> % do nothing in handouts
-    \frametitle{Überblick}
-    \tableofcontents[sectionstyle=show/shaded,
-    subsectionstyle=show/show/hide]
-\end{frame}
-}
-\AtBeginSubsection[]{%
-\begin{frame}<beamer> % do nothing in handouts
-    \frametitle{Überblick}
-    \tableofcontents[sectionstyle=show/shaded,
-    subsectionstyle=show/shaded/hide]
-\end{frame}
-}
-
-
-%% SLIDE FORMAT
-
-% use 'beamerthemekit' for standard 4:3 ratio
-% for widescreen slides (16:9), use 'beamerthemekitwide'
-
-\usepackage{templates/beamerthemekit}
-%\usepackage{templates/beamerthemekitwide}
-
-%% TITLE PICTURE
-
-% if a custom picture is to be used on the title page, copy it into the 'logos'
-% directory, in the line below, replace 'mypicture' with the 
-% filename (without extension) and uncomment the following line
-% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
-% *.eps format if you use latex+dvips+ps2pdf, 
-% *.jpg/*.png/*.pdf if you use pdflatex)
-
-%\titleimage{mypicture}
-
-%% TITLE LOGO
-
-% for a custom logo on the front page, copy your file into the 'logos'
-% directory, insert the filename in the line below and uncomment it
-
-%\titlelogo{mylogo}
-\titlelogo{empty_logo}
-
-% (*.eps format if you use latex+dvips+ps2pdf,
-% *.jpg/*.png/*.pdf if you use pdflatex)
-
-%% TikZ INTEGRATION
-
-% use these packages for PCM symbols and UML classes
-% \usepackage{templates/tikzkit}
-% \usepackage{templates/tikzuml}
-
-% the presentation starts here
-
-\title[GBI Tutorium]{GBI Tutorium Nr. }
-\subtitle{Foliensatz 0333}
-\date{6. November 2012}
-\author{Vincent Hahn -- vincent.hahn@student.kit.edu}
-
-\institute{}
-
-% Bibliography
-
-%\usepackage[citestyle=authoryear,bibstyle=numeric,hyperref,backend=biber]{biblatex}
-%\addbibresource{templates/example.bib}
-%\bibhang1em
+\include{header}
+\subtitle{Foliensatz 5}
+\date{15. November 2012}
 
 \begin{document}
-
-% change the following line to "ngerman" for German style date and logos, english: english
-\selectlanguage{ngerman}
 
 \begin{frame}
     \titlepage
@@ -105,6 +10,79 @@
 
 \begin{frame}{Outline/Gliederung}
     \tableofcontents
+\end{frame}
+
+\section{Kontextfreie Grammatiken}
+\begin{frame}{Definition}
+    \begin{block}{Definition}
+        Die Menge $G = G \left( N, T, S, P \right)$ nennen wir \textbf{Kontextfreie Grammatik}.
+    \end{block}
+    \pause
+    \invisible<1>{
+        \begin{block}{Was ist was?}
+            \begin{itemize}
+                \item $N$: \textbf{Nichtterminalsymbol}
+                \item $T$: \textbf{Terminalsymbol}
+                \item $S$: \textbf{Startsymbol}
+                \item $P$: \textbf{Produktionsmenge}
+            \end{itemize}
+    \end{block}}
+\end{frame}
+
+\begin{frame}{Ableitung}
+    \begin{block}{Definition}
+        Als Ableitung wird in der theoretischen Informatik der Vorgang bezeichnet, ein Wort nach den Regeln einer formalen Grammatik zu erzeugen.
+    \end{block}
+    Wir schreiben: $w \Rightarrow^i v$, wenn von der Ableitung von $v$ aus $w$ $i$ Ableitungsschritte liegen ($i \in \mathbb{N}$).
+    \pause
+    \invisible<1>{
+    \begin{alertblock}{Vorsicht}
+        \begin{align*}
+            \Rightarrow \neq \rightarrow
+        \end{align*}
+        \begin{itemize}
+            \item $\Rightarrow$ ist die Relation der Ableitung
+            \item $\rightarrow$ ist die Relation der Produktion ($\in P$)
+        \end{itemize}
+    \end{alertblock}}
+\end{frame}
+
+\begin{frame}{Ableitung}
+    \begin{block}{Frage}
+        Was stimmt? Es ist $w_1, w_2 \in N \cup P$.
+        \begin{itemize}
+            \item $w_1 \rightarrow w_2$, daraus folt $w_1 \Rightarrow w_2$
+            \item $w_1 \Rightarrow w_2$, daraus folgt $w_1 \rightarrow w_2$
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Sprache der kontextfreien Grammatik}
+    \begin{block}{Definition}
+        Sei $G$ eine kontextfreie Grammatik. Dann bezeichnen wir die Sprache $L = L\left(G\right)$ mit 
+        \begin{align*}
+            L = \left\{ w\in T^* \big| S \Rightarrow^* w\right\}
+        \end{align*}
+    \end{block}
+    \pause
+    \invisible<1>{\begin{block}{Was ist $\Rightarrow^*$?}
+        Mit $\Rightarrow^*$ ist die \emph{reflexiv-transitive Hülle} der Ableitungsrelation gemeint.
+    \end{block}}
+\end{frame}
+
+\begin{frame}{Musikgrammatik\\(by Nils Braun und Philipp Basler)}
+    Gegeben ist die Grammatik
+    \begin{align*}
+        G = \left( \left\{ X\right\} ,\left\{ A, B, C, D\right\} , X , \left\{ X \rightarrow \epsilon \big| AX \big| BX \big| CX \big| DX \right\}\right)A
+    \end{align*}
+    \pause
+    \invisible<1-1>{Leite $A$ ab! }\pause\invisible<1-2>{Leite $ABC$ ab! Finde weitere Wörter.}\\\pause
+    \begin{figure}
+        \invisible<1-3>{\includegraphics[height=30mm]{graphics/05/abba.png}}\pause\hfill
+        \invisible<1-4>{\includegraphics[height=30mm]{graphics/05/acdc.jpg}}\pause\hfill
+        \invisible<1-5>{\includegraphics[height=30mm]{graphics/05/adac.png}}\pause
+    \end{figure}
+    \invisible<1-6>{$L\left( G\right) = \left\{ A, B, C, D\right\}^*$, oder etwa nicht?}
 \end{frame}
 
 \section{Relationen}
