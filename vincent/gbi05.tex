@@ -20,22 +20,29 @@
     \pause
     \invisible<1>{
         \begin{block}{Was ist was?}
-            \begin{itemize}
-                \item $N$: \textbf{Nichtterminalsymbol}
-                \item $T$: \textbf{Terminalsymbol}
-                \item $S$: \textbf{Startsymbol}
-                \item $P$: \textbf{Produktionsmenge}
-            \end{itemize}
-    \end{block}}
+            \begin{description}
+              \item[N:] Menge von Nichtterminalsymbolen
+              \item[T:] Menge von Terminalsymbolen
+              \item[S:] $S \in N$ Startsymbol
+              \item[$P \subset N \times V^*$:] Menge von Produktionen, \\
+              $V := (N \cup T)$
+            \end{description}
+        \end{block}}
 \end{frame}
 
 \begin{frame}{Ableitung}
     \begin{block}{Definition}
         Als Ableitung wird in der theoretischen Informatik der Vorgang bezeichnet, ein Wort nach den Regeln einer formalen Grammatik zu erzeugen.
     \end{block}
-    Wir schreiben: $w \Rightarrow^i v$, wenn von der Ableitung von $v$ aus $w$ $i$ Ableitungsschritte liegen ($i \in \mathbb{N}$).
-    \pause
-    \invisible<1>{
+    Wir schreiben: \pause
+    \begin{itemize}
+        \item $w \Rightarrow v$, wenn von der Ableitung von $v$ aus $w$ genau $1$ Ableitungsschritt liegt.\pause
+        \item $w \Rightarrow^i v$, wenn von der Ableitung von $v$ aus $w$ $i$ Ableitungsschritte liegen ($i \in \mathbb{N}$).\pause
+        \item $w \Rightarrow^* v$, wenn von der Ableitung von $v$ aus $w$ beliebig viele Ableitungsschritte liegen.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ableitung}
     \begin{alertblock}{Vorsicht}
         \begin{align*}
             \Rightarrow \neq \rightarrow
@@ -44,7 +51,7 @@
             \item $\Rightarrow$ ist die Relation der Ableitung
             \item $\rightarrow$ ist die Relation der Produktion ($\in P$)
         \end{itemize}
-    \end{alertblock}}
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}{Ableitung}
@@ -70,6 +77,24 @@
     \end{block}}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Quickies}
+    \begin{exampleblock}{Fragen}
+        \begin{enumerate}
+          \item Gibt es Grammatiken für die gilt: $L(G) = \{\}$?\pause
+          \item Welche Sprache erzeugt: $G_1 := (\{X\}, \{0\}, X, \{X \rightarrow X\})$\pause
+          \item Ist $G_2 := (\{X\}, \{a, b\}, X, \{X \rightarrow \varepsilon\})$ eine gültige Grammatik?\pause
+        \end{enumerate}
+    \end{exampleblock}
+    \begin{exampleblock}{Lösung}
+        \begin{enumerate}
+            \invisible<1-1>{\item Ja z.B. $G = (\{X\}, \{0\}, X, \{\})$}
+            \invisible<1-2>{\item $L(G_1) = \{\}$}
+            \invisible<1-3>{\item Ja und $L(G_2) = \{\varepsilon\}$}
+        \end{enumerate}
+    \end{exampleblock}
+\end{frame}
+
 \begin{frame}{Musikgrammatik\\(by Nils Braun und Philipp Basler)}
     Gegeben ist die Grammatik
     \begin{align*}
@@ -85,7 +110,65 @@
     \invisible<1-6>{$L\left( G\right) = \left\{ A, B, C, D\right\}^*$, oder etwa nicht?}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Aufgaben}
+  \begin{exampleblock}{Welche Sprachen erzeugen folgende Grammatiken.}
+    \begin{enumerate}
+      \item $G_1 := (\{X, Y\}, \{a, b\}, X, \{X \rightarrow aY | \varepsilon, Y \rightarrow bX\})$
+      \item $G_2 := (\{X, Y, Z\}, \{a, b, c\}, X,$\\
+             $\{X \rightarrow Ya | Yb | Yc, Y \rightarrow ZZY | \varepsilon, Z \rightarrow a | b | c\})$
+    \end{enumerate}
+  \end{exampleblock}
+  \begin{exampleblock}{Gebt eine jeweils Grammatik an für die gilt $L(G) = L_i$:}
+        \begin{enumerate}
+      \item $L_1 := \{ab, cd\}^+ \cdot \{a, c\}^2$
+      \item $A := \{0, 1\}$, $L_2 := \{w  \in A^*| Num_0(w) = Num_1(w)\}$
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Bonus-Aufgabe (by Patrick Niklaus)}
+  \begin{exampleblock}{In Mengen M aus Studenten mit $|M| \leq 3$}
+    Konstruiert eine Grammatik die alle E-Mail-Adresse aus den Buchstaben {a, b, c} erzeugt.
+    \emph{Hinweis}: $T := \{a, b, c, @, ., \_\}$
+  \end{exampleblock}\pause
+  \invisible<1>{\begin{exampleblock}{Lösung}
+    $G = (N, T, S, P)$
+    \begin{itemize}
+      \item $N = \{E, A, B\}$
+      \item $T = \{a, b, c, ., \_, @\}$
+      \item $S = E$
+      \item $P = \{E \longrightarrow A@B.B, A \longrightarrow BA|\_A|.A, B \longrightarrow aB | bB | cB | \varepsilon\}$
+    \end{itemize}
+    \end{exampleblock}}
+\end{frame}
+
+\begin{frame}{Aufgabe: Winter 2008/2009}
+    \begin{exampleblock}{Aufgabe}
+        \begin{itemize}
+            \item Geben Sie eine kontextfreie Grammatik 
+                \begin{align*}
+                    G = \left( N,\left\{ a,b\right\} ,S,P\right) 
+                \end{align*}
+                an, für die $L\left( G\right) $ die Menge aller Palindrome über dem Alphabet $\left\{ a,b\right\} $ ist. 
+            \item Geben Sie eine Ableitung der Wörter $baaab$ und $abaaaba$ aus dem Startsymbol Ihrer Grammatik an. 
+            \item Beweisen Sie, dass Ihre Grammatik jedes Palindrom über dem Alphabet $\left\{ a, b\right\} $ erzeugt.
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
 \section{Relationen}
+\begin{frame}{Relationen}
+  \begin{definition}
+    \begin{itemize}
+      \item Seien A, B zwei Mengen. $ R \subseteq A \times B $\pause
+      \item R ist eine Teilmenge des Kreuzproduktes zweier Mengen und heißt \emph{Relation}.\pause
+      \item Man schreibt auch: xRy für $(x, y) \in R$\pause
+      \item Ist A = B so nennt man R auch eine \emph{homogene} Relation.\pause
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
 \begin{frame}{Eigenschaften von Relationen}
     \begin{block}{Definition}
         Sei $R \subset A \times A$ eine (binäre) Relation auf der Menge $A$. Wir nennen $R$
@@ -105,7 +188,8 @@
         \end{itemize}
     \end{block}
 \end{frame}
-\begin{frame}{Verknüpfung}
+
+\begin{frame}{Produkt}
     \begin{block}{Definition}
         Zwei Relationen $R\subseteq M \times N ,\, S\subseteq N\times L$ definieren die Relation des \emph{Produktes von $R$ und $S$} als
         \begin{align*}
@@ -127,5 +211,57 @@
     \end{block}}
 \end{frame}
 
+\begin{frame}{Äquivalenzrelationen}
+	\begin{definition}
+    Sei R eine homogene Relation über M. $x, y, z \in M$.\\
+    Hat R folgende Eigenschaften:
+		\begin{description}
+			\item[reflexiv] $x R x$
+			\item[transitiv] $x R y \wedge y R z \Rightarrow x R z$
+			\item[symmetrisch] $x R y \Rightarrow y R x$
+		\end{description}
+		So heißt R eine \emph{Äquivalenzrelation}.
+	\end{definition}
+\end{frame}
 
+\begin{frame}{Beispiel (by Patrick Niklaus)}
+	\begin{exampleblock}{Freunde im Netzwerk}
+    {\small
+			Sei $M = \{ Gertrud, Holger, Lars, Katja, Martin, Nina \}$ eine Menge von Nutzern.\\
+			$R \subseteq M \times M $ sei die "`ist-befreundet-mit"'-Relation.
+		\begin{itemize}
+			\item $R = \{ (Martin,Holger), (Lars,Katja), (Nina,Holger),$ \\
+						$(Gertrud,Holger), (Katja, Nina) \} \bigcup \{${dazu sym. Tupel}$\}$ \pause
+			\item $R^0=\{ (Martin,Martin), ..., (Holger,Holger) \}$ \pause
+			\item $R^1=R$ "'Freundschaft 1. Grades."' \pause
+			\item $R^2=\{ (Martin,Nina), (Martin,Gertrud), (Martin,Martin),$ \\
+						$(Lars,Nina), (Lars,Lars), (Nina,Gertrud),(Nina,Martin),$ \\
+						$(Nina,Nina), (Nina,Lars), (Katja,Katja), (Katja,Holger), $ \\
+						$(Gertrud,Gertrud), (Gertrud,Martin), (Gertrud,Nina), $ \\
+						$(Holger,Holger), (Holger,Katja)\}$ "'Freundschaft 2. Grades"' \pause
+			\item $R^*=?$ "'Gibt es eine Verbindung durch Freunde beliebigen Grades?"'
+			%\item wegen Symmetrie und Unsinnigkeit der Reflexivität, entfällt Einiges % Funktionen sind kommutativ, Relationen symmetrisch
+		\end{itemize}
+    }
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Aufgaben}
+  \begin{exampleblock}{Reflexiv-transitive Hülle}
+    Bestimmt die reflexiv-transitive Hülle der Relationen.\\
+    $M := \{1, 2, 3, 4\}, R_i \subset M \times M$
+    \begin{enumerate}
+      \item $R_1 := \{(1, 2), (1, 4), (2, 3)\}$
+      \item $R_2 := \{(1, 1), (2, 2)\}$
+      \item $R_3 := \{(1, 2), (3, 4), (4, 2)\}$
+    \end{enumerate}
+  \end{exampleblock}\pause
+  \invisible<1>{\begin{exampleblock}{Lösungen}
+    \begin{enumerate}
+      \item $R_1^* := \{(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (3, 3), (4, 4)\}$
+      \item $R_2^* := \{(1, 1), (2, 2), (3, 3), (4, 4)\}$
+      \item $R_3^* := \{(1, 1), (1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (4, 2), (4, 4)\}$
+    \end{enumerate}
+    \end{exampleblock}}
+\end{frame}
 \end{document}
