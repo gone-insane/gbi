@@ -32,7 +32,7 @@
 	\section{Wiederholung} 
 	\begin{frame} {Wiederholung - Quiz}
 		\begin{itemize}
-			\item $A^*$ ist eine formale Sprache! 
+			\item $X=X$ ist eine Schleifeninvariante! 
 			\only<2-> {\color{darkgreen}$\surd$}\\
 			\color{black}
 			\item $(L_1 \cdot L_2)^* = L_1^* \cdot L_2^*$
@@ -42,7 +42,7 @@
 			\only<4-> {\color{darkgreen}$\surd$}\\
 			\color{black}
 			\item Eine bijektive Relation ist eine Funktion.
-			\only<5-> {\color{darkgreen}$\surd$}\\
+			\only<5-> {\color{red}$X$}\\
 			\color{black}
 			\item Wenn $f: A \rightarrow B$ injektiv $\Rightarrow f^{-1}$ ist surjektiv.
 			\only<6-> {\color{red}$X$}\\
@@ -58,30 +58,86 @@
 	
 	
 	\begin{frame} {Wiederholung - Aufgaben}
-		\begin{itemize}
-			\item Schreiben sie die Injektivität als prädikatenlogische Formel.
-			\pause
-			\item Es sei $L \subseteq A^*$ eine formale Sprache. Beweisen oder widerlegen Sie:\\
-			$L^+ \cdot L^+ \subseteq L^+$
-			\pause
-			\item Geben Sie eine formale Sprache $L$ über dem Alphabet $A=\{0,1\}$ an, für welche gilt:\\
-				$L$ enthält nur Wörter gerader Parität. 
-				Die Parität eines Wortes ist gerade, wenn eine gerade Anzahlen von 1en enthalten sind.
-		\end{itemize}
+		\begin{block}{Relationen}
+			Es sei A die Menge aller Kinobesucher in einer Vorstellung 
+			und B die Menge aller Sitzplätze. 
+			Die Abbildung f ordnet den Kinobesuchern die Sitzplätze zu:\\
+			\hspace{50pt}	$ f : A \rightarrow B $
+			\begin{itemize}
+				\pause
+				\item Was wünschen sich die Kinobesucher: 
+				Eine injektive, surjektive oder bijektive Abbildung 
+				auf die Sitzplätze? Was wünscht sich der Kinobesitzer?
+				
+				\pause
+				\item Erklären Sie jeweils, was es im Kino bedeutet, wenn $f$ linkstotal, linkseindeutig, rechtstotal, rechtseindeutig ist.
+				
+				\pause
+				\item In dieser Teilaufgabe nehmen wir an, 6 Kinobesucher 
+				besuchten ein Kino mit 8 Plätzen. 
+				Zeichnen Sie eine injektive Abbildung $f$. 
+				Wie viele injektive Abbildungen gibt es?
+			\end{itemize}
+		\end{block}
 	\end{frame}
 	
 	
 	
 	\begin{frame} {Wiederholung}
-		\begin{block}{Induktion}
-			Alice und Bob feiern ihren Hochzeitstag. Auf ihrer Party befinden sich $n \in \mathbb{N}_+$ Paare.
-			Dabei begrüßen sich alle Paare mit Ausnahme des eigenen Partners.\\
-			\vspace{10pt}
-			a) Geben Sie die Anzahl der Begrüßungen $x_i$ für $i \in \{1,2,3,4,5\}$ Paare an.\\
-			\vspace{10pt}
-			b) Stellen Sie für $x_n$ eine geschlossene Formel (d.h. einen arithmetischen Ausdruck, in dem nur Zahlen, n und die Grundrechenarten vorkommen) auf.\\
-			\vspace{10pt}
-			c) Beweisen Sie Ihre Aussage aus Teilaufgabe b) durch vollständige Induktion
+		\begin{block}{Schleifeninvarianz}
+			Gegeben sei folgender Algorithmus:\\
+			\begin{algorithmic}
+				\State $x \gets a;$
+				\State $y \gets b;$
+				\State $p \gets 0;$
+				\While{$x > 0$}
+					\State $p \gets p + y$
+					\State $x \gets x - 1$
+				\EndWhile
+			\end{algorithmic}
+			
+			\begin{itemize}
+				\pause
+				\item Was macht dieser Algorithmus?
+				
+				\pause
+				\item Stellen Sie eine Schleifeninvariante über alle 
+				Variablen auf
+				
+				\pause
+				\item Beweisen Sie Ihre Schleifeninvariante
+			\end{itemize}						
+		\end{block}
+	\end{frame}
+	
+	
+	
+	\section{Relationen 2}
+	\begin{frame}{Relationen 2}
+		\begin{itemize}
+			\item Wie war eine Relation Definiert?
+			
+			\pause
+			\item 
+		\end{itemize}
+	\end{frame}
+	
+	
+	\subsection{Reflexivität}
+	\begin{frame}{Reflexivität}
+		\begin{block}{Definition}
+			$\forall x \in M \;|\; (x,x) \in R$\\
+			$\Rightarrow R \subseteq M \times M$\\
+			\pause
+			was sagt uns diese Definition?
+		\end{block}
+	\end{frame}
+	
+	
+	\subsection{Transitivität}
+	\begin{frame}{Transitivität}
+		\begin{block}{Definition}
+			$\forall x,y,z \;|\; ((x,y) \in R \land (y,z) \in R) \Rightarrow (x,z) \in R$\\
 		\end{block}
 	\end{frame}
 	
