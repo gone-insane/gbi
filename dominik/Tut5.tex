@@ -35,23 +35,10 @@
 			\item $X=X$ ist eine Schleifeninvariante! 
 			\only<2-> {\color{darkgreen}$\surd$}\\
 			\color{black}
-			\item $(L_1 \cdot L_2)^* = L_1^* \cdot L_2^*$
-			\only<3-> {\color{red}$X$}\\
+			
+			\item $A \Rightarrow B \Leftrightarrow \neg A \lor B$
+			\only<2-> {\color{darkgreen}$\surd$}\\
 			\color{black}
-			\item $f(x) = x^3-x^2$ ist rechtstotal für $x, f(x) \in \mathbb{R}$.
-			\only<4-> {\color{darkgreen}$\surd$}\\
-			\color{black}
-			\item Eine bijektive Relation ist eine Funktion.
-			\only<5-> {\color{red}$X$}\\
-			\color{black}
-			\item Wenn $f: A \rightarrow B$ injektiv $\Rightarrow f^{-1}$ ist surjektiv.
-			\only<6-> {\color{red}$X$}\\
-			\color{black}
-			\item $A\Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A$
-			\only<7-> {\color{darkgreen}$\surd$}\\
-			\color{black}
-			\item $(\forall x \exists y \; | \; f(x,y)) \Leftrightarrow (\exists y \forall x \; | \; f(x,y)))$
-			\only<8-> {\color{red}$X$}\\
 		\end{itemize}
 	\end{frame}
 	
@@ -118,7 +105,16 @@
 			\item Wie war eine Relation Definiert?
 			
 			\pause
-			\item 
+			\item Was bedeutet $xRy$?
+			
+			\pause
+			\item Wie lassen sich Relationen darstellen?
+			
+			\pause
+			\item Welche Besonderheiten haben Relationen?
+			
+			\pause
+			\item gibt es weitere Besonderheiten?
 		\end{itemize}
 	\end{frame}
 	
@@ -129,8 +125,20 @@
 			$\forall x \in M \;|\; (x,x) \in R$\\
 			$\Rightarrow R \subseteq M \times M$\\
 			\pause
-			was sagt uns diese Definition?
+			\vspace{10pt}
+			Was sagt uns diese Definition?
 		\end{block}
+		
+		\begin{exampleblock}{Beispiel}
+			\begin{itemize}
+				\item Die $\leq$ Relation ist reflexiv\\
+					\visible<3->{\hspace{30pt} $\hookrightarrow$ Warum?}
+					
+				\pause
+				\pause
+				\item Ist die Relation: $R = \{(x,y)\in M \times M \;|\; y = x^2\} $ reflexiv?
+			\end{itemize}
+		\end{exampleblock}
 	\end{frame}
 	
 	
@@ -139,6 +147,137 @@
 		\begin{block}{Definition}
 			$\forall x,y,z \;|\; ((x,y) \in R \land (y,z) \in R) \Rightarrow (x,z) \in R$\\
 		\end{block}
+		
+		\begin{exampleblock}{Beispiel}
+			\begin{itemize}
+				\item Die $\leq$ Relation ist auch transitiv.
+				
+				\pause
+				\item 
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+	
+	
+	\subsection{Symmetrie}
+	\begin{frame}{Symmetrie}
+		\begin{block}{Definition}
+			$\forall x, y \in M \; | \; (x,y) \in R \rightarrow (y,x) \in R$\\
+			$\Rightarrow R \subseteq M \times M$\\
+			\pause
+			\vspace{10pt}
+			Wie sieht eine solche Relation grafisch aus?
+		\end{block}
+		
+		\begin{exampleblock}{abc}
+			\begin{itemize}
+				\item Die $=$ Relation ist symetrisch\\
+				
+				\pause
+				\item Ist die Relation: 
+					$
+					R = f(x) =
+					\begin{cases}
+					x + 1 & \text{falls x gerade}\\
+					x - 1 & \text{falls x ungerade}
+					\end{cases}
+					$
+					\\ mit $x\in \mathbb{N}_0$ und $f(x) \in \mathbb{N}_0$ symmetrisch?
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+	
+	
+	\begin{frame}{Aufgaben}
+		abc
+	\end{frame}
+	
+	
+	\section{Kontextfreie Grammatiken}
+	\begin{frame}{Definition}
+		\begin{block}{Definition}
+        	Die Menge $G = G \left( N, T, S, P \right)$ nennen wir 
+        	\textbf{Kontextfreie Grammatik}.
+    	\end{block}
+    	\pause
+        \begin{block}{Was ist was?}
+            \begin{itemize}
+                \item \visible<3->{$N$: \textbf{Nichtterminalsymbol}}
+                \item \visible<4->{$T$: \textbf{Terminalsymbol}}
+                \item \visible<5->{$S$: \textbf{Startsymbol}}
+                \item \visible<6->{$P$: \textbf{Produktionsmenge}}
+            \end{itemize}
+    	\end{block}
+	\end{frame}
+	
+	\begin{frame}{Sinn?}
+		Für was brauchen wir kontextfreie Grammatiken?		
+		\begin{itemize}
+			\item
+		\end{itemize}
+	\end{frame}
+	
+	
+	\begin{frame}{Ableitung}
+    	\begin{block}{Definition}
+        	Als Ableitung wird in der theoretischen Informatik der Vorgang 
+        	bezeichnet, ein Wort nach den Regeln einer formalen 
+        	Grammatik zu erzeugen.
+   		\end{block}
+   		
+    	Wir schreiben: $w \Rightarrow^i v$, wenn von der Ableitung 
+    	von $v$ aus $w$ $i$ Ableitungsschritte liegen ($i \in \mathbb{N}$).
+    
+    	\pause
+   		\visible<2->{
+    		\begin{alertblock}{Vorsicht}
+        		\begin{align*}
+            		\Rightarrow \neq \rightarrow
+        		\end{align*}
+        		
+        		\begin{itemize}
+            		\item $\Rightarrow$ ist die Relation der Ableitung
+            	\item $\rightarrow$ ist die Relation der Produktion ($\in P$)
+        		\end{itemize}
+    		\end{alertblock}
+    	}
+	\end{frame}
+
+	\begin{frame}{Ableitung}
+    	\begin{block}{Frage}
+        	Was stimmt? Es ist $w_1, w_2 \in N \cup P$.
+        	
+        	\begin{itemize}
+            	\item $w_1 \rightarrow w_2$, daraus folgt $w_1 \Rightarrow w_2$
+            	\item $w_1 \Rightarrow w_2$, daraus folgt $w_1 \rightarrow w_2$
+        	\end{itemize}
+    	\end{block}
+	\end{frame}
+
+	\begin{frame}{Sprache der kontextfreien Grammatik}
+    	\begin{block}{Definition}
+        	Sei $G$ eine kontextfreie Grammatik. 
+        	Dann bezeichnen wir die Sprache $L = L\left(G\right)$ mit 
+        
+        	\begin{align*}
+            	L = \left\{ w\in T^* \big| S \Rightarrow^* w\right\}
+        	\end{align*}
+    	\end{block}
+    
+    	\pause
+    	\visible<2->{
+    		\begin{block}{Was ist $\Rightarrow^*$?}
+        		Mit $\Rightarrow^*$ ist die \emph{reflexiv-transitive Hülle} 
+        		der Ableitungsrelation gemeint.
+    		\end{block}
+    	}
+	\end{frame}	
+	
+	
+	
+	\section{Aufgaben}
+	\begin{frame}{Aufgaben}
+		
 	\end{frame}
 	
 	
@@ -156,8 +295,8 @@
 		
 	\begin{frame} {EOF}
 		\begin{center}
-			\includegraphics[scale=0.4]{graphics/eof4.png}\\
-			\tiny $source: http://imgs.xkcd.com/comics/michael_phelps.png$
+			\includegraphics[scale=0.5]{graphics/eof5.png}\\
+			\tiny $source: http://imgs.xkcd.com/comics/home\_organization.png$
 		\end{center}
 	\end{frame}
 
