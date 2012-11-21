@@ -23,7 +23,9 @@
 	
 	\section{\"Ubungsblatt 4}
 	\begin{frame} {Übungsblatt 4}
-		
+		\begin{center}
+			\Huge ?
+		\end{center}
 	\end{frame}	
 		
 	
@@ -150,10 +152,11 @@
 		
 		\begin{exampleblock}{Beispiel}
 			\begin{itemize}
-				\item Die $\leq$ Relation ist auch transitiv.
+				\item Die $\leq$ Relation ist auch transitiv.\\
+				siehe Axiom 12 der reellen Zahlen.
 				
 				\pause
-				\item 
+				\item Ist $M \times M$ transitiv?
 			\end{itemize}
 		\end{exampleblock}
 	\end{frame}
@@ -169,7 +172,7 @@
 			Wie sieht eine solche Relation grafisch aus?
 		\end{block}
 		
-		\begin{exampleblock}{abc}
+		\begin{exampleblock}{Beispiel}
 			\begin{itemize}
 				\item Die $=$ Relation ist symetrisch\\
 				
@@ -187,10 +190,112 @@
 		\end{exampleblock}
 	\end{frame}
 	
+	\begin{frame}{Äquivalenzrelationen}
+		\begin{definition}
+    	Sei R eine homogene Relation über M. $x, y, z \in M$.\\
+    	Hat R folgende Eigenschaften:
+			\begin{description}
+				\item[reflexiv] $x R x$
+				\item[transitiv] $x R y \wedge y R z \Rightarrow x R z$
+				\item[symmetrisch] $x R y \Rightarrow y R x$
+			\end{description}
+			So heißt R eine \emph{Äquivalenzrelation}.
+		\end{definition}
+	\end{frame}
+	
+	
+	\subsection{Produkt}
+	\begin{frame}{Produkt}
+		\begin{block}{Definition}
+			Auch Relationen kann man Verketten, so gilt:\\
+			Sei $f = A \rightarrow B$ und $ g = B$\\
+			$\rightarrow C$ $\Rightarrow g \circ f = g(f(x)) = A \rightarrow C$
+		\end{block}
+	\end{frame}
+	
+	\subsection{Potenzen}
+	\begin{frame}{Potenzen}
+		\begin{block}{Definition}
+			gilt: $R \subseteq M \times M$\\
+			Dann kann man $R$ auch Potenzieren:\\
+			\begin{itemize}
+			\pause
+			\item $R \circ R = R^2$\\
+			
+			\pause
+			\item $R^0 = I_M = \{(x,x) \; | \; x \in M \}$\\
+			
+			\pause
+			\item $R^{i+1} = R^i \circ R$
+			
+			\end{itemize}
+		\end{block}
+		
+		\pause
+		\begin{block}{Reflexiv-Transitive-Hülle}
+			$R^* = \bigcup_\mathrm{i = 0}^\infty R^i$\\
+			\vspace{10pt}
+			\visible<6>{$R^*= R^0 \cup R^1 \cup R^2 \cup \dots \cup R^\infty$}
+		\end{block}
+	\end{frame}
+	
+	
+	\begin{frame}{Beispiel (by Patrick Niklaus)}
+		\begin{exampleblock}{Freunde im Netzwerk}
+    		\small
+			Sei $M = \{ Gertrud, Holger, Lars, Katja, Martin, Nina \}$ eine 
+			Menge von Nutzern.\\
+			$R \subseteq M \times M $ sei die 
+			"`ist-befreundet-mit"'-Relation.
+				
+			\begin{itemize}
+				\item $R = \{(Martin,Holger),(Lars,Katja),(Nina,Holger),$ \\
+				$(Gertrud,Holger), (Katja, Nina) \} \bigcup \{$
+				{dazu sym. Tupel}$\}$ \pause
+					
+				\item $R^0=\{ (Martin,Martin), ..., (Holger,Holger) \}$ \pause
+				
+				\item $R^1=R$ "'Freundschaft 1. Grades."' \pause
+				
+				\item $R^2=\{(Martin,Nina),(Martin,Gertrud),(Martin,Martin),$ \\
+				
+				$(Lars,Nina), (Lars,Lars), (Nina,Gertrud),(Nina,Martin),$ \\		
+				$(Nina,Nina), (Nina,Lars), (Katja,Katja), (Katja,Holger), $ \\
+				$(Gertrud,Gertrud), (Gertrud,Martin), (Gertrud,Nina), $ \\
+				$(Holger,Holger), (Holger,Katja)\}$ "'Freundschaft 2. Grades"' 		
+				\pause
+				
+				\item $R^*=?$ "'Gibt es eine Verbindung durch 
+				Freunde beliebigen Grades?"'
+	%\item wegen Symmetrie und Unsinnigkeit der Reflexivität, entfällt Einiges 
+	% Funktionen sind kommutativ, Relationen symmetrisch
+			\end{itemize}
+    	
+		\end{exampleblock}
+	\end{frame}
+	
+	
 	
 	\begin{frame}{Aufgaben}
-		abc
-	\end{frame}
+  		\begin{exampleblock}{Reflexiv-transitive Hülle}
+    		Bestimmt die reflexiv-transitive Hülle der Relationen.\\
+    		$M := \{1, 2, 3, 4\}, R_i \subset M \times M$
+    		\begin{enumerate}
+      			\item $R_1 := \{(1, 2), (1, 4), (2, 3)\}$
+      			\item $R_2 := \{(1, 1), (2, 2)\}$
+      			\item $R_3 := \{(1, 2), (3, 4), (4, 2)\}$
+    		\end{enumerate}
+  		\end{exampleblock}
+  		\pause
+  		
+  		\invisible<1>{\begin{exampleblock}{Lösungen}
+    	\begin{enumerate}
+      	\item $R_1^* := \{(1, 1), (1, 2), (1, 3), (1, 4), (2, 2), (2, 3), (3, 3), (4, 4)\}$
+      	\item $R_2^* := \{(1, 1), (2, 2), (3, 3), (4, 4)\}$
+      	\item $R_3^* := \{(1, 1), (1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (4, 2), (4, 4)\}$
+    	\end{enumerate}
+    \end{exampleblock}}
+\end{frame}
 	
 	
 	\section{Kontextfreie Grammatiken}
@@ -202,10 +307,10 @@
     	\pause
         \begin{block}{Was ist was?}
             \begin{itemize}
-                \item \visible<3->{$N$: \textbf{Nichtterminalsymbol}}
-                \item \visible<4->{$T$: \textbf{Terminalsymbol}}
-                \item \visible<5->{$S$: \textbf{Startsymbol}}
-                \item \visible<6->{$P$: \textbf{Produktionsmenge}}
+                \item \visible<3->{$N$: Nichtterminalsymbol}
+                \item \visible<4->{$T$: Terminalsymbol $(T \cap N = \emptyset)$}
+                \item \visible<5->{$S$: Startsymbol $(S \subseteq N)$}
+                \item \visible<6->{$P$: Produktionsmenge}
             \end{itemize}
     	\end{block}
 	\end{frame}
@@ -213,7 +318,11 @@
 	\begin{frame}{Sinn?}
 		Für was brauchen wir kontextfreie Grammatiken?		
 		\begin{itemize}
-			\item
+			\pause
+			\item Dienen dazu eine Grammatik zu beschreiben
+			
+			\pause
+			\item Mit ihnen kann man Wörter einer Grammatik ableiten
 		\end{itemize}
 	\end{frame}
 	
@@ -225,22 +334,34 @@
         	Grammatik zu erzeugen.
    		\end{block}
    		
-    	Wir schreiben: $w \Rightarrow^i v$, wenn von der Ableitung 
-    	von $v$ aus $w$ $i$ Ableitungsschritte liegen ($i \in \mathbb{N}$).
-    
-    	\pause
-   		\visible<2->{
-    		\begin{alertblock}{Vorsicht}
-        		\begin{align*}
-            		\Rightarrow \neq \rightarrow
-        		\end{align*}
-        		
-        		\begin{itemize}
-            		\item $\Rightarrow$ ist die Relation der Ableitung
-            	\item $\rightarrow$ ist die Relation der Produktion ($\in P$)
-        		\end{itemize}
-    		\end{alertblock}
-    	}
+    	
+    	Wir schreiben: \pause
+    	\begin{itemize}
+        	\item $w \Rightarrow v$, wenn von der Ableitung von $v$, aus $w$, 
+        	genau $1$ Ableitungsschritt liegt.
+        	
+        	\pause
+        	\item $w \Rightarrow^i v$, wenn von der Ableitung von $v$, aus $w$, 
+        	$i$ Ableitungsschritte liegen ($i \in \mathbb{N}$).
+        	
+        	\pause
+        	\item $w \Rightarrow^* v$, wenn von der Ableitung von $v$, aus $w$, 
+        	beliebig viele Ableitungsschritte liegen.
+    	\end{itemize}
+	\end{frame}
+	
+	
+	\begin{frame}{Ableitung}
+    	\begin{alertblock}{Vorsicht}
+        	\begin{align*}
+            \Rightarrow \neq \rightarrow
+        	\end{align*}
+        	
+        	\begin{itemize}
+        		\item $\Rightarrow$ ist die Relation der Ableitung
+       	    	\item $\rightarrow$ ist die Relation der Produktion ($\in P$)
+			\end{itemize}
+		\end{alertblock}
 	\end{frame}
 
 	\begin{frame}{Ableitung}
@@ -277,10 +398,101 @@
 	
 	\section{Aufgaben}
 	\begin{frame}{Aufgaben}
-		
+    	\begin{exampleblock}{Fragen}
+        	\begin{enumerate}
+          		\item Gibt es Grammatiken für die gilt: $L(G) = \{\}$?
+          		
+          		\visible<2->{
+          		\item Welche Sprache erzeugt: 
+          		$G_1 := (\{X\}, \{0\}, X, \{X \rightarrow X\})$}
+          		
+          		\visible<3->{
+          		\item Ist 
+          		$G_2 := (\{X\}, \{a, b\}, X, \{X \rightarrow \varepsilon\})$ 
+          		eine gültige Grammatik?}
+          		
+        	\end{enumerate}
+    	\end{exampleblock}
+    	
+    	\begin{exampleblock}{Lösung}
+        	\begin{enumerate}
+            	\visible<2->{\item Ja z.B. $G = (\{X\}, \{0\}, X, \{\})$}
+            	\visible<3->{\item $L(G_1) = \{\}$}
+            	\visible<4->{\item Ja und $L(G_2) = \{\varepsilon\}$}
+        	\end{enumerate}
+    	\end{exampleblock}
 	\end{frame}
+
 	
-	
+	\begin{frame}{Aufgaben}
+  		\begin{exampleblock}{Welche Sprachen erzeugen folgende Grammatiken.}
+    		\begin{enumerate}
+      			\item $G_1 := (\{X, Y\}, \{a, b\}, X, \{X \rightarrow aY 
+      			| \varepsilon, Y \rightarrow bX\})$
+      			
+      			\item $G_2 := (\{X, Y, Z\}, \{a, b, c\}, X,$\\
+             	$\{X \rightarrow Ya | Yb | Yc, Y \rightarrow ZZY 
+             	| \varepsilon, Z \rightarrow a | b | c\})$
+    		\end{enumerate}
+  		\end{exampleblock}
+  		
+  		\begin{exampleblock}
+  			{Gebt eine jeweils Grammatik an für die gilt $L(G) = L_i$:}
+        	\begin{enumerate}
+      			\item $L_1 := \{ab, cd\}^+ \cdot \{a, c\}^2$
+      			\item $A := \{0, 1\}$, $L_2 := \{w  \in A^*
+      			| Num_0(w) = Num_1(w)\}$
+    		\end{enumerate}
+  		\end{exampleblock}
+	\end{frame}
+
+
+	\begin{frame}{Bonus-Aufgabe (by Patrick Niklaus)}
+  		\begin{exampleblock}{Aufgabe}
+    		Konstruiert eine Grammatik die alle E-Mail-Adresse 
+    		aus den Buchstaben {a, b, c} erzeugt.\\
+    		
+    		\emph{Hinweis}: $T := \{a, b, c, @, ., \_\}$
+    		
+  		\end{exampleblock}\pause
+  			
+  		\invisible<1>{
+  		\begin{exampleblock}{Lösung}
+    		$G = (N, T, S, P)$
+    		\begin{itemize}
+      			\item $N = \{S, A, B, C\}$
+      			\item $T = \{a, b, c, ., \_, @\}$
+      			\item $S = S$
+      			\item $P = \{S \rightarrow AB@C.C,$\\ 
+      			\hspace{28pt}$A \rightarrow a|b|c,$\\ 
+      			\hspace{28pt}$B \rightarrow AB|\_B|.AB|\varepsilon ,$\\ 
+      			\hspace{28pt}$C \rightarrow AC | \varepsilon\}$
+    		\end{itemize}
+    	\end{exampleblock}}
+	\end{frame}
+
+
+
+	\begin{frame}{Aufgabe: Winter 2008/2009}
+    	\begin{exampleblock}{Aufgabe}
+        	\begin{itemize}
+            	\item Geben Sie eine kontextfreie Grammatik 
+                	\begin{align*}
+                    	G = \left( N,\left\{ a,b\right\} ,S,P\right) 
+                	\end{align*}
+                	
+                	an, für die $L\left( G\right) $ 
+                	die Menge aller Palindrome über dem Alphabet 
+                	$\left\{ a,b\right\} $ ist. 
+                	
+            	\item Geben Sie eine Ableitung der Wörter 
+            	$baaab$ und $abaaaba$ aus dem Startsymbol Ihrer Grammatik an. 
+            
+            	\item Beweisen Sie, dass Ihre Grammatik jedes Palindrom 
+            	über dem Alphabet $\left\{ a, b\right\} $ erzeugt.
+        	\end{itemize}
+    	\end{exampleblock}
+	\end{frame}
 	
 	\section{Fragen}
 	\begin{frame} {Fragen}
