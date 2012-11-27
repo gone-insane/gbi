@@ -21,19 +21,12 @@
 	\end{frame}
 	
 	
-	\section{\"Ubungsblatt 4}
-	\begin{frame} {Übungsblatt 4}
-		\begin{center}
-			\Huge ?
-		\end{center}
-	\end{frame}	
-	
 	
 	\section{\"Ubungsblatt 5}
 	\begin{frame} {Übungsblatt 5}
-		\begin{center}
-			\Huge ?
-		\end{center}
+		\begin{block}{Aufgabe 5.1 b)}
+			Ein Wort $w \in \{a,b\}^*$ ist genau dann in $L_b$, wenn das maximal lange Anfangsstück von w, das nur aus $a$a besteht, und das maximal lange Endstück von $w$, das nur aus $a$ besteht, gleiche Länge haben.
+		\end{block}
 	\end{frame}	
 		
 	
@@ -63,57 +56,33 @@
 	
 	
 	\begin{frame} {Wiederholung - Aufgaben}
-		\begin{block}{Relationen}
-			Es sei A die Menge aller Kinobesucher in einer Vorstellung 
-			und B die Menge aller Sitzplätze. 
-			Die Abbildung f ordnet den Kinobesuchern die Sitzplätze zu:\\
-			\hspace{50pt}	$ f : A \rightarrow B $
-			\begin{itemize}
-				\pause
-				\item Was wünschen sich die Kinobesucher: 
-				Eine injektive, surjektive oder bijektive Abbildung 
-				auf die Sitzplätze? Was wünscht sich der Kinobesitzer?
-				
-				\pause
-				\item Erklären Sie jeweils, was es im Kino bedeutet, wenn $f$ linkstotal, linkseindeutig, rechtstotal, rechtseindeutig ist.
-				
-				\pause
-				\item In dieser Teilaufgabe nehmen wir an, 6 Kinobesucher 
-				besuchten ein Kino mit 8 Plätzen. 
-				Zeichnen Sie eine injektive Abbildung $f$. 
-				Wie viele injektive Abbildungen gibt es?
-			\end{itemize}
+		\begin{block}{Binäre Operationen}
+			Geben Sie für folgende aussagenlogische Formeln jeweils einen 
+			arithmetischen Ausdruck an, so dass das Ergebnis 
+			den Wahrheitswerten der aussagenlogischen Formel entspricht. 
+			Verwenden Sie für den Ausdruck nur die Operatoren +, - und 
+			$\cdot$ sowie konstante Zahlen. 0 bzw. 1 repräsentiert dabei den
+			 Wahrheitswert $falsch$ bzw. $wahr$.
+			 
+			 \begin{itemize}
+			 	\item $ A \lor B$
+			 	
+			 	\item $ A \Rightarrow B $
+			 	
+			 	\item $ A \Leftrightarrow B $
+			 \end{itemize}
 		\end{block}
 	\end{frame}
 	
 	
 	
 	\begin{frame} {Wiederholung}
-		\begin{block}{Schleifeninvarianz}
-			Gegeben sei folgender Algorithmus:\\
-			\begin{algorithmic}
-				\State $x \gets a;$
-				\State $y \gets b;$
-				\State $p \gets 0;$
-				\While{$x > 0$}
-					\State $p \gets p + y$
-					\State $x \gets x - 1$
-				\EndWhile
-			\end{algorithmic}
-			
-			\begin{itemize}
-				\pause
-				\item Was macht dieser Algorithmus?
-				
-				\pause
-				\item Stellen Sie eine Schleifeninvariante über alle 
-				Variablen auf
-				
-				\pause
-				\item Beweisen Sie Ihre Schleifeninvariante
-			\end{itemize}						
+		\begin{block}{Vollständige Induktion}
+			Beweisen sie folgende Gleichung durch vollständige Induktion:\\
+			\[ \sum_{i=1}^{n}(2i-1) = n^2 \]
 		\end{block}
 	\end{frame}
+	
 	
 	
 	\section{Zahlensysteme}
@@ -192,18 +161,158 @@
 	
 	
 	
-	\section{Übersetzungen}
+	\section{Übersetzungen/Homomorphismen}
 	\begin{frame}{Übersetzungen}
-	
+		\begin{block}{Warum?}
+			\begin{itemize}
+				\item Lesbarkeit (z.B. Deutsch statt Chinesisch)
+				
+				\pause
+				\item Kompression (z.B. Zip-Dateien)
+				
+				\pause
+				\item Verschlüsselung (z.B. https)
+				
+				\pause
+				\item Fehlererkennung und Korrektur 
+			\end{itemize}
+		\end{block}
 	\end{frame}
 	
 	
+	\begin{frame}{Homomorphismen}
+		\begin{block}{Was ist das?}
+			Ein Homomorphismus hat die Eigenschaft, 
+			dass er strukturerhaltend ist, 
+			das bedeutet z.B. für Abbildungen auf den natürlichen Zahlen:\\
+			\vspace{10pt}
+			$\forall x,y \in \mathbb{N}_0 : f(x) + f(y) = f(x+y)$ 
+		\end{block}
+		
+		\pause
+		
+		\begin{exampleblock}{Beispiel}
+			$f(x) = 2x$
+		\end{exampleblock}
+	\end{frame}
+	
+	
+	\begin{frame}{Homomorphismen}
+		\begin{block}{Wie auf Wörter übertragen?}
+			Eigenschaften, welche sich ausnutzen lassen:\\
+			\begin{itemize}
+				\item Wörter lassen sich konkatenieren
+				
+				\item Wörter, lassen sich auf Werte abbilden
+			\end{itemize}
+		\end{block}
+		
+		\pause		
+		
+		\begin{exampleblock}{Beispiel}
+			-- $h(a) = 001$ und $h(b) = 1101$\\
+			-- dann ist $h(bba) = h(b)h(b)h(a) = 1101 \cdot 1101 \cdot 001 = 11011101001$\\
+			\vspace{10pt}
+			\visible<3->{Warum?}
+		\end{exampleblock}
+	\end{frame}
+	
+	
+	\begin{frame}{Homomorphismen}
+		\begin{block}{Was gibt es allgemein zu beachten?}
+			\begin{itemize}
+				\item $\epsilon$-freier Homomorphismus: \pause Warum?
+				
+				\pause
+				\item $\forall x,y,z \in A : x \cdot y \not= z \Rightarrow h(x) \cdot h(y) \not= h(z)$
+				
+				\pause
+				\item präfixfreier Code: für keine zwei verschiedenen Symbole 
+				$x1, x2 \in A$ gilt: $h(x1)$ ist ein Präfix von $h(x2)$.
+			\end{itemize}
+		\end{block}
+		
+		\vspace{15pt}
+		\visible<5->{Gibt es Ausnahmen?}
+	\end{frame}
+	
+	
+	\begin{frame}{Aufgaben}
+		\begin{block}{}
+			Gegeben sei $A = \{a,b,c\}$ mit:\\
+			$h(a) = 1011$, $h(b) = 0110$, $h(c) = 111 $
+			\begin{itemize}
+				\item ist h präfixfrei?\\
+					\visible<2->{\color{darkgreen} ja \color{black}}
+					
+				\item Berechnen Sie $h(aacbabca)$\\
+					\visible<3->{\color{darkgreen}
+					 101110111110110101101101111011 \color{black}}
+					 
+				\item Berechnen sie $w$ für welches gilt: 
+				$h(w) = 01101111111011111011011110110110$\\
+				\visible<4->{\color{darkgreen} bccacbcab \color{black}}
+			\end{itemize}
+		\end{block}
+	\end{frame}
 	
 	
 	\section{Huffman-Codierung}
 	\begin{frame}{Huffman-Codierung}
+		\begin{block}{Allgemein Vorgehensweise}
+			\begin{itemize}
+				\item Tabelle aufstellen, wie oft kommt jedes Element vor?
+				
+				\pause
+				\item Baum aufstellen, Blätter sind die Elemente.
+				
+				\pause
+				\item Elemente mit niedrigster Häufigkeit zu neuem Knoten
+				 zusammenführen und addierte Häufigkeit in Knoten schreiben.
+				 
+				\pause
+				\item solange Wiederholen bis nur noch die Wurzel übrig ist.
+				
+				\pause
+				\item Kanten beschriften, Kanten nach links mit 1 und Kanten nach rechts mit 0, oder anders herum.
+					
+			\end{itemize}
+		\end{block}
+	\end{frame}
+		
+	\begin{frame}{Huffman-Codierung}
+		\begin{exampleblock}{Beispiel}
+			\begin{itemize}
+			\item Kodierung für "w = badcfehg"
+			
+			\pause
+			\item Kodierung für ein Wort, in welchem a einmal, b zweimal, c 4-mal, d 8-mal, e 16-mal, f 32-mal, g 64-mal und h 128-mal vorkommt
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}	
 	
+	
+	\begin{frame}{Huffman-Codierung}
+		Wie sieht es mit der Codierung von $w = aaaaaabbbbbcccc$ aus?\\
+		\vspace{15pt}
+		
+		\visible<2-> {
+			Lässt sich das ganze noch optimieren?
+		}
 	\end{frame}		
+	
+	
+	\section{Aufgaben}
+	\begin{frame}
+		\begin{block}{}
+			Kodiere folgende Wörter mit der Huffman-Codierung:
+			\begin{itemize}
+				\item abcbcaaa
+				\item ababababab
+				\item hello$\textvisiblespace$world
+			\end{itemize}
+		\end{block}	
+	\end{frame}
 	
 	
 	
@@ -221,8 +330,8 @@
 		
 	\begin{frame} {EOF}
 		\begin{center}
-			\includegraphics[scale=0.5]{graphics/eof5.png}\\
-			\tiny $source: http://imgs.xkcd.com/comics/home\_organization.png$
+			\includegraphics[scale=0.45]{graphics/eof6.png}\\
+			\tiny $source: http://imgs.xkcd.com/comics/academia\_vs\_business.png$
 		\end{center}
 	\end{frame}
 
