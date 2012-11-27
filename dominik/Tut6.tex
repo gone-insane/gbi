@@ -118,7 +118,76 @@
 	
 	\section{Zahlensysteme}
 	\begin{frame}{Zahlensysteme}
+		\begin{block}{Definition}
+			Eine Zahl wird mit $Num_x$ zur Basis x dargestellt.\\
+			
+			\pause
+			Beispiel: $Num_{10}$ ist definiert durch:\\
+			
+			
+			\begin{align}
+			Num_{10}(\epsilon) &=& 0 \\
+			\forall v \in Z_{10}^*\forall w \in Z_{10} : Num_{10}(vw) 
+			&=& 10 \cdot Num_{10}(v) + Num_{10}(w)
+			\end{align}
+			
+		\end{block}
+		
+		\begin{Lemma}
+			$Num_{10}$ ist durch Gleichung $1$ und $2$ wohldefiniert.\\
+			\pause
+			Wie beweisen wir das?
+		\end{Lemma}
+	\end{frame}
 	
+	
+	\begin{frame}{Allgemein}
+		\begin{block}{Für $Num_x$}
+			\begin{align}
+			Num_{x}(\epsilon) &=& 0 \\
+			\forall v \in Z_{x}^*\forall w \in Z_{x} : Num_{10}(vw) 
+			&=& x \cdot Num_{x}(v) + Num_{x}(w)
+			\end{align}
+		\end{block}
+	\end{frame}
+	
+		
+	
+	\begin{frame}{Beispiel}
+		\begin{block}{Beispiel für $Num_3$}
+			$Num_3(12012)$\\
+		\pause
+			Nach Gleichung 2 $\Rightarrow Num_3(12012) = 3*Num_3(1201) + Num_3(2)$\\
+		\pause
+			$\Rightarrow^* 3*\bigg(3*\Big(3*\big(3*Num_3(1) )+Num_3(2)\big)+ Num_2(0)\Big)+Num_3(1)\bigg) + Num_3(2) $\\
+		\pause
+			\vspace{5pt}
+			$= 81* Num_3(1) + 27* Num_3(2) + 9* Num_3(0) + 3* Num_3(1) + Num_3(2)$\\
+		\pause
+			\vspace{5pt}
+			$ = 81* 1 + 27* 2 + 9 * 0 + 3 * 1 + 2$\\
+		\pause
+			\vspace{5pt}
+			$ = 140$
+		\end{block}
+		
+		\pause
+		Kann man das ganze noch in einer anderen Form darstellen?
+	\end{frame}
+	
+	
+	\begin{frame}{Aufgaben}
+		\begin{itemize}
+			\item $\forall m \in \mathbb{N}_0 : Num_4({3}^m) = ?$\\
+				\visible<2->{
+					\color{darkgreen} 
+					$4^m - 1$ 
+					\color{black}}
+					\pause
+			\item Schreibe einen Algorithmus um die $Num_5(w)$ zu berechnen, 
+			mit $w \in Z_5^*$. \\
+			w(i) gibt das Zeichen an der i-ten Stelle zurück.
+		\end{itemize}
 	\end{frame}
 	
 	
