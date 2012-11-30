@@ -1,0 +1,280 @@
+\include{header}
+\subtitle{Foliensatz 6}
+\date{29. November 2012}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Outline/Gliederung}
+    \tableofcontents
+\end{frame}
+
+\section{Übungsblatt 5}
+\begin{frame}{Allgemeine Fehler, Fragen}
+    \begin{block}{Allgemeines}
+        \begin{itemize}
+            \item Randbedingungen bei Sprachen überprüfen ($\varepsilon$)
+            \item ``Für ein beliebiges aber festes\dots ''
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Wiederholung} 
+\begin{frame} {Wiederholung - Quiz}
+    \begin{itemize}
+        \item $\neg (A \land B) \Leftrightarrow \neg A \lor \neg B$
+        \only<2-> {\color{darkgreen}$\surd$}\\
+        \color{black}
+        
+        \item $x^2$ ist eine surjektive Abbildung
+        \only<3-> {\color{darkgreen}$\surd$\color{red}$X$}\\
+        \color{black}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Wiederholung}
+    \begin{exampleblock}{Aufgaben}
+        \begin{itemize}
+            \item Was ist mit $\left( f\circ g \right)\left( x \right)$ gemeint?
+            \item Wann ist eine Funktion injektiv?
+            \item Wann ist eine Funktion surjektiv?
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+\begin{frame} {Wiederholung - Aufgaben}
+    \begin{block}{Binäre Operationen}
+        Geben Sie für folgende aussagenlogische Formeln jeweils einen 
+        arithmetischen Ausdruck an, so dass das Ergebnis 
+        den Wahrheitswerten der aussagenlogischen Formel entspricht. 
+        Verwenden Sie für den Ausdruck nur die Operatoren +, - und 
+        $\cdot$ sowie konstante Zahlen. 0 bzw. 1 repräsentiert dabei den
+         Wahrheitswert $falsch$ bzw. $wahr$.
+         
+         \begin{itemize}
+            \item $ A \lor B$
+            
+            \item $ A \Rightarrow B $
+            
+            \item $ A \Leftrightarrow B $
+         \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}{Zum warm werden}
+    \begin{block}{Vollständige Induktion}
+        Beweisen sie folgende Gleichung durch vollständige Induktion:\\
+        \[ \sum_{i=1}^{n}(2i-1) = n^2 \]
+    \end{block}
+\end{frame}
+
+\section{Übersetzungen}
+\begin{frame}{Definition}
+    \begin{block}{Definition von $\Num2$}
+        Zu einer Zahlenbasis $b$ gilt
+        \begin{align*}
+            \Num2_b\left( \varepsilon \right) &= 0\\
+            \forall w \in Z_b^*: \forall x \in Z_b: \Num2_b\left( wx \right) &= b\cdot \Num2_b\left( w \right) + \Num2_b\left( x \right)
+        \end{align*}
+    \end{block}
+    \begin{exampleblock}{Beispiel}
+        Gegeben ist die Zahl $101$ im Binärsystem ($b=2$). Umrechung:
+        \begin{align*}
+            \Num2_2\left( 101 \right) &= 2\cdot\Num2_2\left( 10 \right) &+ \Num2_2\left( 1 \right)&\\
+                &= 2\cdot\Num2_2\left( 10 \right) &+ 1&\\
+                &= 2\cdot\left( 2\cdot\Num2_2\left( 1 \right) + \Num2_2\left( 0 \right) \right) &+ 1&\\
+                &= 2\cdot\left( 2\cdot 1 + 0 \right) &+ 1&\\
+                &= 2\cdot 2 + 1 &&= 5
+        \end{align*}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Übung}
+    \begin{exampleblock}{Jetzt ihr}
+        \begin{align*}
+            \Num2_2\left( 1010 \right) &= \visible<2->{2\cdot\Num2_2\left(  101\right) + \Num2_2\left( 0 \right)\\
+                &= \dots = 10}\\
+            \Num2_4\left( 321 \right) &= \visible<3->{4\cdot\Num2_4\left( 32 \right) + \Num2_4\left( 1 \right)}\\
+                &\visible<4->{=4\cdot\left( 4\cdot\Num2_4\left( 3 \right) + \Num2_4\left( 2 \right) \right) + \Num2_4\left( 1 \right)}\\
+                &\visible<5->{=57}\\
+                \Num2_{16}\left( B2 \right) &= \visible<6->{16\cdot\Num2_{16}\left( B \right) + \Num2_{16}\left( 2 \right)}\\
+                    \visible<7->{&= 16\cdot 11 + 2}\\
+                    \visible<8->{&= 178}
+        \end{align*}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Übung}
+    \begin{exampleblock}{Regeln}
+        \begin{align*}
+            \Num2_2\left( 11 \right) &= \visible<2->{3}\\
+            \Num2_2\left( 111 \right) &= \visible<3->{7}\\
+            \Num2_2\left( 1111 \right) &= \visible<4->{15}
+        \end{align*}
+        Gibt es eine Regel? \visible<5->{$\Num2_2\left( 1^m \right) = 2^m - 1$}\\
+        Geht das auch in anderen Fällen?
+        \begin{align*}
+            \Num2_3\left( 22 \right) &= \visible<6->{8}\\
+            \Num2_3\left( 222 \right) &= \visible<7->{26}\\
+            \Num2_3\left( 2222 \right) &= \visible<8->{80}
+        \end{align*}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Als Algorithmus}
+    \begin{exampleblock}{Von Binär nach Dezimal}
+        \visible<2->{
+        \begin{algorithm}
+            \begin{algorithmic}
+                \Require $w \in \mathbb{Z_2}^*$
+                \State $x \gets 0$
+                \For{i}{0}{|w| - 1}
+                    \State $x$ \gets $2\, x + \Num2_2 \left( w\left( i \right) \right)$
+                \EndFor
+                \Ensure $x$
+            \end{algorithmic}
+        \end{algorithm}}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Aufgabe}
+    \begin{exampleblock}{Winter 2010/2011}
+        Es bezeichne $\mathbb{Z}$ die Menge der ganzen Zahlen. Gegeben sei eine Ziffernmenge $Z_{-2} = \left\{ N, E \right\}$ mit der Festlegung $\Num2_2\left( N \right) = 0$ und $\Num2_2\left( E \right) = 1$. Wir definieren eine Abbildung $\Num2_{-2}: Z_{-2}^* \rightarrow \mathbb{Z}$ wie folgt:
+        \begin{align*}
+            \Num2_{-2}\left( \varepsilon \right) &= 0\\
+            \forall w \in Z_{-2}^*: \forall x \in Z_{-2}: \Num2_{-2}\left( wx \right) &= -2\cdot \Num2_{-2}\left( w \right) + \Num2_{-2}\left( x \right)
+        \end{align*}
+        \begin{itemize}
+            \item Geben Sie für $w \in \left\{ E, EN, EE, ENE, EEN, EEE\right\}$ jeweils $\Num2_{-2}\left( w \right)$ an.
+            \item Für welche Zahlen $x\in\mathbb{Z}$ gibt es ein $w \in Z_{-2}^*$ mit $\Num2_{-2}\left( w \right) = x$?
+            \item Wie kann man an einem Wort $w \in Z_{-2}^*$ erkennen, ob $\Num2_{-2}\left( w \right)$ negativ, Null oder positiv ist?
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\section{Homomorphismus}
+\begin{frame}{Definition}
+    \begin{block}{Definition}
+        $A$ und $B$ seien Alphabete. $h$ ist eine Abbildung: $h: A\rightarrow B^*$ und $h^{**}: A^*\rightarrow B^*$. \\ Es muss gelten, dass $h^{**}$ ein Homomorphismus ist:
+    \pause
+        \begin{align*}
+            h^{**} &= \varepsilon\\
+            \forall w \in A^*: \forall x \in A: h^{**}\left( wx \right) &= h^{**}\left( w \right)h\left( x \right)
+        \end{align*}
+    \end{block}
+\end{frame}
+\begin{frame}{Homomorphismus}
+    \begin{block}{Eigenschaften}
+        Ein Homomorphismus ist\dots
+        \begin{itemize}
+            \item Strukturerhaltend\\
+                $\forall xy \in A^*: h\left( xy \right) = h\left( x \right)\circ h\left( y \right)$\pause
+            \item $\varepsilon$-frei, falls\\
+                $\forall x \in A: h\left( x \right) \neq \varepsilon$\pause
+            \item Präfixfrei, falls\\
+                $\forall w \in A^*: \nexists v,z \in A^* \wedge w \neq vz: h\left( w \right) = h\left( v \right) \circ h\left( z \right)$\\
+                Anschaulich: Für verschiedene $x_1$ und $x_2$ gilt: $h\left( x_1 \right)$ ist kein Präfix von $h\left( x_2 \right)$.
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}{Homomorphismus}
+    \begin{exampleblock}{Beispiel}
+        $h: \left\{ a,b,c \right\}^* \rightarrow \left\{ 0,1 \right\}^*$. Es ist
+        \begin{itemize}
+            \item $h\left( a \right) = 1$
+            \item $h\left( b \right) = 01$
+            \item $h\left( c \right) = 001$
+        \end{itemize}
+        \pause
+        Ist der Homomorphismus Präfixfrei? Ist er $\varepsilon$-frei?
+        \pause
+        Wir erhalten ein beliebiges Codewort und dekodieren dies. Wie?
+        \begin{align*}
+            u\left( w \right) = \begin{cases} 
+                \varepsilon & \text{falls } w = \varepsilon\\
+                a\cdot u\left( w' \right) & \text{falls } w = 1w'\\
+                b\cdot u\left( w' \right) & \text{falls } w = 01w'\\
+                c\cdot u\left( w' \right) & \text{falls } w = 001w'
+            \end{cases}
+        \end{align*}
+        \pause
+        Dekodiere $100101$.
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Beispiel 2}
+    Gegeben ist
+    \begin{align*}
+        h\left( x \right) = \begin{cases}
+            2 & \text{falls } x = a\\
+            3 & \text{falls } x = b
+        \end{cases}
+    \end{align*}
+    \begin{itemize}
+        \item Strukturerhaltend?\\\visible<2->{$h\left( aba \right) = h\left( a \right)\circ h\left( b \right) \circ h\left( a \right) = 232$}
+        \item $\varepsilon$-frei: \visible<3->{Annahme $h\left( c \right) = \varepsilon$, $h\left( b \right) = 2$.\\
+            Gegeben: Verschlüsseltes Wort und Homomorphismus: $h\left( w \right) = 2$. Woher weiß ich, wieviele $c$ in meinem Wort $w$ sind?}
+        \item Präfixfrei: \visible<4->{$h\left( a \right) = 2$, $h\left( b \right) = 3$, $h\left( c \right) = 23$. Woher weiß ich bei $h\left( w \right) = 23$, was $w$ ist?}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Homomorphismen}
+    \begin{block}{Wie auf Wörter übertragen?}
+        Eigenschaften, welche sich ausnutzen lassen:\\
+        \begin{itemize}
+            \item Wörter lassen sich konkatenieren
+            
+            \item Wörter, lassen sich auf Werte abbilden
+        \end{itemize}
+    \end{block}
+    
+    \pause		
+    
+    \begin{exampleblock}{Beispiel}
+        -- $h(a) = 001$ und $h(b) = 1101$\\
+        -- dann ist $h(bba) = h(b)h(b)h(a) = 1101 \cdot 1101 \cdot 001 = 11011101001$\\
+        \vspace{10pt}
+        \visible<3->{Warum?}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Huffman-Codierung}
+    \begin{block}{Beschreibung}
+        Die Huffman-Codierung ordnet Wörter bzw. Wörterblöcke durch einen Homomorphismus eine Codierung zu, die umso länger wird, je seltener das Wort vorkommt.
+        
+    \end{block}
+    \begin{exampleblock}{Beispiel}
+        Gegeben: $w = analysis$. Vorgehen:
+        \begin{enumerate}
+            \item Tabelle aufstellen: Wie oft kommt jedes Symbol vor?
+            \item Baum aufstellen
+            \item Kanten beschriften
+        \end{enumerate}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Huffman-Codierung}
+    \begin{block}{Geht das noch besser?}
+        Ja, wenn ein $e$ zum Beispiel oft gefolgt von einem $i$ kommt, kann dies zu einem neuen Zeichen zusammengefasst werden.\\
+        Alternativ: Arithmetische Kodierung.
+    \end{block}
+\end{frame}
+\begin{frame}{Aufgaben}
+    \begin{exampleblock}{Aufgabe Winter 2008}
+        Das Wort
+        \begin{align*}
+            w = 0000 0001 0011 0001 0011 0000 0000 1110 0001 0000
+        \end{align*}
+        soll komprimiert werden.
+        \begin{itemize}
+            \item Zerlegen Sie $w$ in Viererblöcke und bestimmen Sie die Häufigkeit der vorkommenden Blöcke.
+            \item Zur Kompression soll ein Huffman-Code verwendet werden. Stellen Sie ienen Baum auf. Beschriften Sie alle Knoten und Kanten
+            \item Geben Sie die Codierung des Wortes $w$ mit Ihrem Code an.
+        \end{itemize}
+        \visible<2->{Lösung: $101 0010 1001 1100 0011$}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}{Aufgaben}
+    \begin{exampleblock}{Aufgabe Winter 2010}
+        Seien $n,k \in \mathbb{N}_0$ mit $1\geq k \geq n$. In einem Wort $w\in \left\{ a,b,c \right\}^*$ der Länge $3n$ komme $k$ mal das Zeichen $a$, $n$ mal das Zeichen $b$ und $2n-k$ mal das Zeichen $c$ vor.
+        \begin{itemize}
+            \item Geben Sie den für die Huffman-Codierung benötigten Baum an
+            \item Geben Sie in Abhängigkeit von k und n die Länge des zu w gehörenden Huffman-Codes an
+        \end{itemize}
+        \visible<2->{Lösung Teil b: $2k + 2n+2n-k = 4n+k$}
+    \end{exampleblock}
+\end{frame}
+\end{document}
