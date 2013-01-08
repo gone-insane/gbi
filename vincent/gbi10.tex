@@ -22,11 +22,16 @@
         kann die Laufzeit für drei Fälle abgeschätzt werden:
         \pause
         \begin{enumerate}
-            \item Wenn $f\left( n \right)\n \mathcal{O}\left( n^{\log_b a-\varepsilon} \right)$ für ein $\varepsilon > 0$, dann ist $T\left( n \right) \in \Theta\left( n^\log_b a \right)$
+            \item Wenn $f\left( n \right)\in \mathcal{O}\left( n^{\log_b a-\varepsilon} \right)$ für ein $\varepsilon > 0$, 
+                dann ist $T\left( n \right) \in \Theta\left( n^{\log_b a} \right)$
                 \pause
-            \item Wenn $f\left( n \right)\n \Theta\left( n^{\log_b a} \right)$, dann ist $T\left( n \right) \in \Theta\left( n^\log_b a \log n\right)$
+            \item Wenn $f\left( n \right)\in \Theta\left( n^{\log_b a} \right)$, 
+                dann ist $T\left( n \right) \in \Theta\left( n^{\log_b a} \log n\right)$
                 \pause
-            \item Wenn $f\left( n \right)\n \Omega\left( n^{\log_b a+\varepsilon} \right)$ für ein $\varepsilon > 0$, \\ und wenn es eine Konstante $d$ gibt mit $0<d<1$,\\ sodass für alle hinreichend großen $n$ gilt $af\left( \nicefrac{n}{b} \right) \leq df\left( n \right)$,\\ dann ist $T\left( n \right) \in \Theta\left( f\left( n \right) \right)$
+            \item Wenn $f\left( n \right)\in \Omega\left( n^{\log_b a+\varepsilon} \right)$ für ein $\varepsilon > 0$, \\ 
+                und wenn es eine Konstante $d$ gibt mit $0<d<1$,\\ 
+                sodass für alle hinreichend großen $n$ gilt $af\left( \nicefrac{n}{b} \right) \leq df\left( n \right)$,\\ 
+                dann ist $T\left( n \right) \in \Theta\left( f\left( n \right) \right)$
         \end{enumerate}
     \end{block}
     \begin{itemize}
@@ -49,16 +54,99 @@
         \end{enumerate}
     \end{block}
 \end{frame}
-\begin{frame}{Getränkeautomat}
+\begin{frame}{Getränkeautomat (ohne Ausgabe)}
     \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{graphics/10/getraenke.png}
+        \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{graphics/10/getraenke2.png}
     \end{figure}
 \end{frame}
 \begin{frame}{Getränkeautomat}
     Was ist was?
     \begin{itemize}
         \item Zustandsmenge $Z$: $\left\{ \left( 0,- \right), \left( 0,R \right), \left( 0,Z \right), \left( 1,- \right), \left( 1,R \right), \left( 1,Z \right) \right\}$
+        \item Eingabealphabet $X$: $\left\{ 1, R, Z, C, 0 \right\}$
+        \item Zustandsübergangsfunktion $f$: die Pfeile
+        \item Ausgabealphabet $Y$: $\left\{ 1, R, Z \right\}$
+        \item Ausgabefunktion $g$: bisher noch nicht eingezeichnet, siehe nächste Folie
+    \end{itemize}
+\end{frame}
+\begin{frame}{Getränkeautomat (mit Ausgabe)}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{graphics/10/getraenke2.png}
+    \end{figure}
+\end{frame}
+\begin{frame}{Getränkeautomat}
+    Was ist was?
+    \begin{itemize}
+        \item Zustandsmenge $Z$: $\left\{ \left( 0,- \right), \left( 0,R \right), \left( 0,Z \right), \left( 1,- \right), \left( 1,R \right), \left( 1,Z \right) \right\}$
+        \item Eingabealphabet $X$: $\left\{ 1, R, Z, C, 0 \right\}$
+        \item Zustandsübergangsfunktion $f$: die Pfeile, was vor einem senkrechten Strich $|$ steht
+        \item Ausgabealphabet $Y$: $\left\{ 1, R, Z \right\}$
+        \item Ausgabefunktion $g$: die Pfeile, was hinter einem senkrechten Strich $|$ steht
+    \end{itemize}
+\end{frame}
+\begin{frame}{$f*$ und $f**$}
+    \begin{block}{Definition: $f*$ und $f**$}
+        $f^* = f^*\left( z,w \right)$ kann im Gegensatz zu $f$ ein ganzes Wort $w$ als zweites Funktionsargument nehmen: 
+        \begin{align*}
+            f^*: Z\times X^* &\rightarrow Z\\
+            f^*\left( z, \varepsilon \right) &= z\\
+            f^*\left( z, wx \right) &= f\left( f^*\left( z,w \right) ,x \right)
+        \end{align*}
+        \pause
+        $f^{**}$ kann im Gegensatz zu $f^*$ ganze Wörter anstatt einem Symbol ausgeben:
+        \begin{align*}
+            f^{*}: Z\times X^* &\rightarrow Z^*\\
+            f^{**}\left( z,\varepsilon \right) &= z\\
+            \visible<2->{f^{**}\left( z, wx \right) &= f^{**}\left( z,w \right)\cdot f\left( f^*\left( z,w \right) ,x \right)}
+        \end{align*}
+    \end{block}
+\end{frame}
+\begin{frame}{Getränkeautomat (ohne Ausgabe)}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=.80\textwidth,height=.8\textheight,keepaspectratio]{graphics/10/getraenke.png}
+    \end{figure}
+    Was macht $f^*\left( \left( 0,- \right), R10 \right)$? \pause\visible<2->{Berechnet $f^*\left( \left( 0, - \right), R10 \right)$.} \pause \visible<3->{Was käme bei $f^{**}\left( \left( 0,- \right), R10 \right)$ raus?}
+\end{frame}
+\begin{frame}{Getränkeautomat (mit Ausgabe)}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=.80\textwidth,height=.8\textheight,keepaspectratio]{graphics/10/getraenke2.png}
+    \end{figure}
+    Was macht $g^*\left( \left( 0,- \right), R10 \right)$? \pause\visible<2->{Berechnet $g^*\left( \left( 0, - \right), R10 \right)$.} \pause \visible<3->{Was käme bei $g^{**}\left( \left( 0,- \right), R10 \right)$ raus?} \pause \visible<4->{Was passiert bei $g^{**}\left( \left( 0, - \right), R110 \right) = 1R$}
+\end{frame}
+\begin{frame}{Alternativer Automat}
+    Gegeben sei der Automat mit
+    \begin{itemize}
+        \item $Z = \left\{ z \right\}$,
+        \item $X = Y = \left\{ a, b \right\}$,
+        \item $g\left( z, a \right) = b$,
+        \item $g\left( z, b \right) = ba$.
+     \end{itemize}
+     \begin{enumerate}
+         \item Zeichnet den Automaten,
+         \item gebt $w_1 = g^{**}\left( z, a \right)$ an und
+         \item gebt $w_2 = g^{**}\left( z, w_1 \right)$ an.
+     \end{enumerate}
+     Wie sieht $w_3$ vermutlich aus? Allgemein, wie sieht $w_i$ aus?
+\end{frame}
+\begin{frame}{Alternativer Automat}
+    \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[draw,shape=circle];
+        \path[fill] (0,0)  node[circle] (0) {z};
+
+        \path[->,draw] (0) edge [loop below] node[draw=none,below=-10pt]{ $a|b$, $b|ba$ } ();
+    \end{tikzpicture}
+    \end{figure}
+    \begin{itemize}
+        \item $w_1 = g^{**}\left( z, a \right) = g^{**}\left( z, \varepsilon \right)\cdot g^*\left( z, wx \right) = g\left( f^*\left( z, \varepsilon \right), a \right) = g\left( z, a \right) = b$
+        \item $w_2 = g^{**}\left( z, b \right) = g\left( z, b \right) = ba$
+        \item $w_3 = \dots = baa$
+        \item Vermutung: $w_{i+1} = ba^i$
     \end{itemize}
 \end{frame}
 
