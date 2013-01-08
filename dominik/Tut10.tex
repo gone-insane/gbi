@@ -1,0 +1,220 @@
+\include{header}
+
+\title[Tutorium 10]{GBI Tutorium Nr. $2^5$}
+\subtitle{Tutorium 10}
+\date{9. Januar 2013}
+
+% Bibliography
+
+
+
+\begin{document}
+
+	%title page
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	%table of contents
+	\begin{frame}{Outline/Gliederung}
+		\tableofcontents
+	\end{frame}	
+		
+	
+	
+	\section{Wiederholung} 
+	\begin{frame} {Wiederholung - Quiz}
+		\begin{itemize}
+			\item In Adjazenzmatrizen sind immer schneller als Adjazenzlisten, benötigen aber mehr Speicher.
+			\only<2-> {\color{red}$X$}\\
+			\color{black}
+					
+			\item Hat ein Knoten x keine Ausgehenden Kanten, so steht in der Wegematrix in der x. Zeile nur 0en.
+			\only<3-> {\color{red}$X$}\\
+			\color{black}
+	
+			\item Über Matrizenmultiplikation und addition lässt sich eine Wegematrix konstruieren.
+			\only<4-> {\color{darkgreen}$\surd$}\\
+			\color{black}
+			
+			\item Die 2-Erreichbarkeitsrelation sagt uns nichts darüber aus, ob es einen Pfad der Länge 1 von einem Knoten zu einem andern gibt.
+			\only<4-> {\color{darkgreen}$\surd$}\\
+			\color{black}
+		\end{itemize}
+	\end{frame}
+	
+	
+	
+	\begin{frame} {Wiederholung - Aufgaben}
+		\begin{block}{$A^2$}
+			Gegeben sei A mit:
+			A = $\kbordermatrix{
+          		  & 0 & 1 & 2 & 3 \\
+        		0 & 0 & 1 & 0 & 1 \\
+        		1 & 0 & 0 & 0 & 0 \\
+        		2 & 0 & 0 & 1 & 1 \\
+        		3 & 0 & 0 & 1 & 0 \\
+      			}$\\
+      			
+      		\begin{itemize}
+      			\item Zeichnen Sie den Graphen
+      			\pause
+      			\item Berechnen Sie $A^2$
+			\end{itemize}      						 
+		\end{block}
+	\end{frame}
+	
+	
+	\begin{frame} {Wiederholung - Fragen}
+		\begin{itemize}
+			\item Was ist eine Äquivalenzrelation?
+			
+			\item \visible<2->{Was ist eine symmetrische Relation?}
+			
+			\item \visible<3->{Was ist eine reflexive Relation?}
+			
+			\item \visible<4->{Was ist eine transitive Relation?}
+		\end{itemize}
+	\end{frame}
+	
+	
+	
+	\section{Master Theorem}
+	\begin{frame}{Master Theorem}
+		\begin{block}{Wozu?}
+			Laufzeitabschätzung von rekursiv definierten Funktionen
+		\end{block}
+		
+		\pause
+		\begin{block}{Grundaufbau}
+			\[T(n) = a\cdot T(\frac{n}{b}) + f(n)\]
+		\end{block}
+		
+		\pause
+		\begin{block}{Erläuterung}
+			\begin{itemize}
+				\item $a$ = Anzahl der Unterprobleme in der Rekursion
+				
+				\pause
+				\item $\frac{1}{b}$ = Teil des Originalproblems, welches wiederum durch alle Unterprobleme repräsentiert wird
+				
+				\pause
+				\item $f(n)$ = Aufwand, welcher durch die Rekursion der Teilprobleme und Kombination der Teillösungen auftritt.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+	
+	
+	\begin{frame}{Master Theorem}
+		\begin{block}{Wie funktionierts?}
+			Man unterscheidet zwischen 3 Fällen:
+			\begin{enumerate}
+				\pause
+				\item Wenn $f(n) \in \mathcal{O}(n^{log_b a-\epsilon})$ mit $\epsilon > 0$, $\Rightarrow T(n) \in \Theta(n^{log_b a})$
+				\vspace{10pt}
+				
+				\pause
+				\item Wenn $f(n) \in \Theta(n^{log_b a}$, $\Rightarrow T(n) \in \Theta(n^{log_b a}log n)$
+				\vspace{10pt}
+				
+				\pause
+				\item Wenn $f(n) \in \Omega(n^{log_b a+\epsilon}$ mit $\epsilon > 0$, \\
+				und wenn es ein $c$ gibt, mit $ 0 < c < 1$, \\
+				sodass für alle hinreichend großen n gilt: $a\cdot f(\frac{n}{b}) \leq c \cdot f(n)$,\\
+				$\Rightarrow T(n) \in \Theta(f(n))$
+			\end{enumerate}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Master Theorem}
+		\begin{exampleblock}{Beispiele}
+			\[49 \cdot T( \frac{n}{7} ) + 3n + 5\]\\
+			\[49 \cdot T( \frac{n}{7} ) + 3n^3 + 5\]\\
+		\end{exampleblock}
+	\end{frame}
+	
+	
+	
+	\section{Mealy-Automaten}
+	\begin{frame}{Mealy-Automaten}
+		\begin{block}{Definition: Mealy-Automat}
+        Der Mealy-Automat $A = \left( Z, z_0, X, f, Y, g \right)$ besteht aus
+        \begin{itemize}
+            \item der endlichen Zustandsmenge $\mathbf{Z}$,
+            \item dem Startzustand $\mathbf{z_0}$,
+            \item dem Eingabealphabet $\mathbf{X}$,
+            \item der Zustandsübergangsfunktion $\mathbf{f: Z\times X \rightarrow Z}$,
+            \item einem Ausgabealphabet $\mathbf{Y}$ und
+            \item der Ausgabefunktion $\mathbf{g: Z\times X \rightarrow Y^*}$.
+        \end{itemize}
+    \end{block}
+	\end{frame}
+	
+	
+	\begin{frame}{Mealy-Automaten}
+		\begin{block}{Interaktive Aufgabe}
+			Einen Getränke$\mathbf{automaten}$ modellieren:\\
+			saurer Sprudel = $rein$ (Eingabe/Ausgabe: R)\\
+			süßer Sprudel = $zitro$ (Eingabe/Ausgabe: Z)\\
+			Abbrechen = $C$ (Eingabe: C)\\
+			Bestätigen = $OK$ (Eingabe: O)\\
+			Ein Getränk kostet 1 Euro (Eingabe: 1)
+		\end{block}
+		\begin{center}
+		
+		\includegraphics[scale=0.2]{graphics/10/getraenke.png}
+		\end{center}
+	\end{frame}
+	
+	
+	\begin{frame}{Mealy-Automaten}
+		\begin{block}{$f^*$ und $f^{**}$}
+			$\mathbf{f^*}$: $f^*(z,w)$ kann im Gegensatz zu $f$ ein ganzes Wort $w$, als zweites Funktionsargument nehmen, und gibt somit an, in welchem Zustand sich man sich befindet, nachdem man das Wort $w$ abgearbeitet hat.\\
+			\vspace{10pt}
+			$\mathbf{f^{**}}$: $f^{**}(z,w)$ gibt die Durchlaufenen Zustände bei der Eingabe $w$ an.
+		\end{block}
+		
+		\pause
+		\begin{block}{$g^*$ und $g^{**}$}
+			Simultan zu $f^*$ und $f^{**}$ geben die Funktionen $g^*(z,w)$ und $g^{**}(z,w)$ die Ausgabe nach dem eingegebenen Wort $w$ an.
+		\end{block}
+	\end{frame}
+	
+	
+	\begin{frame}{Mealy-Automaten - Aufgaben}
+		\begin{itemize}
+			\item Berechnen Sie $f^{**}((0,-), RZR11C)$ für den an der Tafel stehenden Automaten
+			\item Berechnen Sie $g^{**}((0,-), RZR11O)$ für den an der Tafel stehenden Automaten
+		\end{itemize}
+	\end{frame}
+	
+	
+	
+	\section{Moore-Automaten}
+	
+	
+	\begin{frame}{Moore-Automaten - Aufgaben}
+		\begin{itemize}
+			\item Modellieren Sie einen Automaten, welcher Wörter mit gerader Länge akzeptiert, welche mindestens einmal aa und einmal bb enthalten.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Fragen}
+	\begin{frame} {Fragen}
+		\begin{itemize}
+			\item Fragen zum Stoff?
+			\item Fragen zum n\"achsten \"Ubungsblatt?
+			\item Generelle Fragen?
+			\item Feedback?
+		\end{itemize}
+	\end{frame}
+
+		
+	\begin{frame} {Frohe Weihnachten}
+		\begin{center}
+			\includegraphics[scale=0.65]{graphics/eof10.png}\\
+			\tiny $source: http://imgs.xkcd.com/comics/honest.png$
+		\end{center}
+	\end{frame}
+
+\end{document}
