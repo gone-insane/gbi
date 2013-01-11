@@ -65,7 +65,7 @@
     \begin{exampleblock}{Aufgabe 5}
         Alles zusammen: Was ist $\left(\left(\left\{ 1, 2, 3\right\} \cup \left\{ 2, a, b\right\}\right) \cap \left\{ 1, 2, a, b, ?\right\}\right) \setminus \left\{ 1, a\right\}$\\
         \pause
-        \invisible<1-2>{Antwort: $\left\{ 2, a\right\}$}
+        \invisible<1-2>{Antwort: $\left\{ 2, b\right\}$}
     \end{exampleblock}
 \end{frame}
 
@@ -96,9 +96,9 @@ $L \subseteq A*$.
 \begin{frame}{Beispiel 2}
     \begin{block}{Beispiel: }
         Gesucht ist eine Sprache $L$ über $A = \left\{ a, b\right\}$, in denen kein Wort das Teilwort $ab$ enthält.\\
-        Deklaration: \invisible<1>{$L = \left\{ a, b\right\} \setminus \left\{ w_1 ab w_2  | w_1, w_2 \in \left\{ a, b\right\}^*\right\}$.}\\
+        Deklaration: \invisible<1>{$L = \left\{ a, b\right\}^* \setminus \left\{ w_1 ab w_2  | w_1, w_2 \in \left\{ a, b\right\}^*\right\}$.}\\
         \pause
-        Alternativ: \invisible<1-2>{$ L = \left\{ w_1 w_2 | w_1 \in \left\{ b\right\}^* \wedge \left\{ a\right\}^*\right\}$.}
+        Alternativ: \invisible<1-2>{$ L = \left\{ w_1 w_2 | w_1 \in \left\{ b\right\}^* \wedge w_2 \in \left\{ a\right\}^*\right\}$.}
         \pause
     \end{block}
 \end{frame}

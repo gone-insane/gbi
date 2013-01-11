@@ -12,6 +12,26 @@
     \tableofcontents
 \end{frame}
 
+\section{Wiederholung}
+\begin{frame} {Wiederholung - Quiz}
+    \begin{itemize}
+        \item Aus $f\in \Omega(g) \land f \in \Theta(g) \Rightarrow f \in \mathcal{O}(g)$
+        \only<2-> {\color{darkgreen}$\surd$}\\
+        \color{black}
+                
+        \item $n^5 \in \mathcal{O}(2^n)$
+        \only<3-> {\color{darkgreen}$\surd$}\\
+        \color{black}
+
+        \item $\frac{n^3+2n}{2n+1} \in \mathcal{O}(n)$
+        \only<4-> {\color{red}$X$}\\
+        \color{black}
+        
+        \item Alle Algorithmen liegen in $\Omega(1)$
+        \only<5-> {\color{darkgreen}$\surd$}\\
+        \color{black}
+    \end{itemize}
+\end{frame}
 \section{Master-Theorem}
 \begin{frame}{Master-Theorem}
     \begin{block}{Definition}
@@ -39,6 +59,12 @@
         \item Fall 3 ist eher die Ausnahme
     \end{itemize}
 \end{frame}
+\begin{frame}{Master Theorem}
+    \begin{exampleblock}{Beispiele}
+        \[49 \cdot T( \frac{n}{7} ) + 3n + 5\]\\
+        \[49 \cdot T( \frac{n}{7} ) + 3n^3 + 5\]\\
+    \end{exampleblock}
+\end{frame}
 
 \section{Mealy-Automat}
 \begin{frame}{Mealy-Automat}
@@ -54,7 +80,7 @@
         \end{enumerate}
     \end{block}
 \end{frame}
-\begin{frame}{Getränkeautomat (ohne Ausgabe)}
+\begin{frame}{Getränkeautomat}
     \begin{figure}[htbp]
         \centering
         \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{graphics/10/getraenke2.png}
@@ -63,11 +89,16 @@
 \begin{frame}{Getränkeautomat}
     Was ist was?
     \begin{itemize}
-        \item Zustandsmenge $Z$: $\left\{ \left( 0,- \right), \left( 0,R \right), \left( 0,Z \right), \left( 1,- \right), \left( 1,R \right), \left( 1,Z \right) \right\}$
-        \item Eingabealphabet $X$: $\left\{ 1, R, Z, C, 0 \right\}$
-        \item Zustandsübergangsfunktion $f$: die Pfeile
-        \item Ausgabealphabet $Y$: $\left\{ 1, R, Z \right\}$
+        \item Zustandsmenge $Z$: \visible<2->{$\left\{ \left( 0,- \right), \left( 0,R \right), \left( 0,Z \right), \left( 1,- \right), \left( 1,R \right), \left( 1,Z \right) \right\}$}
+            \pause
+        \item Eingabealphabet $X$: \visible<3->{$\left\{ 1, R, Z, C, 0 \right\}$}
+            \pause
+        \item Zustandsübergangsfunktion $f$: \visible<4->{die Pfeile}
+            \pause
+        \item Ausgabealphabet $Y$: \visible<5->{$\left\{ 1, R, Z \right\}$}
+            \pause
         \item Ausgabefunktion $g$: bisher noch nicht eingezeichnet, siehe nächste Folie
+            \pause
     \end{itemize}
 \end{frame}
 \begin{frame}{Getränkeautomat (mit Ausgabe)}
@@ -144,13 +175,104 @@
     \end{figure}
     \begin{itemize}
         \item $w_1 = g^{**}\left( z, a \right) = g^{**}\left( z, \varepsilon \right)\cdot g^*\left( z, wx \right) = g\left( f^*\left( z, \varepsilon \right), a \right) = g\left( z, a \right) = b$
-        \item $w_2 = g^{**}\left( z, b \right) = g\left( z, b \right) = ba$
-        \item $w_3 = \dots = baa$
-        \item Vermutung: $w_{i+1} = ba^i$
+        \item $w_2 = \dots = ba$
     \end{itemize}
 \end{frame}
 
 \section{Moore-Automat}
+\begin{frame}{Moore-Automaten}
+    \begin{block}{Definition: Mealy-Automat}
+        Der Mealy-Automat $A = \left( Z, z_0, X, f, Y, h \right)$ besteht aus
+        \pause
+        \visible<2->{\begin{enumerate}
+            \item der endlichen Zustandsmenge $\mathbf{Z}$,
+            \item dem Startzustand $\mathbf{z_0}$,
+            \item dem Eingabealphabet $\mathbf{X}$,
+            \item der Zustandsübergangsfunktion $\mathbf{f: Z\times X \rightarrow Z}$,
+            \item einem Ausgabealphabet $\mathbf{Y}$ und
+            \item \color{red}{der Ausgabefunktion $\mathbf{h: Z \rightarrow Y^*}$.}
+        \end{enumerate}}
+    \end{block}
+    Bis auf die Asgabefunktion sind Mealy- und Moore-Automat identisch. Der Moore-Automat hat seine Ausgabe in einem Zustand.
+\end{frame}
 
 \section{Endliche Akzeptoren}
+\begin{frame}{Endlicher Akzeptor}
+    \begin{block}{Definition: Endlicher Akzeptor}
+        Ein endlicher Akzepter ist ein spezieller Moore-Automat, der 
+        \begin{itemize}
+            \item $1$ ausgibt, wenn ein Wort einer Wortbildungsregel (Syntax) entspricht und
+            \item $0$ ansonsten ausgibt.
+        \end{itemize}
+        \pause
+        Im Gegensatz zum gewöhnlichen Moore Automat besitzt er
+        \begin{itemize}
+            \item \emph{keine Ausgabefunktion $h$}, 
+            \item dafür eine \emph{eine Menge $F \subseteq Z$ akzeptierender Zustände}.
+        \end{itemize}
+        \begin{align*}
+            A = \left( Z, z_0, X, f, F \right)
+        \end{align*}
+    \end{block}
+    Die akzeptierenden Zustände werden doppelt umrahmt.
+\end{frame}
+\begin{frame}{Endlicher Akzeptor: Beispiel}
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=.80\textwidth,height=.8\textheight,keepaspectratio]{graphics/10/akzeptor.png}
+    \end{figure}
+    Nennt Wörter und sagt, ob diese akzeptiert werden oder nicht.
+\end{frame}
+\begin{frame}{Endlicher Akzeptor: Aufgabe}
+    \begin{itemize}
+        \item Gesucht ist ein kleiner endlicher Akzeptor, der alle Wörter akzeptiert, bei denen die Anzahl der $a$ durch $5$ teilbar ist.\\
+            Gegeben: $X = \left\{ a,b \right\}$.
+        \item Gesucht ist ein endlicher Akzeptor, in dem nirgends hintereinander zwei $b$ vorkommen.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Lösung 1}
+    \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[/tikz/initial text=];
+        \path[fill] (0,0)  node[initial,state,accepting] (0) {0};
+        \path[fill] (2,0)  node[state] (1) {1};
+        \path[fill] (4,0)  node[state] (2) {2};
+        \path[fill] (6,0)  node[state] (3) {3};
+        \path[fill] (8,0)  node[state] (4) {4};
+
+        \path[->] 
+        (0) edge node[above] {a} (1)
+        (1) edge node[above] {a} (2)
+        (2) edge node[above] {a} (3)
+        (3) edge node[above] {a} (4)
+        (4) edge[bend right] node[above] {a} (0)
+
+        (0) edge [loop below] node[below]{ b } ()
+        (1) edge [loop below] node[below]{ b } ()
+        (2) edge [loop below] node[below]{ b } ()
+        (3) edge [loop below] node[below]{ b } ()
+        (4) edge [loop below] node[below]{ b } ();
+    \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\begin{frame}{Lösung 2}
+    \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[/tikz/initial text=];
+        \path[fill] (0,0)  node[initial,state,accepting] (0) {0};
+        \path[fill] (2,0)  node[state, accepting] (1) {1};
+        \path[fill] (4,0)  node[state] (2) {2};
+
+        \path[->] 
+        (0) edge[bend right] node[below] {b} (1)
+        (1) edge[bend right] node[above] {a} (0)
+        (1) edge node[above] {b} (2)
+
+        (0) edge [loop below] node[below]{ a } ()
+        (2) edge [loop below] node[below]{ a,b } ();
+    \end{tikzpicture}
+    \end{figure}
+\end{frame}
 \end{document}

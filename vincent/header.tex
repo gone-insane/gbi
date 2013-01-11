@@ -18,9 +18,34 @@
 %% CUSTOM
 \usepackage{amsmath}
 \usepackage{algpseudocode}
+\usepackage{dot2texi}
+%% GBI-Stuff
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{automata}
+\usetikzlibrary{matrix}
 
 %% Definitions
+\def\dblone{\hbox{$1\hskip -1.2pt\vrule depth 0pt height 1.6ex width 0.7pt
+                  \vrule depth 0pt height 0.3pt width 0.12em$}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\renewcommand\emph{\textbf}
 \DeclareMathOperator{\div2}{div}
+\DeclareMathOperator{\Num2}{Num}
+\makeatletter
+\newcommand*{\bdiv}{%
+  \nonscript\mskip-\medmuskip\mkern5mu%
+  \mathbin{\operator@font div}\penalty900\mkern5mu%
+  \nonscript\mskip-\medmuskip
+}
+\makeatother
+\makeatletter
+\newcommand*{\bNum}{%
+  \nonscript\mskip-\medmuskip\mkern5mu%
+  \mathbin{\operator@font Num}\penalty900\mkern5mu%
+  \nonscript\mskip-\medmuskip
+}
+\makeatother
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
 \algnewcommand\algorithmicto{\textbf{to}}
@@ -42,6 +67,8 @@
     subsectionstyle=show/shaded/hide]
 \end{frame}
 }
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
 
 %% SLIDE FORMAT
 
@@ -68,7 +95,7 @@
  % directory, insert the filename in the line below and uncomment it
 
  %\titlelogo{mylogo}
- \titlelogo{}
+% \titlelogo{}
  
  % (*.eps format if you use latex+dvips+ps2pdf,
  % *.jpg/*.png/*.pdf if you use pdflatex)

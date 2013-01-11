@@ -12,6 +12,41 @@
     \tableofcontents
 \end{frame}
 
+
+\section{Wiederholung} 
+\begin{frame} {Wiederholung - Quiz}
+    \begin{itemize}
+        \item $A^*$ ist eine formale Sprache! 
+        \only<2-> {\color{darkgreen}$\surd$}\\
+        \color{black}
+        \item $(L_1 \cdot L_2)^* = L_1^* \cdot L_2^*$
+        \only<3-> {\color{red}$X$}\\
+        \color{black}
+        \item $f(x) = x^3-x^2$ ist rechtstotal für $x, f(x) \in \mathbb{R}$.
+        \only<4-> {\color{darkgreen}$\surd$}\\
+        \color{black}
+        \item Eine bijektive Relation ist eine Funktion.
+        \only<5-> {\color{darkgreen}$\surd$}\\
+        \color{black}
+        \item Wenn $f: A \rightarrow B$ injektiv $\Rightarrow f^{-1}$ ist surjektiv.
+        \only<6-> {\color{red}$X$}\\
+        \color{black}
+        \item $A\Rightarrow B \Leftrightarrow \neg B \Rightarrow \neg A$
+        \only<7-> {\color{darkgreen}$\surd$}\\
+    \end{itemize}
+\end{frame}
+
+
+
+\begin{frame} {Wiederholung - Aufgaben}
+    \begin{itemize}
+        \item Schreiben sie die Injektivität als Prädikatenlogische Formel.
+        \pause
+        \item Es sei $L \subseteq A^*$ eine formale Sprache. Beweisen oder widerlegen Sie:\\
+        $L^+ \cdot L^+ \subseteq L^+$
+    \end{itemize}
+\end{frame}
+
 \section{Division mit Rest}
 
 \begin{frame}{Division mit Rest}
@@ -174,7 +209,7 @@
 \begin{frame}{Schleifen}
     \begin{exampleblock}{Übung 1, Winter 2008/2009}
         Es sei $A$ ein Alphabet.\\
-        Schreiben Sie einen Algorithmus auf, der folgendes leistet: Als Eingaben erhält er ein Wort $w$ über $A$ und zwei Symbole $x \in A$ und $y \in A$. Am Ende soll eine Variable $r$ den Wert $0$ oder $1$ haben, und zwar soll gelten:\\
+        Schreiben Sie einen Algorithmus auf, der folgendes leistet: Als Eingaben erhält er ein Wort $w: \mathbb{G}_n\rightarrow A$ und zwei Symbole $x \in A$ und $y \in A$. Am Ende soll eine Variable $r$ den Wert $0$ oder $1$ haben, und zwar soll gelten:\\
         \begin{align*}
             r = \begin{cases} 1 & \text{falls irgendwo in w direkt hintereinander erst $x$ dann $y$ vorkommt}\\ 0 &\text{sonst}\end{cases}
         \end{align*}
@@ -214,7 +249,7 @@
                 \State $S \gets a$
                 \State $Y \gets b$
                 \For{i}{0}{b-1}
-                    \State $ S \gets S - 1$
+                    \State $ S \gets S + 1$
                     \State $Y \gets Y -1$
                 \EndFor
                 \Ensure $S$
@@ -226,6 +261,25 @@
         Algorithmus mit $a = 3$ und $b = 4$ ausprobieren und Werte für $S$ und $Y$ bei jedem Schleifendurchlauf finden.
     \end{exampleblock}
 \end{frame}
+
+\begin{frame}{Schleifeninvarianzen}
+    \begin{exampleblock}{Beweis}
+        Beweise die Schleifeninvariante mittels vollständiger Induktion!
+        \begin{algorithm}
+            \begin{algorithmic}
+                \Require $a, b \in \mathbb{N}_0$
+                \State $S \gets a$
+                \State $Y \gets b$
+                \For{i}{0}{b-1}
+                    \State $ S \gets S + 1$
+                    \State $Y \gets Y -1$
+                \EndFor
+                \Ensure $S$
+            \end{algorithmic}
+        \end{algorithm}
+    \end{exampleblock}
+\end{frame}
+
 \begin{frame}{Schleifeninvarianzen}
     \begin{exampleblock}{Winter 2008/2009}
         \begin{columns}
@@ -240,8 +294,8 @@
                         \State $n \gets 1 + \left[ \log_2 a\right]$
                         \For{i}{0}{n-1}
                             \State $P_\mathrm{i+1} \gets P_\mathrm{i}\cdot Y_\mathrm{i}^\mathrm{Z_\mathrm{i}}$
-                            \State $X_\mathrm{i+1} \gets X_\mathrm{i} \div 2$
-                            \State $Y_\mathrm{i-1} \gets Y_\mathrm{i}^2$
+                            \State $X_\mathrm{i+1} \gets X_\mathrm{i} \bdiv 2$
+                            \State $Y_\mathrm{i+1} \gets Y_\mathrm{i}^2$
                             \State $Z_\mathrm{i+1} \gets X_\mathrm{i+1} \mod 2$
                         \EndFor
                     \end{algorithmic}

@@ -1,6 +1,6 @@
 \include{header}
 \subtitle{Foliensatz 5}
-\date{15. November 2012}
+\date{22. November 2012}
 
 \begin{document}
 
@@ -12,6 +12,29 @@
     \tableofcontents
 \end{frame}
 
+\section{Übungsblatt 4}
+\begin{frame}{Allgemeine Fehler, Fragen}
+    \begin{block}{Allgemeines}
+        \begin{itemize}
+            \item Versucht formale Beweise und Aussagen zu schreiben.
+            \item Vollständige Induktion: welches ist das erste Element?
+            \item Schleifeninvarianten gelten ab dem Einstiegspunkt in die Schleife.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Wiederholung} 
+\begin{frame} {Wiederholung - Quiz}
+    \begin{itemize}
+        \item $X=X$ ist eine Schleifeninvariante! 
+            \only<2-> {\color{darkgreen}$\surd$}\\
+            \color{black}
+        \item $A \Rightarrow B \Leftrightarrow \neg A \lor B$
+            \only<3-> {\color{darkgreen}$\surd$}\\
+            \color{black}
+    \end{itemize}
+\end{frame}
+
 \section{Kontextfreie Grammatiken}
 \begin{frame}{Definition}
     \begin{block}{Definition}
@@ -21,11 +44,11 @@
     \invisible<1>{
         \begin{block}{Was ist was?}
             \begin{description}
-              \item[N:] Menge von Nichtterminalsymbolen
-              \item[T:] Menge von Terminalsymbolen
-              \item[S:] $S \in N$ Startsymbol
-              \item[$P \subset N \times V^*$:] Menge von Produktionen, \\
-              $V := (N \cup T)$
+                \invisible<1-1>{\item[N:] Menge von Nichtterminalsymbolen}\pause
+                \invisible<1-2>{\item[T:] Menge von Terminalsymbolen}\pause
+                \invisible<1-3>{\item[S:] $S \in N$ Startsymbol}\pause
+                \invisible<1-4>{\item[$P \subset N \times V^*$:] Menge von Produktionen, \\
+                $V := (N \cup T)$}
             \end{description}
         \end{block}}
 \end{frame}
@@ -58,8 +81,26 @@
     \begin{block}{Frage}
         Was stimmt? Es ist $w_1, w_2 \in N \cup P$.
         \begin{itemize}
-            \item $w_1 \rightarrow w_2$, daraus folt $w_1 \Rightarrow w_2$
-            \item $w_1 \Rightarrow w_2$, daraus folgt $w_1 \rightarrow w_2$
+            \item $w_1 \rightarrow w_2$, daraus folgt $w_1 \Rightarrow w_2$ \invisible<1>{Wahr.}
+            \item $w_1 \Rightarrow w_2$, daraus folgt $w_1 \rightarrow w_2$ \invisible<1>{Falsch.}
+        \end{itemize}
+        \pause
+    \end{block}
+\end{frame}
+
+\begin{frame}{Ableitungsbäume}
+    \begin{block}{Klammern}
+        Gegeben ist die Sprache $G = \left( \left\{ X\right\} , \left\{ \left( ,\right) \right\} , X, \left\{ X \rightarrow XX \big| \left( X\right) \big| \varepsilon \right\} \right) $\\
+        Zeichne einen Ableitungsbaum für die Ausdrücke
+        \begin{itemize}
+            \item (( ))( )
+            \item (( ))( )((( ))) 
+        \end{itemize}
+        Welche Eigenschaften hat ein Wort $w$ dieser Grammatik?
+        \begin{itemize}
+            \item \only<2->{wohlgeformter Klammerausdruck}
+            \item \only<2->{$N_( \left( w \right)=N_) \left( w \right)$}
+            \item \only<2->{Für jedes Präfix $v$: $N_( \left( v \right)\geq N_) \left( v \right)$}
         \end{itemize}
     \end{block}
 \end{frame}
@@ -72,9 +113,9 @@
         \end{align*}
     \end{block}
     \pause
-    \invisible<1>{\begin{block}{Was ist $\Rightarrow^*$?}
-        Mit $\Rightarrow^*$ ist die \emph{reflexiv-transitive Hülle} der Ableitungsrelation gemeint.
-    \end{block}}
+    \begin{block}{Was ist $\Rightarrow^*$?}\pause
+        \invisible<1-2>{Mit $\Rightarrow^*$ ist die \emph{reflexiv-transitive Hülle} der Ableitungsrelation gemeint.}
+    \end{block}
 \end{frame}
 
 \begin{frame}
@@ -82,13 +123,13 @@
     \begin{exampleblock}{Fragen}
         \begin{enumerate}
           \item Gibt es Grammatiken für die gilt: $L(G) = \{\}$?\pause
-          \item Welche Sprache erzeugt: $G_1 := (\{X\}, \{0\}, X, \{X \rightarrow X\})$\pause
-          \item Ist $G_2 := (\{X\}, \{a, b\}, X, \{X \rightarrow \varepsilon\})$ eine gültige Grammatik?\pause
+          \item Welche Sprache erzeugt: $G_1 := (\{X, S\}, \{0\}, S, \{X \rightarrow X, S\rightarrow X, X \rightarrow \epsilon\})$\pause
+          \item Ist $G_2 := (\{S\}, \{a, b\}, S, \{S \rightarrow \varepsilon\})$ eine gültige Grammatik?\pause
         \end{enumerate}
     \end{exampleblock}
     \begin{exampleblock}{Lösung}
         \begin{enumerate}
-            \invisible<1-1>{\item Ja z.B. $G = (\{X\}, \{0\}, X, \{\})$}
+            \invisible<1-1>{\item Ja z.B. $G = (\{S\}, \{0\}, S, \{ S\rightarrow \varepsilon\})$}
             \invisible<1-2>{\item $L(G_1) = \{\}$}
             \invisible<1-3>{\item Ja und $L(G_2) = \{\varepsilon\}$}
         \end{enumerate}
@@ -98,7 +139,7 @@
 \begin{frame}{Musikgrammatik\\(by Nils Braun und Philipp Basler)}
     Gegeben ist die Grammatik
     \begin{align*}
-        G = \left( \left\{ X\right\} ,\left\{ A, B, C, D\right\} , X , \left\{ X \rightarrow \epsilon \big| AX \big| BX \big| CX \big| DX \right\}\right)A
+        G = \left( \left\{ X\right\} ,\left\{ A, B, C, D\right\} , X , \left\{ X \rightarrow \epsilon \big| AX \big| BX \big| CX \big| DX \right\}\right)
     \end{align*}
     \pause
     \invisible<1-1>{Leite $A$ ab! }\pause\invisible<1-2>{Leite $ABC$ ab! Finde weitere Wörter.}\\\pause
@@ -133,6 +174,7 @@
     \emph{Hinweis}: $T := \{a, b, c, @, ., \_\}$
   \end{exampleblock}\pause
   \invisible<1>{\begin{exampleblock}{Lösung}
+      Achtung: die Lösung deckt nicht alle korrekten Fälle ab.
     $G = (N, T, S, P)$
     \begin{itemize}
       \item $N = \{E, A, B\}$
@@ -187,6 +229,35 @@
                 \end{align*}
         \end{itemize}
     \end{block}
+\end{frame}
+
+\begin{frame}{Aufgaben}
+    \begin{block}{Quickies}
+        \begin{itemize}
+            \item Ist die Relation $\geq$ auf $\mathbb{N}_0$ reflexiv? \pause \invisible<1>{Ja.}
+            \item Ist die Relation $>$ auf $\mathbb{N}_0$ reflexiv? \pause \invisible<1-2>{Nein.}
+            \item Ist die Relation $\geq$ auf $\mathbb{N}_0$ transitiv? \pause \invisible<1-3>{Ja.}
+            \item Ist die Relation $\geq$ auf $\mathbb{N}_0$ symmetrisch? \pause \invisible<1-4>{Nein.}
+            \item Ist die Relation $=$ auf $\mathbb{N}_0$ symmetrisch? \pause \invisible<1-5>{Ja.}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Aufgaben 2}
+    \begin{exampleblock}{Quickies}
+        \begin{itemize}
+            \item Ist die Relation: 
+                $
+                R = f(x) =
+                \begin{cases}
+                x + 1 & \text{falls x gerade}\\
+                x - 1 & \text{falls x ungerade}
+                \end{cases}
+                $
+                \\ mit $x\in \mathbb{N}_0$ und $f(x) \in \mathbb{N}_0$ symmetrisch?
+            \item Ist die Relation: $R = \{(x,y)\in M \times M \;|\; y = x^2\} $ reflexiv?
+        \end{itemize}
+    \end{exampleblock}
 \end{frame}
 
 \begin{frame}{Produkt}
