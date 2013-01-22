@@ -19,11 +19,18 @@
 \usepackage{amsmath}
 \usepackage{algpseudocode}
 \usepackage{kbordermatrix}
+%% GBI-Stuff
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{automata}
+\usetikzlibrary{matrix}
 
 %% Definitions
 \DeclareMathOperator{\div2}{div}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\sq}{$\square$}
+\newcommand{\da}{$\downarrow$}
 \algnewcommand\algorithmicto{\textbf{to}}
 \algrenewtext{For}[3]{\algorithmicfor\ $#1 \gets #2$ \algorithmicto\ $#3$ \algorithmicdo}
 %\algrenewtext{If}[1]{\alggorithmicdo}
