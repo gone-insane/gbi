@@ -246,5 +246,62 @@
         \end{column}
     \end{columns}
 \end{frame}
+\section{Komplexität}
+\begin{frame}{Hinweis}
+    \begin{alertblock}{Hinweis}
+        Die Komplexität untersuchen wir nur an Turingmaschinenen, die für jede Eingaben zum Halten kommen.
+    \end{alertblock}
+\end{frame}
+\begin{frame}{Komplexität}
+    \begin{block}{Definition: Zeitkomplexität}
+        Die Zeitkomplexität $\Time\left( n \right)$ einer Turingmaschine ist die maximale Anzahl an Schritten, die eine Turingmaschine bei Eingabe eines Wortes der Länge $n$ benötigen kann.\\
+        (Worst-Case)
+    \end{block}
+    \begin{block}{Definition: Platzkomplexität}
+        Die Platzkomplexität $\Space\left( n \right)$ einer Turingmaschine ist die maximale Anzahl an Feldern, die eine Turingmaschine bei Eingabe eines Wortes der Länge $n$ benötigen kann.\\
+        (Worst-Case)\\
+        Benötigt wird ein Feld, sobald es vom Schreibkopf besucht wird.
+    \end{block}
+\end{frame}
+\begin{frame}{Beispiel: Zeitkomplexität der Palindromturingmaschine}
+    \begin{enumerate}
+        \item $n$ Schritte vom ersten zum letzten Symbol
+        \item $n$ Schritte wieder zurück zum ersten Symbol
+        \item Gleiche Prozedur mit ``innerem Wort'': $1+\Time\left( n-2 \right)$-Schritte
+    \end{enumerate}
+    Insgesamt:
+    \begin{align*}
+        T\left( n \right) \leq n + n + 1 + T\left( n-2 \right)\\
+        T\left( n \right) - T\left( n-2 \right) \leq 2n + 1 \in \mathcal{O}\left( n \right)
+        \Rightarrow T\left( n \right) \in \mathcal{O}\left( n^2 \right)
+    \end{align*}
+\end{frame}
+\begin{frame}{Beispiel: Platzkomplexität der Palindromturingmaschine}
+    \begin{enumerate}
+        \item $n + 1$ Felder vom ersten zum letzten Symbol
+        \item $0$ Felder auf dem Weg zurück zum ersten Symbol
+        \item Gleiche Prozedur mit ``innerem Wort'': $0$ Felder
+    \end{enumerate}
+    Insgesamt:
+    \begin{align*}
+        n+1
+    \end{align*}
+\end{frame}
+\begin{frame}{Komplexitätsklassen}
+    \begin{block}{Definition der Komplexitätsklassen}
+        \begin{itemize}
+            \item \textbf{P} ist die Menge aller Entscheidungsprobleme, die von Turingmaschinen entschieden werden können, deren Zeitkomplexität polynomiell ist.
+            \item \textbf{PSPACE} ist die Menge aller Entscheidungsprobleme, die von Turingmaschinen entschieden werden können, deren Raumkomplexität polynomiell ist.
+        \end{itemize}
+        Daraus kann man leicht folgern:
+        \begin{align*}
+            P \subset PSPACE
+        \end{align*}
+        Denn in $t$ Schritten sind maximal $t+1$ Felder erreichbar.
+    \end{block}
+\end{frame}
+\begin{frame}{Klausuraufgabe}
+    TODO
+\end{frame}
 
 \end{document}
