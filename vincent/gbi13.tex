@@ -1,0 +1,57 @@
+\include{header}
+\subtitle{Foliensatz 13}
+\date{31. Januar 2013}
+
+\newcommand{\sq}{$\square$}
+\newcommand{\da}{$\downarrow$}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Outline/Gliederung}
+    \tableofcontents
+\end{frame}
+
+\section{Wiederholung}
+\begin{frame}{Wiederholung}
+    \begin{itemize}
+        \item Irgendwas zu Turingmaschinen
+        \item Irgendwas zu Codierungen
+        \item Irgendwas zu Relationen
+        \item Reflexiv
+        \item Transitiv
+        \item Symmetrisch
+    \end{itemize}
+\end{frame}
+\section{Unentscheidbare Probleme}
+\begin{frame}{Unentscheidbare Probleme}
+    Es gibt Probleme, die lassen sich mit einer Turing-Maschine (oder äquivalent: einem Java-Programm) nicht lösen. (Auch nicht mit unendlich viel Zeit und Platz.)\\
+    Ein solches Problem ist nicht \emph{entscheidbar}
+    \begin{block}{Entscheidbarkeit}
+        Für ein entscheidbares Problem gibt es eine Turingmaschine, die für jede Eingabe hält und das Eingabewort entweder akzeptiert oder nicht.
+    \end{block}
+\end{frame}
+\begin{frame}{Codierung von Turingmaschinen}
+   Bisher haben wir eine Turingmaschine formal so geschrieben $T = \left( Z, Z_0, X, f, g, m \right)$. Wir bauen uns eine Codierung, die die ganze Turingmaschine in ein Wort $w_1$ ``packt''. \\
+   Dieses Wort $w_1$ übergeben wir dann einer universellen Turingmaschine $U$, die 
+   \begin{itemize}
+       \item übeprüft, ob $w_1$ eine Turingmaschine $T$ codiert
+       \item dann die Turingmaschine $T$ ``simuliert'' und als Eingabe $w_2$ verwendet
+       \item und schließlich das Ergebnis davon ausgibt
+   \end{itemize}
+   \begin{figure}[h]
+       \centering
+       \includegraphics[scale=.5]{graphics/13/33928220.jpg}
+   \end{figure}
+\end{frame}
+\begin{frame}{Halteproblem}
+    \begin{block}{Satz}
+        Es ist nicht möglich, eine Turingmaschine $U$ zu bauen, die für jede Turingmaschine $T$ (codiert als $w_1$) und jede Eingabe $w_2$  entscheidet, ob $T$ bei der Eingabe von $w_2$ hält.
+    \end{block}
+    Das lässt sich auch beweisen.
+\end{frame}<++>
+\section{Äquivalenzrelationen}
+\end{document}
