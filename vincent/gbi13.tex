@@ -51,7 +51,91 @@
     \begin{block}{Satz}
         Es ist nicht möglich, eine Turingmaschine $U$ zu bauen, die für jede Turingmaschine $T$ (codiert als $w_1$) und jede Eingabe $w_2$  entscheidet, ob $T$ bei der Eingabe von $w_2$ hält.
     \end{block}
-    Das lässt sich auch beweisen.
-\end{frame}<++>
+    Das lässt sich auch beweisen. 
+    Halteproblembeweis (verdorbene Diagonale)
+\end{frame}
 \section{Äquivalenzrelationen}
+\begin{frame}{Äquivalenzrelation}
+    \begin{block}{Definition: Äquivalenzrelation}
+        Eine Relation $R$ ist genau dann eine \emph{Äquivalenzrelation}, wenn sie
+        \begin{itemize}
+            \item symmetrisch,
+            \item reflexiv und
+            \item transitiv
+        \end{itemize} ist.
+    \end{block}
+\end{frame}
+\begin{frame}{Eigenschaften von Relationen}
+    Welche Eigenschaften haben diese Relationen (stets auf ganze Zahlen)?
+    \begin{itemize}
+        \item $\leq$ \visible<2->{reflexiv, transitiv}
+        \item $>$ \visible<3->{transitiv}
+        \item $=$ \visible<4->{reflexiv, transitiv, symmetrisch}
+    \end{itemize}
+    Wie sieht das in einem Graphen aus? (Tafel)
+\end{frame}
+\begin{frame}{Äquivalenzklasse}
+    \begin{block}{Definition: Äquivalenzklasse}
+        Sind zwei Elemente $\left( x,y \right)\in R$, so schreibt man auch $xRy$ (Infixschreibweise). Alle Elemente, die miteinander in Relation stehen, befinden sich in der selben \emph{Äquivalenzklasse}:
+        \begin{align*}
+            [x]_\mathrm{R} = \left\{ y | yRx \right\}
+        \end{align*}
+    \end{block}
+\end{frame}
+\begin{frame}{Quiz}
+    \begin{itemize}
+        \item Stimmt es, dass auch $xRy$ folgt: $[x]_\mathrm{R} = [y]_{\mathrm{R}}$? \visible<2->{Ja.}
+        \item Existiert ein $z\in \left[ x \right]_\mathrm{R}$ und $z\in\left[ y \right]_\mathrm{R}$, so ist $\left[ x \right]_\mathrm{R} = \left[ y \right]_\mathrm{R}$. \visible<3->{Ja.}
+        \item Wieviele Äquivalenzklassen gibt es zu $R = \mod 6$? \visible<4->{6}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Nerode-Äquivalenzrelation}
+    \begin{block}{Definition: Nerode-Äquivalenzrelation}
+        Sei $L\subseteq A^*$ eine formale Sprache. $w_1$ und $w_2$ seien Wörter $\in A^*$. Die Wörter heißen \emph{Nerode-Äquivalent} ($\equiv_L$), falls gilt:
+        \begin{align*}
+            w_1 \equiv_L w_2 \leftrightarrow \left( \forall w \in A^*: w_1 w\in L \leftrightarrow w_2 w\in L \right)
+        \end{align*}
+    \end{block}
+\end{frame}
+\begin{frame}{Beispiel zur Nerode Äquivalenz}
+    \begin{itemize}
+        \item Alphabet $A = \left\{ a,b \right\}$
+        \item Sprache $L \subset A*$, $L$ enthält alle Wörter ohne das Teilwort $ba$: $L = \left< a^* b^*\right>$
+    \end{itemize}
+    Wie sieht der zugehörige Automat aus?
+    \begin{columns}
+        \begin{column}{.5\textwidth}
+            \visible<2->{\begin{figure}
+                \centering
+                \begin{tikzpicture}[shorten >=1pt,initial text=,node distance=2cm,auto,->,>=stealth]
+                    \node[state,initial,accepting]  (1)                    {1};
+                    \node[state,accepting]  (2)[right of=1]        {2};
+                    \node[state]  (J)[below right of=1]  {J};
+
+                    \path[->]
+                        (1) edge              node  {b} (2)
+                        (1) edge [loop above] node  {a} ()
+                        (2) edge [loop above] node  {b} ()
+                        (2) edge              node  {a} (J)
+                        (J) edge [loop below] node  {a,b} ()
+                    ;
+                \end{tikzpicture}
+            \end{figure}}
+        \end{column}
+        \begin{column}{.5\textwidth}
+            \visible<3->{Wie kann jeder Zustand erreicht werden?}
+            \visible<4->{\begin{itemize}
+                \item $a^*$
+                \item $a^*bb^*$
+                \item $a^*bb^*a\left\{ a,b \right\}^*$
+            \end{itemize}}
+            Nerode-Äquivalenzklassen: $\visible<5->{\left[ \epsilon \right], \left[ b \right], \left[ ba \right]$.}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Faktormenge}
+    \begin{block}{Definition: Faktormenge}
+        Die Menge aller Äquivalenzklassen einer Menge zur Relation $R$ bezeichnet man als \emph{Faktormenge} und schreibt $M_\mathrm{/R}$.
+    \end{block}
+\end{frame}
 \end{document}
