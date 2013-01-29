@@ -47,12 +47,101 @@
        \includegraphics[scale=.5]{graphics/13/33928220.jpg}
    \end{figure}
 \end{frame}
-\begin{frame}{Halteproblem}
+\begin{frame}{Halteproblem-Beweis 1}
     \begin{block}{Satz}
         Es ist nicht möglich, eine Turingmaschine $U$ zu bauen, die für jede Turingmaschine $T$ (codiert als $w_1$) und jede Eingabe $w_2$  entscheidet, ob $T$ bei der Eingabe von $w_2$ hält.
     \end{block}
     Das lässt sich auch beweisen. 
-    Halteproblembeweis (verdorbene Diagonale)
+\end{frame}
+\begin{frame}{Beweis des Halteproblems}
+    Annahme: es gibt eine Super-Turingmaschine $H$. $H$ bekommt als Eingabe:
+    \begin{itemize}
+        \item eine andere Turingmaschine $T$ und
+        \item ein Eingabewort $w$.
+    \end{itemize}
+    \pause
+    Die Super-Turingmaschine $H$ 
+    \begin{itemize}
+        \item simuliert die ``normale'' Turingmaschine $T$ und
+        \item benutzt als Eingabe für $T$ das Wort $w$.
+    \end{itemize}
+    \pause
+    Die Super-Turingmaschine $H$ gibt aus
+    \begin{itemize}
+        \item $1$, wenn $T$ mit $w$ als Eingabe hält und
+        \item $0$, wenn $T$ mit $w$ als Eingabe nicht hält.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Halteproblem-Beweis 2}
+    Wir bauen uns eine unendlich große Tabelle, die
+    \begin{itemize}
+        \item nach rechts (in den Spalten) alle möglichen Worte $w$ enthält und
+        \item nach unten (in den Zeilen) die codierte Turingmaschine $T_w$ zum Wort $w$ enthält .
+    \end{itemize}
+    \pause
+    Unsere Super-Turingmaschine hat die Tabelle ausgefüllt mit
+    \begin{itemize}
+        \item $1$, wenn $T_w\left( w \right)$ hält und
+        \item $0$, wenn $T_w\left( w \right)$ nicht hält.
+    \end{itemize}
+    \pause
+    \begin{table}
+        \centering
+        \begin{tabular}{ccccl}
+            \toprule
+                     & $w_0$ & $w_1$ & $w_2$ & \dots\\
+             \midrule
+             $T_{w_0}$ & 1 & 0 & 1 & \\
+             $T_{w_1}$ & 0 & 0 & 0 & \\
+             $T_{w_2}$ & 0 & 0 & 1 & \\
+             \dots   &  &   &   &  \\
+%             $T_d$ & 1 & 0 & 1 & ($\leftarrow$ die Zeile war schon irgendwo) \\
+%             $T_{\bar{d}}$ & 0 & 1 & 0 & ($\leftarrow$ die Zeile war sicher noch nirgends) \\
+             \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+\begin{frame}{Halteproblem-Beweis 3}
+    Nun nehmen wir die Diagonale und schreiben sie auch in die Tabelle (hier \textcolor{blue}{blau}). Außerdem schreiben wir darunter das ``Komplementär'' der Diagonale ($1$ wird zu $0$ und umgekehrt, hier in \textcolor{red}{rot}).
+    \begin{table}
+        \centering
+        \begin{tabular}{ccccl}
+            \toprule
+                     & $w_0$ & $w_1$ & $w_2$ & \dots\\
+             \midrule
+             $T_{w_0}$ & \textcolor{blue}{1} & 0 & 1 & \dots\\
+             $T_{w_1}$ & 0 & \textcolor{blue}{0} & 0 & \dots\\
+             $T_{w_2}$ & 0 & 0 & \textcolor{blue}{1} & \dots\\
+             \dots   &  \dots & \dots  & \dots  & \dots \\
+             $T_d$ & \textcolor{blue}{1} & \textcolor{blue}{0} & \textcolor{blue}{1} &\dots ($\leftarrow$ die Zeile war schon irgendwo) \\
+             $T_{\bar{d}}$ & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{0} & \dots($\leftarrow$ die Zeile war sicher noch nirgends) \\
+             \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+\begin{frame}{Halteproblem-Beweis 4}
+    \begin{table}
+        \centering
+        \begin{tabular}{ccccl}
+            \toprule
+                     & $w_0$ & $w_1$ & $w_2$ & \dots\\
+             \midrule
+             $T_{w_0}$ & \textcolor{blue}{1} & 0 & 1 & \dots\\
+             $T_{w_1}$ & 0 & \textcolor{blue}{0} & 0 & \dots\\
+             $T_{w_2}$ & 0 & 0 & \textcolor{blue}{1} & \dots\\
+             \dots   &  \dots & \dots  & \dots  & \dots \\
+             $T_d$ & \textcolor{blue}{1} & \textcolor{blue}{0} & \textcolor{blue}{1} &\dots ($\leftarrow$ die Zeile war schon irgendwo) \\
+             $T_{\bar{d}}$ & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{0} & \dots($\leftarrow$ die Zeile war sicher noch nirgends) \\
+             \bottomrule
+        \end{tabular}
+    \end{table}
+    Obwohl $T_{\bar{d}}$ sicher nirgends vorkam, könnten wir sie bauen:
+    \begin{itemize}
+        \item Wir wissen, dass $T_d$ hält (sagt uns die Super-Turingmaschine), also gehen wir mit $T_{\bar{d}}$ in eine Endlosschleife.
+        \item Wir wissen, dass $T_d$ nicht hält (sagt uns die Super-Turingmaschine), also halten wir mit $T_{\bar{d}}$.
+    \end{itemize}
+    \pause
+    Verrückt: Wenn es die Super-Turingmaschine gibt, dann könnten wir die Turing-Maschine $T_{\bar{d}}$ bauen, die es eigentlich nicht gibt. Das ist ein Widerspruch, also kann es die Super-Turingmaschine nicht geben.
 \end{frame}
 \section{Äquivalenzrelationen}
 \begin{frame}{Äquivalenzrelation}
