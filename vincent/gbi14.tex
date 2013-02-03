@@ -1,0 +1,114 @@
+\include{header}
+\subtitle{Foliensatz 14}
+\date{7. Februar 2013}
+
+\newcommand{\sq}{$\square$}
+\newcommand{\da}{$\downarrow$}
+\DeclareMathOperator{\cod}{cod}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Outline/Gliederung}
+    \tableofcontents
+\end{frame}
+
+\section{Statistik}
+\begin{frame}{Statistiken}
+    Die folgenden Grafiken beziehen sich
+    \begin{itemize}
+        \item bei den Übungsblättern auf diejenigen, die den Übungsschein erhalten haben und
+        \item bei der Übungsklausur auf diejenigen, die abgegeben haben.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Verlauf des Punktestands}
+    \includegraphics[scale=0.4]{graphics/14/punkte1.pdf}
+\end{frame}
+\begin{frame}{Verlauf des Punktestands}
+    \includegraphics[scale=0.35]{graphics/14/punkte2.pdf}\\
+    blau: Mittelwert, rot: Median
+\end{frame}
+\begin{frame}{Punkteverteilung in der Probleklausur}
+    \includegraphics[scale=0.9]{graphics/14/probeklausur1.pdf}
+\end{frame}
+\section{Wiederholung}
+\begin{frame}{Wiederholung - Quiz}
+    \begin{itemize}
+        \item Jedes Problem kann von einer Turingmaschine entschieden werden. \visible<2>{Nein.}
+        \item Warum? \visible<3>{Siehe Halteproblem.}
+        \item Gilt $\mathrm{P} \subset \mathrm{PSPACE}$? \visible<4>{Ja.}
+        \item Gibt es endliche Akzeptoren für Sprachen $L$, die weniger Zustände haben als $L$ Nerode-Äquivalenzklassen? \visible<5>{Nein.}
+    \end{itemize}
+\end{frame}
+\section{Kongruenzrelationen}
+\begin{frame}{Verträglichkeit}
+    \begin{block}{Definition: Verträglichkeit}
+        Es sei $\equiv$ eine Äquivalenzrelation auf einer Menge $M$ und $f: M\rightarrow M$ eine Abbildung. Man sagt, dass $\equiv$ mit $f$ verträglich ist, wenn für alle $x_1, x_2 \in M$ gilt:
+        \begin{align*}
+            x_1 \equiv x_2 \Longrightarrow f\left( x_1 \right) \equiv f\left( x_2 \right)
+        \end{align*}
+    \end{block}
+    Was bedeuted das anschaulich? Fallen euch Beispiele ein?
+\end{frame}
+\begin{frame}{Beispiel modulo n}
+    Wir kennen noch vom letzten Mal:
+    \begin{align}
+        x_1 \equiv x_2 \left( \mod n \right) \Leftrightarrow x_1 -x_2 = kn\label{eq1}
+    \end{align}
+    \pause
+    Das heißt auch, dass $x_1$ und $x_2$ bei einer Division mit $n$ den gleichen Rest haben.
+    \pause
+    \begin{align}
+        y_1 \equiv y_2 \left( \mod n \right) \Leftrightarrow y_1 - y_2 = mn\label{eq2}
+    \end{align}
+    \pause
+    Ich behaupte es gilt:
+    \begin{align}
+        x_1 + y_1 \equiv x_2  + y_2 \left( \mod n \right)\label{rel1}\\
+        x_1 \cdot y_1 \equiv x_2 \cdot y_2 \left( \mod n \right)\label{rel2}
+    \end{align}
+    Beweis.
+\end{frame}
+\begin{frame}{Beweis von \eqref{rel1}}
+    Addieren nun die beiden Gleichungen \eqref{eq1} und \eqref{eq2}:
+    \pause
+    \begin{align*}
+        \left( x_1 + y_1 \right) - \left( x_2 + y_2 \right) = \left( x_1 - x_2 \right) + \left( y_1 - y_2 \right) = \left( k + m \right) n
+    \end{align*}
+    \pause
+    Und wir sehen, dass gilt
+    \begin{align*}
+        x_1 + y_1 \equiv x_2 + y_2 \left( \mod n \right)
+    \end{align*}
+\end{frame}
+\begin{frame}{Beweis von \eqref{rel2}}
+    Löse Gleichung~\eqref{eq1} nach $x_1$ auf und Gleichung~\eqref{eq2} nach $y_1$ und multipliziere beide Seiten:
+    \begin{align*}
+        x_1 \cdot y_1 &= \left( x_2 + kn \right) \cdot \left( y_2 + mn \right)\\
+                        &= x_2 \cdot y_2 + n\left( mx_2 + ky_2 + kmn \right)\\
+        x_1 \cdot y_1 - x_2 \cdot y_2  &= n\left( mx_2 + ky_2 + kmn \right)\\
+            \Longleftrightarrow x_1\cdot y_1 &\equiv x_2 \cdot y_2 \left( \mod n \right)
+    \end{align*}
+\end{frame}
+\begin{frame}{Kongruenz}
+    Damit können wir auch ``nur mit Repräsentanten'' der Äquivalenzklasse rechnen:
+    \begin{align*}
+        [2] + [3] = [2 + 3] = [5] = [0]\\
+        [2] \cdot [3] = [2 \cdot 3] = [6] = [1]\\
+    \end{align*}
+    Nennt weitere Beispiele für die Äquivalenzrelation Kongruent Modulo $i$, wobei sich $i$ bei jedem von euch erhöht.
+\end{frame}
+\begin{frame}{Verträglichkeit und Kongruenzrelationen}
+    Die Operationen $+$ und $\cdot$ sind also verträglich mit unserer Relation ``kongruent modulo n''.\\
+    \begin{block}{Definition: Kongruenzrelation}
+        Eine Funktion, die mit allen gerade interessierenden Funktionen oder/und Operationen verträgich ist, nennt man auch \emph{Kongruenzrelation}.
+    \end{block}
+\end{frame}
+\begin{frame}{Kongruenz und die Nerode-Äquivalenz}
+    
+\end{frame}
+\section{Halbordnungen}
+\end{document}
