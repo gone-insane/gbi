@@ -108,7 +108,43 @@
     \end{block}
 \end{frame}
 \begin{frame}{Kongruenz und die Nerode-Äquivalenz}
-    
+    Gegeben sei die Funktion:
+    \begin{align*}
+        f_x': A_{/\equiv_L}^* \rightarrow A_{/\equiv_L}^*: [w]\mapsto [wx]
+    \end{align*}
+    Warum ist die Nerode-Äquivalenz mit dieser Abbildung verträglich?
+    \visible<2>{Gegeben sei $w_1\equiv_L w_2$, das heißt nach Definition der Nerode-Äquivalenz:
+        \begin{align*}
+            w_1 w \in L &\Leftrightarrow w_2 w \in L\\
+            \left( w_1 x \right) v \in L &\Leftrightarrow w_1\left( x v \right) \in L\\
+            &\Leftrightarrow w_2\left( x v \right) \in L \text{ weil } w_1 \equiv_L w_2\\
+            &\Leftrightarrow \left( w_2 x \right)v \in L
+        \end{align*}
+    Damit ist gezeigt, dass die Nerode-Äquivalenz mit der Konkatenation verträglich ist.}
+\end{frame}
+\begin{frame}{Induzierte Operationen}
+    Wir wissen nun, dass $f_x : A^*:w\mapsto wx$ (Konkatenation) mit $\equiv_L$ (Nerode-Äquivalenz) verträglich ist. Damit gilt auch:
+    \pause
+    \begin{align*}
+        f'_x : A_{/\equiv_L}^* \rightarrow A_{/\equiv_L}^*:[w]\mapsto[wx]
+    \end{align*}
+    Was heißt das?\\
+    \pause
+    Die Nerode-Äquivalenz ist mit der Konkatenation verträglich. Damit ergibt sich auch eine Relation auf die Äquivalenzmenge $A_{/\equiv_L}^*$. (Die obige Funktion ist \emph{wohldefiniert}.)\\
+    \pause
+    Damit können wir uns einen endlichen Akzeptor konstruieren, wähle:
+    \begin{itemize}
+        \item $z_0 = [\varepsilon]$ (Startzustand) und
+        \item $F = \left\{ [w] | w\in L \right\}$ (akzeptierte Zustände)
+    \end{itemize}
 \end{frame}
 \section{Halbordnungen}
+\begin{frame}{Antisymmetrie}
+    \begin{block}{Definition: Antisymmetrie}
+        Eine Relation $R\subseteq M\times M$ heißt \emph{antisymmetrisch}, wenn für alle $x, y \in M$ gilt:
+        \begin{align*}
+            xRy \wedge yRx \Rightarrow x=y
+        \end{align*}
+    \end{block}<++>
+\end{frame}<++>
 \end{document}
