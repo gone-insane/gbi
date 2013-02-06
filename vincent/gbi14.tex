@@ -145,6 +145,216 @@
         \begin{align*}
             xRy \wedge yRx \Rightarrow x=y
         \end{align*}
-    \end{block}<++>
-\end{frame}<++>
+    \end{block}
+    \pause
+    \begin{block}{Definition: Halbordnung}
+        Eine Relation $R \subseteq M\times M$ heißt \emph{Halbordnung}, wenn sie
+        \begin{itemize}
+            \item reflexiv,
+            \item antisymmetrisch und
+            \item und transitiv
+        \end{itemize}
+        ist.
+    \end{block}
+\end{frame}
+\begin{frame}{Beispiel: Halbordnung}
+    Gegeben seien $v, w \in A^*$.
+    \begin{align*}
+        w_1 \sqsubseteq_p w_2 \Longleftrightarrow \exists u \in A^*:w_1u = w_2
+    \end{align*}
+    Was bedeuted das?
+    \pause
+    Wie kann gezeigt werden, dass das eine Halbordnung ist?
+    \visible<2->{Nachzuweisen sind:
+        \begin{itemize}
+            \item Reflexivität
+            \item Antisymmetrie
+            \item Transitivität
+        \end{itemize}}
+\end{frame}
+\begin{frame}{Halbordnung $\sqsubseteq_p$ Beweis 1: Reflexivität}
+    \begin{align*}
+        v\sqsubseteq_p v \iff \exists u \in A^*:vu = v \Rightarrow u = \varepsilon
+    \end{align*}
+\end{frame}
+\begin{frame}{Halbordnung $\sqsubseteq_p$ Beweis 2: Antisymmetrie}
+    \begin{align*}
+        & v \sqsubseteq_p w \wedge w \sqsubseteq_p v\\
+        \iff & \exists u_1 \in A^*:vu_1 = w \wedge \exists u_2 \in A^*: wu_2 = v\\
+    \end{align*}
+    \begin{align*}
+        &\Rightarrow  wu_1u_2 = w  \\
+        &\Rightarrow  u_1u_2 = \varepsilon = u_1 = u_2 \\
+        &\Rightarrow  v = w 
+    \end{align*}
+\end{frame}
+\begin{frame}{Halbordnung $\sqsubseteq_p$ Beweis 3: Transitivität}
+    \begin{align*}
+        & v \sqsubseteq_p w \wedge w \sqsubseteq_p x\\
+        \iff & \exists u_1 \in A^*:vu_1 = w \wedge \exists u_2 \in A^*: wu_2 = x\\
+    \end{align*}
+    \begin{align*}
+        \Rightarrow & vu_1u_2 = x  \\
+        \overset{y=u_1u_2}{\iff} & \exists y \in A^*: vy = x \\
+        \iff & v \subseteq_p x
+    \end{align*}
+\end{frame}
+\begin{frame}{Beispiel}
+    Ist dies eine korrekte Halbordnung auf $A^*$?
+    \begin{align*}
+        w_1 \sqsubseteq w_2 \iff \left| w_1 \right| \leq \left| w_2 \right|
+    \end{align*}
+    \pause
+    Test:
+    \begin{itemize}
+        \item Reflexiv? \visible<2->{Ja.}
+        \item Transitiv? \visible<3->{Ja.}
+        \item Antisymmetrisch? \visible<4->{Nein.}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Übung: Beweise}
+    Zeigen Sie, dass $\leq$ und $\subseteq$ Halbordnungen sind.\\
+    Tipp: Diese Definitionen könnten helfen:
+    \begin{align*}
+        a\leq b&\iff \exists \alpha \in \mathbb{R}_0^+ : a + \alpha = b\\
+        A\subseteq B&\iff \left( A \subset B \right) \vee \left( A = B \right)
+    \end{align*}
+    An der Tafel.
+\end{frame}
+\begin{frame}{Ordnungen}
+    \begin{block}{Definition: Ordnung}
+        Eine Relation $R\subseteq M\times M$ ist eine (totale) Ordnung, wenn $R$ eine Halbordnung ist und außerdem gilt:
+        \begin{align*}
+            \forall x,y \in M: xRy \vee yRx
+        \end{align*}
+    \end{block}
+    Anschaulich: Wenn man sich zwei beliebige Elemente aus $M$ auswählt, stehen diese in Relation zueinander.
+    Mehr zum Thema im Skript.
+\end{frame}
+\begin{frame}{Potenzmenge}
+    \begin{block}{Definition: Potenzmenge}
+        Die \emph{Potenzmenge} $\mathcal{P}\left( X \right)$ ist die Menge aller Teilmengen von der Grundmenge $X$.
+        \begin{align*}
+            \mathcal{P}\left( X \right) = \left\{ U \big| U\subseteq X \right\}
+        \end{align*}
+        Gelegentlich wird auch geschrieben $\mathcal{P}\left( X \right) = 2^X$.
+    \end{block}
+    Die Potenzmenge besitzt die Mächtigkeit (Anzahl der Elemente):
+    \begin{align*}
+        \left| \mathcal{P}\left( X \right)\right| = 2^{\left| X\right|}
+    \end{align*}
+    Beispiel:
+    \begin{align*}
+        \mathcal{P}\left( \left\{ a,b \right\} \right) = \left\{ \emptyset, \left\{ a \right\}, \left\{ b \right\}, \left\{ a,b \right\} \right\}
+    \end{align*}
+\end{frame}
+\begin{frame}{Halbordnung $\subseteq$ auf einer Potenzmenge $\mathcal{P}\left( \left\{ a,b,c \right\} \right)$}
+    \begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \tikzstyle{every node}=[font=\tiny]
+        \node[state] (max) at (2,4) {$\left\{ a,b,c\right\}$};
+        \node[state] (a) at (-2,2) {$\left\{ a,b\right\}$};
+        \node[state] (b) at (2,2) {$\left\{ a,c\right\}$};
+        \node[state] (c) at (4,2) {$\left\{ b,c\right\}$};
+        \node[state] (d) at (-2,0) {$\left\{ a\right\}$};
+        \node[state] (e) at (0,0) {$\left\{ b\right\}$};
+        \node[state] (f) at (4,0) {$\left\{c\right\}$};
+        \node[state] (min) at (0,-2) {$\left\{  \right\}$};
+        \path[->] (min) edge (d)
+             (d) edge (a) 
+             (a) edge (max)
+             (b) edge (max)
+             (f) edge (b)
+             (min) edge (e)
+             (min) edge (f)
+             (f) edge (c)
+             (c) edge (max)
+             (d) edge (b)
+             (e) edge (a)
+             (e) edge (c)
+             (min) edge[loop right] (max)
+             (max) edge[loop left] (max)
+             (a) edge[loop left] (a)
+             (b) edge[loop right] (b)
+             (c) edge[loop right] (c)
+             (d) edge[loop left] (d)
+             (e) edge[loop left] (e)
+             (f) edge[loop right] (f)
+             (d) edge (max)
+             (e) edge (max)
+             (f) edge (max)
+             (min) edge (max)
+             (min) edge (a)
+             (min) edge (b)
+             (min) edge (c)
+             (min) edge (d);
+    \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\section{Hasse-Diagramm}
+\begin{frame}{Hasse-Diagramm}
+    \begin{block}{Definitoin: Hasse-Diagramm}
+        Ein Diagramm einer Halbordnung $\sqsubseteq$ auf einer Menge $M$ heißt \emph{Hasse-Diagramm}, wenn es im Diagramm eine Kante von $a$ nach $b$ ($a,b \in M$), wenn gilt
+        \begin{align*}
+            \nexists c \in M: a\sqsubseteq c \sqsubseteq b\\
+            A \neq b
+        \end{align*}
+    \end{block}
+    Anschaulich gesprochen, werden nur die ``notwendigen'' Kanten eingezeichnet. Schlaufen und Kanten, die sich durch Transitivität ergeben, werden weggelassen.
+\end{frame}
+\begin{frame}{Beispiel: Hasse-Diagramm}
+    \begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \tikzstyle{every node}=[font=\tiny]
+        \node[state] (max) at (2,4) {$\left\{ a,b,c\right\}$};
+        \node[state] (a) at (-2,2) {$\left\{ a,b\right\}$};
+        \node[state] (b) at (2,2) {$\left\{ a,c\right\}$};
+        \node[state] (c) at (4,2) {$\left\{ b,c\right\}$};
+        \node[state] (d) at (-2,0) {$\left\{ a\right\}$};
+        \node[state] (e) at (0,0) {$\left\{ b\right\}$};
+        \node[state] (f) at (4,0) {$\left\{c\right\}$};
+        \node[state] (min) at (0,-2) {$\left\{  \right\}$};
+        \path[->] (min) edge (d)
+             (d) edge (a) 
+             (a) edge (max)
+             (b) edge (max)
+             (f) edge (b)
+             (min) edge (e)
+             (min) edge (f)
+             (f) edge (c)
+             (c) edge (max)
+             (d) edge (b)
+             (e) edge (a)
+             (e) edge (c);
+    \end{tikzpicture}
+    \end{figure}
+\end{frame}
+\begin{frame}{Extreme Elemente im Hasse-Diagram}
+    \begin{block}{Definition: extremale Elemente im Hasse-Diagram}
+        Es sei $\left( M, \sqsubseteq \right)$ eine halbgeordnete Menge und $T\subseteq M$. Ein Element $x\in T$ heißt
+        \begin{itemize}
+            \item minimales Element von $T$, wenn es kein $y\in T, y\neq x$ gibt, mit $y\sqsubseteq x$
+            \item maximales Element von $T$, wenn es kein $y\in T, y\neq x$ gibt, mit $x\sqsubseteq y$
+            \item größtes Element von $T$, wenn für alle $y\in T$ gilt $y\sqsubseteq x$
+            \item kleinstes Element von $T$, wenn für alle $y\in T$ gilt $x\sqsubseteq y$
+        \end{itemize}
+    \end{block}
+    Eine Teilmenge $T$ kann mehrere minimale (bzw. maximale) Elemente besitzen, aber nur ein kleinstes (bzw. größtes) Element.
+\end{frame}
+\begin{frame}{Klausuraufgabe: Winter 2010/2011}
+    \begin{exampleblock}{}
+        Geben Sie das Hasse-Diagramm einer Halbordnung auf einer dreielementigen Menge an, die genau zwei maximale und zwei minimale Elemente besitzt.
+    \end{exampleblock}
+    \visible<2->{Dreielementige Menge: $\left\{ 1, 2, 3 \right\}$\\}
+    \visible<3->{
+        \begin{tikzpicture}
+            \node[state] (1) at (0,0) {1};
+            \node[state] (2) at (0,2) {2};
+            \node[state] (3) at (2,2) {3};
+            \path[->] (1) edge (2);
+        \end{tikzpicture}
+    }
+\end{frame}
 \end{document}
